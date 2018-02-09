@@ -20,7 +20,7 @@ _This entire section is optional. Note that you will have to fill it out and mor
   * Features List and Priorities: Evan + Simon
   * User Stories + Use Cases: Salt
   * Personas: Cindy
-  * UI Design: Alex + Deanne?
+  * UI Design: Alex
   * The Ladder: Alex
   * Survey: Priyanka + Deanne
 
@@ -46,17 +46,17 @@ _This entire section is mandatory._
   * Settle on product idea and problem domain
     * We will have to pinpoint the exact nature of our product and what specific problem we are ultimately solving
   * Identify users, develop personas and user stories
-	* Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
+    * Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
   * Decide on website features
-	* Outline all the functionality that our web application will be providing, focusing on things that will make us stand out compared to the alternatives.
+    * Outline all the functionality that our web application will be providing, focusing on things that will make us stand out compared to the alternatives.
   * Prioritize website features
-	* Implement an ordered list of most important functions/features to be implemented such that we do not run out of time
+    * Implement an ordered list of most important functions/features to be implemented such that we do not run out of time
   * Convert features into ticket lists
-	* Essentially lay out our “to-do”s in a low level (preferably function level) list, so that we can differentiate between what is being done, and what needs to be done.
+    * Essentially lay out our “to-do”s in a low level (preferably function level) list, so that we can differentiate between what is being done, and what needs to be done.
   * Develop use cases
-	* Create diagrams that illustrate the steps users (actors) must take in order to achieve certain goals on our website
+    * Create diagrams that illustrate the steps users (actors) must take in order to achieve certain goals on our website
   * Design webpage layout
-	* Organize our ideas into an easily navigable, and clean user interface. 
+    * Organize our ideas into an easily navigable, and clean user interface. 
 
 #### Artifacts
 
@@ -65,6 +65,11 @@ List/describe the artifacts you will produce in order to present your project id
 The artifacts created as of yet:
 
 * Survey Information. A survey was conducted to several Computer Science students at UofT, which gathered information about the effectiveness of the 'partner finding feature' in current course discussion boards. Questions regarding the issues with such discussion boards including poor communication, difficulty of forming groups, or inability to find compatible partners were also asked. The results of the survey were reassuring, and further supported the necessity of building a school parter finding application. 
+
+![survey question 1](../img_src/Survey_01.png)  
+![survey question 2](../img_src/Survey_02.png)  
+![survey question 3](../img_src/Survey_03.png)  
+![survey question 4](../img_src/Survey_04.png)
 
 * Use Case diagram provided. The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
  
