@@ -43,13 +43,20 @@ List/describe the artifacts you will produce in order to organize your team.
 _This entire section is mandatory._
 
 #### Goals and tasks
-
-  * `Add` merged features list
-  * `Add` user stories
-
-  * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
-  * Order the items from most to least important.
-  * Feel free (but not obligated) to specify some/all tasks as user stories.
+  * Settle on product idea and problem domain
+    * We will have to pinpoint the exact nature of our product and what specific problem we are ultimately solving
+  * Identify users, develop personas and user stories
+	* Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
+  * Decide on website features
+	* Outline all the functionality that our web application will be providing, focusing on things that will make us stand out compared to the alternatives.
+  * Prioritize website features
+	* Implement an ordered list of most important functions/features to be implemented such that we do not run out of time
+  * Convert features into ticket lists
+	* Essentially lay out our “to-do”s in a low level (preferably function level) list, so that we can differentiate between what is being done, and what needs to be done.
+  * Develop use cases
+	* Create diagrams that illustrate the steps users (actors) must take in order to achieve certain goals on our website
+  * Design webpage layout
+	* Organize our ideas into an easily navigable, and clean user interface. 
 
 #### Artifacts
 
@@ -106,9 +113,8 @@ The artifacts created as of yet:
   work with them, so you can remove them from your list of matches)
 ```
 
-* **Use Case Diagram:** The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
+  * **Use Case Diagram:** The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
   ![use case diagram](../img_src/use_case_diagram.png)
 
   * **Webapp UI Mockup:** This mockup was made to give a reference for front-end developers to use while implementing the website's user interface. This way the front-end team will not need to design the page as they go, and will be able to implement the page much faster. Additionally, the mockup helped direct the making of use cases by concretely showing which buttons the user may use to interact with the application. Finally, it settled an art style that can be used in other pages throughout the application.
-
   ![main webpage mockup](../img_src/PairWise_Main_Webpage_Mockup.png)
