@@ -7,7 +7,7 @@
 ## Iteration 01
 
  * Start date: Feb. 1, 2018
- * End date: Feb. 8, 2018
+ * End date: Feb. 9, 2018
 
 ## Process
 
