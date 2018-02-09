@@ -80,11 +80,33 @@ _This entire section is mandatory._
   >* **Design webpage layout:**
   > Organize our ideas into an easily navigable, and clean user interface. 
 
-#### Artifacts
+### Artifacts
 
 List/describe the artifacts you will produce in order to present your project idea.
 
-The artifacts created as of yet:
+#### Features List
+
+> A file will be used to organized high-level features that may be implemented in the project.
+> Some of these features will be crucial to the functionality of PairWise; these will be
+> marked as core features. The core features comprise the MVP. In addition, bonus features
+> will be listed, which can be implemented if time permits. Having the features list will help
+> in developing use cases, as well as establishing defined boundaries for the project.
+
+#### Use Cases
+
+> A simple graph of use cases will be made, to structure and further define application features.
+> This diagram will offer some direction on which features to implement first (through
+> includes/extends relationships). It will further define the boundaries and structure of the
+> project, and how the user would interact with the program. Finally, it can be used as a basis
+> for creating the product backlog.
+
+#### Mock Webpage UI
+
+> A mockup of the website's main page layout will be made, to give a reference for front-end
+> developers to use while implementing the website's user interface. This way the front-end team
+> will not need to design the page as they go, and will be able to implement the page much faster.
+> Additionally, the art style used in the main webpage will determine the style used in other pages
+> throughout the application, such as sign-in and profile setup pages.
 
 * **Survey Information:** A survey was conducted to several Computer Science students at UofT, which gathered information about the effectiveness of the 'partner finding feature' in current course discussion boards. Questions regarding the issues with such discussion boards including poor communication, difficulty of forming groups, or inability to find compatible partners were also asked. The results of the survey were reassuring, and further supported the necessity of building a school parter finding application. 
 ![survey question 1](../img_src/Survey_01.png)  
@@ -142,5 +164,5 @@ The artifacts created as of yet:
   * **Use Case Diagram:** The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
   ![use case diagram](../img_src/use_case_diagram.png)
 
-  * **Webapp UI Mockup:** This mockup was made to give a reference for front-end developers to use while implementing the website's user interface. This way the front-end team will not need to design the page as they go, and will be able to implement the page much faster. Additionally, the mockup helped direct the making of use cases by concretely showing which buttons the user may use to interact with the application. Finally, it settled an art style that can be used in other pages throughout the application.
+  * **Webapp UI Mockup:** This mockup was made 
   ![main webpage mockup](../img_src/PairWise_Main_Webpage_Mockup.png)
