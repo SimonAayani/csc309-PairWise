@@ -43,9 +43,11 @@ List/describe the artifacts you will produce in order to organize your team.
 _This entire section is mandatory._
 
 #### Goals and tasks
+	* Settle on product idea and problem domain
+		* We will have to pinpoint the exact nature of our product and what specific problem we are ultimately solving
+	* Identify users, develop personas and user stories
+		*Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
 
-  * `Add` merged features list
-  * `Add` user stories
 
   * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
   * Order the items from most to least important.
