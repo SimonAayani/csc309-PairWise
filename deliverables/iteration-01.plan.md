@@ -7,7 +7,7 @@
 ## Iteration 01
 
  * Start date: Feb. 1, 2018
- * End date: Feb. 8, 2018
+ * End date: Feb. 9, 2018
 
 ## Process
 
@@ -59,3 +59,7 @@ List/describe the artifacts you will produce in order to present your project id
  * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
  * Be concise, yet precise.         
    For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
+   
+   > Below is a mockup of the main webpage for the application. This mockup was made to give a reference for front-end developers to use while implementing the website's user interface. This way the front-end team will not need to design the page as they go, and will be able to implement the page much faster. Additionally, the mockup helped direct the making of use cases by concretely showing which buttons the user may use to interact with the application. Finally, it settled an art style that can be used in other pages throughout the application.
+   
+   ![main webpage mockup](../img_src/PairWise_Main_Webpage_Mockup.png)
