@@ -59,20 +59,26 @@ List/describe the artifacts you will produce in order to organize your team.
 _This entire section is mandatory._
 
 #### Goals and tasks
-  * Settle on product idea and problem domain
-    * We will have to pinpoint the exact nature of our product and what specific problem we are ultimately solving
-  * Identify users, develop personas and user stories
-    * Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
-  * Decide on website features
-    * Outline all the functionality that our web application will be providing, focusing on things that will make us stand out compared to the alternatives.
-  * Prioritize website features
-    * Implement an ordered list of most important functions/features to be implemented such that we do not run out of time
-  * Convert features into ticket lists
-    * Essentially lay out our “to-do”s in a low level (preferably function level) list, so that we can differentiate between what is being done, and what needs to be done.
-  * Develop use cases
-    * Create diagrams that illustrate the steps users (actors) must take in order to achieve certain goals on our website
-  * Design webpage layout
-    * Organize our ideas into an easily navigable, and clean user interface. 
+  > Settle on product idea and problem domain
+  >* We will have to pinpoint the exact nature of our product and what specific problem we are ultimately solving
+  >
+  > Identify users, develop personas and user stories
+  >* Firstly, we must identify our target audience for our website, and then create end-user perspectives on features that would be necessary in order to create a competitive product.
+  >
+  > Decide on website features
+  >* Outline all the functionality that our web application will be providing, focusing on things that will make us stand out compared to the alternatives.
+  >
+  > Prioritize website features
+  >* Implement an ordered list of most important functions/features to be implemented such that we do not run out of time
+  >
+  > Convert features into ticket lists
+  >* Essentially lay out our “to-do”s in a low level (preferably function level) list, so that we can differentiate between what is being done, and what needs to be done.
+  >
+  > Develop use cases
+  >* Create diagrams that illustrate the steps users (actors) must take in order to achieve certain goals on our website
+  >
+  > Design webpage layout
+  >* Organize our ideas into an easily navigable, and clean user interface. 
 
 #### Artifacts
 
