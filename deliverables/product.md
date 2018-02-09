@@ -1,57 +1,41 @@
-# YOUR PRODUCT/TEAM NAME
+# PairWise
 
  > _Note:_ This document is meant to evolve throughout the planning phase of your project.    
  > That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section).
 
 #### Q1: What are you planning to build?
 
-YOUR ANSWER GOES HERE ...
+> The product we plan to build is a website that aims to help students find compatible partners for course group projects. Currently, students struggle to find partners that complement their abilities and work strategies, and have to rely mainly on guesswork to find an appropriate group. Many partners end up not matching each other for a variety of reasons, from preferring to work in different languages to being unable to work around each other's schedules, leading to inefficient teamwork. This website will allow students to construct a profile specifying a list of qualities they are looking for in a partner, as well as what qualities they have. Upon searching for partners, a list of profiles will be produced that most closely match the searcher’s desired qualities. At this point students can look at each other’s profiles for more information, send group invites, accept the invites to form a group, and send chat messages to make arrangements or get to know each other. The group can then continue to look for more members if required. With our website, students can find teammates that a share their interests, schedules, and goals, leading to smoother collaboration and a better experience for all those involved.
 
- * Short (1 - 2 min' read)
- * Start with a single sentence, high-level description of the product.
- * Be clear - Describe the problem you are solving in simple terms.
- * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
-   browser extension, command-line app, etc.?      
-    * When describing the problem/need, give concrete examples of common use cases.
- * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
-   For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
- * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
-
+* `Add` pictures of UI mock-up
+* `Add` survey results
 
 #### Q2: Who are your target users?
 
-YOUR ANSWER GOES HERE ...
-
- * Short (1 - 2 min' read max)
- * Be specific (e.g. )
- * Feel free (but not obligated) to use personas.        
-   You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).
+> Our target users are students taking Computer Science courses at the University of Toronto’s St. George Campus. These users are motivated students who need to form groups for coursework, but do not personally know any potential partners. They have concrete ideas about the grades they wish to receive and the time they’re willing to invest, and they want to find collaborators with similar goals and schedules.
+>
+> Take, for example, High-achiever Harry, who puts a lot of effort into his courses and school in general. He wants to maintain his 4.0 GPA in his a Computer Science Specialist degree and is also involved in many clubs and events around campus. Due to his busy schedule, the times he is available to do group work is limited, but he still strives to obtain high grades for all of his projects. Harry wants to find a partner or group that meets his work expectations while being able to accommodate his time restraints.
+>
+> On the other hand, there are students like Lazy Lisa, who merely wants a respectable mark in her courses, ideally with minimal effort. She lives far away from campus and her commute takes 1.5 hours, so she would also prefer to group up with people closer to her area for easier meetups. A third type of student our website will help can be represented by Backend Benny, who is uncomfortable with front-end development but has a wealth of experiences in back-end. With this in mind, he wants a group that will balance out his skillset with front-end focused teammates.
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-YOUR ANSWER GOES HERE ...
-
- * Short (1 - 2 min' read max)
- * We want you to "connect the dots" for us - Why does your product (as described in your answer to Q1) fits the needs of your users (as described in your answer to Q2)?
- * Explain the benefits of your product explicitly & clearly. For example:
-    * Save users time (how much?)
-    * Allow users to discover new information (which information? And, why couldn't they discover it before?)
-    * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
-
+> Students at UofT currently use Piazza’s teammate search function, or Blackboard’s discussion board to find partners for their assignments and projects, especially in computer science. Our web application will improve on the poor communication media used in those two group-forming services. Whereas on Piazza one would have to make a post in the group finder and wait for an email response, our application will be implementing a chat interface that allows potential partners to create a smoother communication flow to see if they are compatible.
+>
+> Users would also get a better partner match in our app than in alternatives, as it will actively search and sort results based on the partner criteria provided by the user, whereas group forming on Piazza is pure guesswork as users get little or no information on the person they are contacting. Students cannot easily access information about prospective partners, and would prefer to know more about the partner before they form the group. Many students randomly form groups with strangers through Piazza, in classes, or in tutorials. As a result, students may experience unpleasant work atmosphere due to incompatible matchups. The product will provide information for users to find suitable partners, through search criteria as well as the profiles of prospective group members. Users can find information about each other and match skill sets, work habits, and schedules.
 
 ----
 
 ### Highlights
 
-YOUR ANSWER GOES HERE ...
+#### The Project Idea
+> The group finder product was one of the last ideas formed amongst another 8-10 ideas. The other main idea was a scheduling app that would compare the schedules of a list of people and suggest meeting times at which the most people have no conflicts. Many scheduling apps exist for various problems, but very few properly address the need for all members of a group to actively contribute in deciding a time. This schedule-comparing app would also be useful for checking available times for doctor’s appointments. The team decided on the group finder idea because finding a group tends to be more of a struggle than finding time to work. Additionally, the group finder could be better adapted to serve a small area, namely the University of Toronto, and would thus be more suited to MVP deployment.
 
-Specify 3 - 5 key decisions and/or insights that came up during your meetings
-and/or collaborative process.
+#### Website vs. Mobile App
+> The group decided to create a website instead of a mobile app mainly because more of the team has experience in web design than Android or iOS or other mobile services. Additionally, users of the product would likely be looking for partners while looking at an assignment handout or syllabus on their laptop, making it appropriate to have the group finder nearby in their browser.
 
- * Short (5 min' read max)
- * Decisions can be related to the product and/or the team process.
-    * Mention which alternatives you were considering.
-    * Present the arguments for each alternative.
-    * Explain why the option you decided on makes the most sense for your team/product/users.
- * Essentially, we want to understand how (and why) you ended up with your current product plan.
+#### Communication and Meetings
+> The team decided to use Slack for communication due to its integration with GitHub and its flexible communication options. It would serve as a good base for organization as well as online group meetings. We decided to have such meetings twice a week as analogues of scrum standups, to keep track of the progress and needs of every team member while not requiring in-person meetings every day. One of these meetings is online to prevent it from being interfered with by other courses. The other meeting is in person, and allows for greater efficiency of communication. The combination strikes a medium between avoiding time conflicts with other courses and allowing the team to stay up-to-date on the progress of its members.
+
+#### Limited Project Domain
+> Although the product will have a chat service for use immediately after group formation, the team decided not to include features to manage group workflow such as project management utilities, because other applications such as Slack exist that are more focused toward that application. Restricting the product to group formation, and not any workflow management after the group exists, allows the product to be more focused on its main task of forming groups.
