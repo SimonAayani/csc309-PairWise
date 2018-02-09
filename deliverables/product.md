@@ -37,7 +37,22 @@
 > The team decided to use Slack for communication due to its integration with GitHub and its flexible communication options. It would serve as a good base for organization as well as online group meetings. We decided to have such meetings twice a week as analogues of scrum standups, to keep track of the progress and needs of every team member while not requiring in-person meetings every day. One of these meetings is online to prevent it from being interfered with by other courses. The other meeting is in person, and allows for greater efficiency of communication. The combination strikes a medium between avoiding time conflicts with other courses and allowing the team to stay up-to-date on the progress of its members.
 
 #### Limited Project Domain
-> Although the product will have a chat service for use immediately after group formation, the team decided not to include features to manage group workflow such as project management utilities, because other applications such as Slack exist that are more focused toward that application. Restricting the product to group formation, and not any workflow management after the group exists, allows the product to be more focused on its main task of forming groups.
+> The team decided not to restrict the functionality of PairWise to group
+> formation, and not include features to manage group workflow such as
+> project management. We believe other services such Slack and GitHub are
+> widely used by our target users and handle these aspects of collaboration
+> well. Restricting the product to group formation greatly reduces the number of
+> features we need to implement for our MVP, and saves us from competing with
+> popular and well-designed services.
+>
+> The team also decided that the implementation of certain features, such as
+> real-time chat, partner rating, and notifications about new matches, will
+> be postponed until a functional MVP has been created. While these features
+> will certainly improve the usefulness of the service, they are not required
+> for delivering the core functionality of PairWise: if a user cannot find a
+> suitable partner, then real-time chat doesn't add anything useful. We imagine
+> the overhead involved in implementing these features is significant, and we
+> would rather direct all of our efforts into the core functionality first.
 
 #### Progress Tracking
 > The team decided to use GitHub project taskboard as a primary means of tracking ticket status. This system has the advantage of being connected to git and being able to automatically update, for instance when an issue is marked as resolved. The team will also be testing out a 'ladder' for ticket tracking. The ladder is a public digital file that records the status of each ticket through colour codes, as well as which developer has been assigned to it. It cannot update automatically, but it presents its information in neat rows that make it possible to see the status of the whole project at a time. The team will decide which system to keep in a later iteration.
