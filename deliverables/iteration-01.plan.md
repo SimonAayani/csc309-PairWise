@@ -1,6 +1,6 @@
 # PairWise
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
+ > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
 
 
@@ -33,7 +33,7 @@ Describe meetings (and other events) you are planning to have:
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
+List/describe the artifacts you will produce in order to organize your team.
 
   > We will use GitHub's project taskboard to organize our backlog of tasks (features, defects, documentation...etc.) This system will remain up-to-date with our repository. We will also use a [Ladder system](https://docs.google.com/document/d/1QSICkmNKqWTZWZ_YjbdnL1I6kxU0awre4iaVYLc47ds) in parallel to this, as another place to track the progress of our tasks. See Highlights section of [product.md](./product.md) for more details.
   > We are looking into integrating the team's project workspace on Slack with GitHub, to notify the rest of the team when important events happen to the repository and the project. Currently the Slack workspace is used for group communications, file transfer, and as a site for online team meetings.
@@ -57,10 +57,58 @@ List/describe the artifacts you will produce in order to present your project id
 
 The artifacts created as of yet:
 
-* Survey Information. A survey was conducted to several Computer Science students at UofT, which gathered information about the effectiveness of the 'partner finding feature' in current course discussion boards. Questions regarding the issues with such discussion boards including poor communication, difficulty of forming groups, or inability to find compatible partners were also asked. The results of the survey were reassuring, and further supported the necessity of building a school parter finding application. 
+* **Survey Information:** A survey was conducted to several Computer Science students at UofT, which gathered information about the effectiveness of the 'partner finding feature' in current course discussion boards. Questions regarding the issues with such discussion boards including poor communication, difficulty of forming groups, or inability to find compatible partners were also asked. The results of the survey were reassuring, and further supported the necessity of building a school parter finding application.
 
-* Use Case diagram provided. The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
- 
-  * Below is a mockup of the main webpage for the application. This mockup was made to give a reference for front-end developers to use while implementing the website's user interface. This way the front-end team will not need to design the page as they go, and will be able to implement the page much faster. Additionally, the mockup helped direct the making of use cases by concretely showing which buttons the user may use to interact with the application. Finally, it settled an art style that can be used in other pages throughout the application.
-   
+* **Feature List:** This list describes which features must be implemented in
+  our viable product, and which features should be put off until the core
+  functionality is present. We will use this list as a springboard for
+  designating roles and responsibilities in the coming iterations.
+
+```markdown
+# Features required for MVP
+- web interface with user accounts (need active searches to be persistent)
+- user profiles: can include profile picture, bio, skills, etc.
+- allow searching for partners using (at least) these core criteria:
+  - course
+  - time investment
+  - meeting location (on campus/online/suburbs)
+- allow users to view their list of potential matches for a given search;
+  should be able to click to see profile, send message, send invitation, etc.
+- allow users to create multiple searches (probably one per class; this might
+  be restrictive for some use cases, but I think it makes sense for MVP)
+- must accommodate individuals searching for groups, groups searching for
+  individuals, individuals forming pairs, etc.
+- show email so people can get in touch (ideally we implement chat later so
+  we can bypass email altogether)
+- provide methods for users to form/disband groups, send invitations,
+  accept/reject invitations
+- when a group reaches its desired capacity, the group members should removed
+  from the active search pool
+
+# Bonus features
+- allow chat between potential partners
+  - need to look into implementation overhead for realtime chat vs. sending
+    email-style messages; if there are good libraries out there, we should aim
+    for chat
+- mobile app (or ensure mobile-friendliness)
+- search based on additional criteria; some old and new ideas include:
+  - skill set, such as specific languages, frontend/backend, databases, etc
+  - GPA
+  - personality traits
+  - schedule
+- notifications when new matches are found (mobile, email, etc)
+- search for teammates for side projects (easy to implement)
+- search for services: tutoring, textbooks, etc. (would require more work;
+  probably outside the scope of this project)
+- allow use by other departments/schools/groups
+- rating partners
+- hide people from searches (e.g. you read their profile and don't want to
+  work with them, so you can remove them from your list of matches)
+```
+
+* **Use Case Diagram:** The diagram displays the set of all actions that can be performed by the external users of the PairWise product. It provides a detailed visual of all interactions and functions to be implemented.
+  ![use case diagram](../img_src/use_case_diagram.png)
+
+  * **Webapp UI Mockup:** This mockup was made to give a reference for front-end developers to use while implementing the website's user interface. This way the front-end team will not need to design the page as they go, and will be able to implement the page much faster. Additionally, the mockup helped direct the making of use cases by concretely showing which buttons the user may use to interact with the application. Finally, it settled an art style that can be used in other pages throughout the application.
+
   ![main webpage mockup](../img_src/PairWise_Main_Webpage_Mockup.png)
