@@ -16,18 +16,20 @@
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-> Students at UofT, especially those in computer science, currently use Piazza’s teammate search function or Blackboard’s discussion board to find partners for their assignments and projects. These services function like a classified section: our target users must write a descriptive post and hope for an email response from a good match. Alternatively, our users must read through other posts, filter them manually, send an email, and hope the poster is still searching. Posts are often vague and lack information about skill sets, schedules, and time investment. Students cannot easily access information about students who make vague posts in the group finder. Sometimes Piazza and Blackboard do not have group finder enabled to begin with; in worse cases, a course has no discussion board at all. In these situations, students must form groups with strangers in classes or tutorials. As a result, students may experience unpleasant work atmosphere due to incompatible matchups.
+> Students at UofT, especially those in computer science, currently use Piazza’s teammate search function or Blackboard’s discussion board to find partners for their assignments and projects. These services function like a classified section where users must write a descriptive post and hope for an email response from a good match. Alternatively, users must read through other posts, filter them manually, send an email, and hope the poster is still searching. Posts are often vague and lack information about skill sets, schedules, and time investment, and students cannot easily access information about students who make vague posts in the group finder. Sometimes Piazza and Blackboard do not have group finder enabled to begin with; in worse cases, a course has no discussion board at all. In these situations, students must form randomly form groups in classes or tutorials. As a result, students may experience unpleasant work atmosphere due to incompatible matchups.
 >
-> PairWise aims to address these problems in several ways. With PairWise, users
-> specify the criteria that matters to them in a partner, and they only see
-> actively searching students who meet those requirements. Before contacting a
-> potential match, users can browse their profile to learn more about them.
-> A user can invite a match to group without contacting them, or can send a
-> message natively to ask questions first. When two partners decide to form a
-> group, they are removed from the search pool. Furthermore, since PairWise is
-> not associated with Blackboard or Piazza, a student's ability to find partners
-> will not depend on an instructor's decision to create a discussion board for
-> their course offering. Taken together, these features will allow students to
+> With PairWise, users won't waste time messaging incompatible students, since
+> a match only appears in the search results if both user's search criteria are
+> mutually satisfied.
+> Similarly, users who form groups successfully are removed from the search
+> pool, so users won't waste time pursuing unavailable matches.
+> Users can further gauge a match's compatibility by viewing their profile,
+> which provides space for users to share information about themselves
+> (including a bio, skills, credentials, GitHub, and social media).
+> Finally, since PairWise is not associated with Blackboard or Piazza, a
+> student's ability to find compatible partner will not depend on an
+> instructor's decision to create a discussion board for their course offering.
+> Taken together, these features will allow students to
 > find their most compatible partners with less communication overhead, allowing
 > everyone to work more effectively.
 
