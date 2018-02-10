@@ -18,14 +18,13 @@ _This entire section is optional. Note that you will have to fill it out and mor
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
- * Slack 
- * Tutorial meetings
- * Assignment to different tasks
+ >* **Slack:**
+ Slack allowed us to communicate with eachother all at once without any hassle, and since everyone is able to see all messages, we were able to speed up our review times by announcing whenever we submitted a pull request.  	
+ >* **Tutorial meetings:** 
+ The tutorial meeting times were very effective as an end of the week review / role assignment session. Using this time we avoided a lot of miscommuncation in assigned material, and were able to keep everyone on track, as well as provide feedback on completed tasks.
+ >* **Assignment to different tasks:**
+ By assigning eachother to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge.
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
 
 #### Decisions that did not turn out as well as we hoped
 
