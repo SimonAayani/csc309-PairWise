@@ -1,14 +1,14 @@
-# YOUR PRODUCT/TEAM NAME
+# PairWise
 
  > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
  >      
  > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 01 - Review & Retrospect
 
- * When: Friday February 9th
- * Where: BA3200 
+ * When: 4:15 pm, Friday February 9th 2018
+ * Where: Bahen Centre for Information Technology, Room 3200 
 
 ## Process - Reflection
 
