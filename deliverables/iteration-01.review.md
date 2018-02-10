@@ -11,7 +11,6 @@ _This entire section is optional. Note that you will have to fill it out and mor
 
 ### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
 #### Slack
 
@@ -75,10 +74,6 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 _This entire section is mandatory._
 
 ### Goals and/or tasks that were met/completed:
-
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
 
 #### Feature List
 
