@@ -30,7 +30,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 #### Decisions that did not turn out as well as we hoped
 
  > **meeting time (outside of tutorials):** We tried to decide the time for meetings and the review session last weekend through Doodle. However, we cannot find a suitable time for our meetings from the result that we get from Doodle. Therefore, we arranged the review meeting a little later than what we expected.
+ 
  > **GitHub task board:** We were planning on use the projects feature that Github provided. In the projects feature, there are To-Do list tab, in progress tab and done tab. We thought it would be useful for orginizing our project, and update the status of each individual work. However, at the end, we did not make of good use of the the projects feature.
+ 
  > **Upload context to GitHub from Google Docs:** We were collaborating work through Google Docs for this diliverable. During the process that we were uploading the context in the Google Docs, we ran into few synchronized problem which is one of us uploading the context when soomeone is still working on the context. Google Docs does not send out a clear notefication for changes. 
 
 
