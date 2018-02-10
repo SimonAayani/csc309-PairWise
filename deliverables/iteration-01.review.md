@@ -171,13 +171,16 @@ _This entire section is mandatory._
 ## Meeting Highlights
 
 Going into the next iteration, our main insights are:
- * Figuring out optimal ways for everyone to meet, so everyone is updated with project decisions
- * Deciding about the messaging/chat feature for the product
- * Using the info from use cases/UI/features list to assist with development
- * delegate front-end/back-end tasks based on people's experience/interest
- 
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
+
+#### Scheduling Group Meetups 
+> Finishing the first deliverable (which was mainly a planning phase) was manageable without many in person meetings, because of other communication methods like Slack. We were also able to accomplish most of the group brainstorming in weekly tutorials. However for upcoming deliverables (which will involve the actual creation of the product), we will look into finding better communication methods (perhaps a separate channel on Slack) to post progress, to-do lists and incomplete tasks in order for all groups members to be updated with project decisions. More in person meetings will be scheduled throughout weekends when everyone is available to discuss major design decisions and implementation.
+
+#### Messaging/Chat Feature
+> One of the most important features of PairWise is a messaging service which allows students to send requests and responses when forming groups. The chat feature is what sets PairWise apart from alternatives such as Piazza group finder. Ideas about having something similar to an email messenger, live-messaging tools like chat rooms as well as the complexity of the messaging feature were briefly discussed. The group is yet to decide on a messaging service for the MVP that is more convenient than what current course discussion boards provide. We plan on deciding on how to incorporate this feature for the next deliverable. 
+
+#### Development of Features 
+> The UI mockup and use case diagram will be used in future iterations as references for implementing the project. Both artifacts have been developed quite thoroughly and can remain useful for most of the project’s implementation. Perhaps by creating a UML Class Diagram we can describe the different classes involved and their specific responsibilities in the application, as well as to show the communication with its users. 
+
+#### Delegating Tasks 
+> Upcoming iterations of the project will be focused mostly on development of the PairWise application. As such, more long-term developer responsibilities will need to be assigned to group members. Delegation of front-end and back-end tasks will be based on the group member’s experience and interest. In particular, we found that almost all of the team had experience in web development in modern frameworks. This knowledge will influence the assignment of responsibilities during development.
+
