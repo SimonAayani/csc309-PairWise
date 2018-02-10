@@ -9,30 +9,54 @@
 
 _This entire section is optional. Note that you will have to fill it out and more for the next 3 deliverables so it's good to start soon and get feedback._
 
-#### Decisions that turned out well
+### Decisions that turned out well
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
- > **Slack:**
- Slack allowed us to communicate with eachother all at once without any hassle, and since everyone is able to see all messages, we were able to speed up our review times by announcing whenever we submitted a pull request.  	
+#### Slack
+
+> Slack allowed us to communicate with eachother all at once without any hassle, and since everyone is able to see all messages, we were able to speed up our review times by announcing whenever we submitted a pull request.  	
  
- > **Tutorial meetings:** 
- The tutorial meeting times were very effective as an end of the week review / role assignment session. Using this time we avoided a lot of miscommuncation in assigned material, and were able to keep everyone on track, as well as provide feedback on completed tasks.
+#### Tutorial meetings
+
+> The tutorial meeting times were very effective as an end of the week review / role assignment session. Using this time we avoided a lot of miscommuncation in assigned material, and were able to keep everyone on track, as well as provide feedback on completed tasks.
  
- > **Assignment to different tasks:**
- By assigning eachother to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge.
+#### Assignment to different tasks
+
+> By assigning eachother to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge.
 
 
-#### Decisions that did not turn out as well as we hoped
+### Decisions that did not turn out as well as we hoped
 
- > **meeting time (outside of tutorials):** We tried to schedule our review session and weekly meetings using a Doodle poll. However, we could not find a time that worked for all seven team members. Therefore, we arranged the review meeting a little later than expected, and we couldn't accommodate everyone's schedule.
+#### Meeting Times
+
+> A Doodle poll on the availablility of our team members made it clear that there was no time during
+> a work week when all members of the team could attend a meeting. This caused problems in arranging
+> the online standup over Slack (which ended up not happening at all) as well as the review session.
+> Meetings tended to be scheduled on-the-fly and tended to fall toward the end of the iteration. During
+> those meetings we did hold outside of tutorial, at least one member was unable to attend every time.
+> Currently there is no ongoing schedule of meetings, a problem we hope to solve next iteration.
  
- > **GitHub task board:** We were planning on using the task management feature provided by GitHub projects. This features allows tasks to be categorized as "planned", "in progress", and "completed". We thought it would be useful for organizing our project, and for informing each other of our progress on each task. However, at the end, we did not consistently use the projects feature.
+#### GitHub task board
+
+> We were planning on using Github's project taskboard to manage work for the first iteration of the
+> project. The taskboard works much like a scrum board, tracking tickets through a To-Do list tab, a
+> In Progress tab, and a Done tab. We thought it would be useful for organizing responsibilities and
+> tasks in our project, and wanted to test out the service to see how we could use it for upcoming
+> iterations. However, in the end we did not use the project taskboard majorly in the first iteration.
  
- > **Upload context to GitHub from Google Docs:** We were collaborating work through Google Docs for this deliverable. During the process of transferring the content in the Google Docs to our repository, we ran into few synchronization problem where one of us was editing the Google Doc after someone had already transferred it. Google Docs does not send out clear notifications when files are modified, so we had to notify each other through Slack.
+#### Upload Notes from Google Docs
+
+> During the planning meeting for this iteration, our notes were kept in a Google doc file. Later on,
+> these notes needed to be transferred to GitHub and into the iteration plan file on the repository.
+> During the process of uploading the notes, we ran into few synchronization problems in which is one
+> team member was uploading a section of the notes while another was editing the notes. This led to
+> inefficiencies in creating the plan file. If we are to take notes in Google docs in future iterations,
+> it may be more efficient to transfer the notes to the corresponding file on the repository immediately
+> after the meeting, and perform all subsequent edits through GitHub.
 
 
-#### Planned changes
+### Planned changes
 
 > **Improve meeting arrangements:** We have been unable to find a time during the week, other than tutorial, where all group members are available for a meeting. Ideally, we want all group members to be present for planning and review meetings. This is to ensure that everyone is on the same page and knows their responsibilities, as well as to track the progress of the project. To achieve this, we will conduct meetings through Slack and consider conducting meetings over the weekend.
 
