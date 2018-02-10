@@ -7,7 +7,6 @@
 
 ## Process - Reflection
 
-_This entire section is optional. Note that you will have to fill it out and more for the next 3 deliverables so it's good to start soon and get feedback._
 
 ### Decisions that turned out well
 
@@ -71,7 +70,6 @@ _This entire section is optional. Note that you will have to fill it out and mor
 
 ## Product - Review
 
-_This entire section is mandatory._
 
 ### Goals and/or tasks that were met/completed:
 
