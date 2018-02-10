@@ -15,15 +15,15 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 
 #### Slack
 
-> Slack allowed us to communicate with eachother all at once without any hassle, and since everyone is able to see all messages, we were able to speed up our review times by announcing whenever we submitted a pull request.  	
+> Slack allowed us to communicate with each other all at once without any hassle, and since everyone is able to see all messages, we were able to speed up our review times by announcing whenever we submitted a pull request. Most communications happened on the group channel, and so the whole team was able to easily stay up-to-date on the status of the project, as is desirable in an agile development environment. This particular advantage will become even greater when the development phase of the project begins, further advertising Slack as a valuable tool for our team.
  
-#### Tutorial meetings
+#### In-Person Meetings
 
-> The tutorial meeting times were very effective as an end of the week review / role assignment session. Using this time we avoided a lot of miscommuncation in assigned material, and were able to keep everyone on track, as well as provide feedback on completed tasks.
+> In-person meetings were held mainly during tutorial times, and were effective as an end-of-week review/role assignment session. Using this time we avoided a lot of miscommuncation in assigned material, and were able to keep everyone on track, as well as provide feedback on completed tasks. An additional impromptu in-person meeting was held on Saturday, followed by the review on Friday. As expected, the in-person meetings allowed for much better focused dialogue and productivity between team members than could be achieved over Slack.
  
-#### Assignment to different tasks
+#### Assignment to Different Tasks
 
-> By assigning eachother to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge.
+> By assigning individual team members to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge. Even though many people worked on the same files at the same times, git conflicts were largely avoided because each person was assigned a particular location in the file. Additionally, assigning each person to a single task helped to spread out work and to make progress in all aspects of the iteration at once. Team members found they preferred working individually rather than in pairs, and we will try to tailor our jobs to support individual development.
 
 
 ### Decisions that did not turn out as well as we hoped
@@ -37,7 +37,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 > those meetings we did hold outside of tutorial, at least one member was unable to attend every time.
 > Currently there is no ongoing schedule of meetings, a problem we hope to solve next iteration.
  
-#### GitHub task board
+#### GitHub Task Board
 
 > We were planning on using Github's project taskboard to manage work for the first iteration of the
 > project. The taskboard works much like a scrum board, tracking tickets through a To-Do list tab, a
@@ -45,7 +45,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 > tasks in our project, and wanted to test out the service to see how we could use it for upcoming
 > iterations. However, in the end we did not use the project taskboard majorly in the first iteration.
  
-#### Upload Notes from Google Docs
+#### Uploading Notes from Google Docs
 
 > During the planning meeting for this iteration, our notes were kept in a Google doc file. Later on,
 > these notes needed to be transferred to GitHub and into the iteration plan file on the repository.
@@ -56,13 +56,19 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 > after the meeting, and perform all subsequent edits through GitHub.
 
 
-### Planned changes
+### Planned Changes
 
-> **Improve meeting arrangements:** We have been unable to find a time during the week, other than tutorial, where all group members are available for a meeting. Ideally, we want all group members to be present for planning and review meetings. This is to ensure that everyone is on the same page and knows their responsibilities, as well as to track the progress of the project. To achieve this, we will conduct meetings through Slack and consider conducting meetings over the weekend.
+#### Improve Meeting Arrangements
 
-> **Integrate GitHub into Slack:** Integrating GitHub into Slack will allow for easier communication over changes and issues that arise throughout the project. We are already using Slack to communicate with each other when making significant commits or pull requests, however having it automated would greatly improve workflow.
+>We have been unable to find a time during the week, other than tutorial, where all group members are available for a meeting. Ideally, we want all group members to be present for planning and review meetings. This is to ensure that everyone is on the same page and knows their responsibilities, as well as to track the progress of the project. To achieve this, we will conduct meetings through Slack and consider conducting meetings over the weekend.
 
-> **Test out organization system between task board and ladder:** We are currently using Slack to communicate about current tasks that are being completed. Ultimately, this is inefficient because no one is always on active on Slack, and it is easy to miss a message when scrolling down the chat. We considered using two methods to organize tasks. The first was a task ladder located in Google Docs, and the second was GitHub's built in project board. We intend to test out both methods for future tasks, using one each for future deliverables and evaluating which organization system is most effective and should be used further.
+#### Integrate GitHub into Slack
+
+> Integrating GitHub into Slack will allow for easier communication over changes and issues that arise throughout the project. We are already using Slack to communicate with each other when making significant commits or pull requests, however having it automated would greatly improve workflow.
+
+### Test out Organization System between Task Board and Ladder
+
+> We are currently using Slack to communicate about current tasks that are being completed. Ultimately, this is inefficient because no one is always on active on Slack, and it is easy to miss a message when scrolling down the chat. We considered using two methods to organize tasks. The first was a task ladder located in Google Docs, and the second was GitHub's built in project board. We intend to test out both methods for future tasks, using one each for future deliverables and evaluating which organization system is most effective and should be used further.
 
 ## Product - Review
 
@@ -157,11 +163,15 @@ _This entire section is mandatory._
 
 > ![survey question 4](../img_src/Survey_04.png)
 
-#### Goals and/or tasks that were planned but not met/completed:
+### Goals and/or tasks that were planned but not met/completed:
 
-> **Using a task management system:** We had two different ideas for planning tasks, monitoring their progress, and registering their completion. The first is a ticket ladder document using Google Docs, which Alex has used effectively in other contexts. The second is using a GitHub project board, which is unfamiliar to most team members, but offers smoother integration with GitHub (connecting tasks to issues and pull requests, etc.). We intended to try both methods, but we did not take the time to plan a standard task workflow that everyone should adhere to. As such, we found ourselves communicating primarily over Slack about who was working on a task at a given time. This was ineffective, as people didn't always know if certain tasks had been delegated or completed. We agree that we should try each system, come to consensus on the most effective option, and utilize that system going forward.
+#### Using a task management system
 
-> **Using GitHub integration in Slack:** As described in the previous section, choosing Slack as our primary means of communication has been successful. To further improve our workflow, we planned to use Slack's GitHub integration to automatically notify team members about commits and pull requests. We have not yet been able to accomplish this as we are waiting for approval from the GitHub organization administrators, but we hope to take advantage of this feature in the next iteration.
+> We had two different ideas for planning tasks, monitoring their progress, and registering their completion. The first is a ticket ladder document using Google Docs, which Alex has used effectively in other contexts. The second is using a GitHub project board, which is unfamiliar to most team members, but offers smoother integration with GitHub (connecting tasks to issues and pull requests, etc.). We intended to try both methods, but we did not take the time to plan a standard task workflow that everyone should adhere to. As such, we found ourselves communicating primarily over Slack about who was working on a task at a given time. This was ineffective, as people didn't always know if certain tasks had been delegated or completed. We agree that we should try each system, come to consensus on the most effective option, and utilize that system going forward.
+
+#### Using GitHub integration in Slack
+
+> As described in the previous section, choosing Slack as our primary means of communication has been successful. To further improve our workflow, we planned to use Slack's GitHub integration to automatically notify team members about commits and pull requests. We have not yet been able to accomplish this as we are waiting for approval from the GitHub organization administrators, but we hope to take advantage of this feature in the next iteration.
 
 ## Meeting Highlights
 
