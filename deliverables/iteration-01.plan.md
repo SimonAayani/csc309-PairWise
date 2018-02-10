@@ -9,7 +9,6 @@
 
 ## Process
 
-_This entire section is optional. Note that you will have to fill it out and more for the next 3 deliverables so it's good to start soon and get feedback._
 
 ### Roles & responsibilities
 
@@ -45,21 +44,20 @@ _This entire section is optional. Note that you will have to fill it out and mor
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
+Description of meetings (and other events) we are planning to have:
 
   > We will hold two team meetings per week, one during tutorial on Thursday (in person) and the other on Mondays through Slack at 4:00 pm. We are considering adding one more in-person meeting on Tuesdays or Wednesdays, depending on everyone’s schedule. The purpose of these meetings will be to update the team on progress made to the project, as well as raise any concerns or planning decisions. In general, the meetings will function in the same way as scrum standups.
   > On Friday, February 9, we will hold our review meeting for the first iteration.
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.
+Description of the process related artifacts we will produce:
 
   > We will use GitHub's project taskboard to organize our backlog of tasks (features, defects, documentation...etc.) This system will remain up-to-date with our repository. We will also use a [Ladder system](https://docs.google.com/document/d/1QSICkmNKqWTZWZ_YjbdnL1I6kxU0awre4iaVYLc47ds) in parallel to this, as another place to track the progress of our tasks. See Highlights section of [product.md](./product.md) for more details.
   > We are looking into integrating the team's project workspace on Slack with GitHub, to notify the rest of the team when important events happen to the repository and the project. Currently the Slack workspace is used for group communications, file transfer, and as a site for online team meetings.
 
 ## Product
 
-_This entire section is mandatory._
 
 #### Goals and tasks
   >* **Settle on product idea and problem domain:**
@@ -85,7 +83,7 @@ _This entire section is mandatory._
 
 ### Artifacts
 
-List/describe the artifacts you will produce in order to present your project idea.
+Product Artifacts created as of yet:
 
 #### Features List
 
