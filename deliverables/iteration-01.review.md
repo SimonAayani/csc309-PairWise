@@ -25,12 +25,6 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  >* **Assignment to different tasks:**
  By assigning eachother to different smaller jobs we were able to finish larger tasks more efficiently since everyone could work on a smaller part and then merge.
 
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
-
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
