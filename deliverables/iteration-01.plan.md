@@ -42,7 +42,7 @@ _This entire section is optional. Note that you will have to fill it out and mor
 #### Survey
 
 > An artifact created to get an idea of how students find course discussion boards to find partners, if they are able to find a partner and if they were satisfied with working with the partner they found. The survey’s main purpose is to reassure the major problems with students ability to find compatible partners.
-* Contributors: Deanne Madulid (deannemadulid), Priyanka ___ (PriyankaNarasi)
+* Contributors: Deanne Madulid (deannemadulid), Priyanka Narasimhan (PriyankaNarasi)
 
 
 #### Events
