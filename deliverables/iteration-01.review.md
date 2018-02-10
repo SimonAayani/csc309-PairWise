@@ -38,14 +38,11 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
- * find a better way to meet
- * integrate GitHub into Slack
- * test out organization system between task board and ladder
+> **Improve meeting arrangements:** We have been unable to find a time during the week, other than tutorial, where all group members are available for a meeting. Ideally, we want all group members to be present for planning and review meetings. This is to ensure that everyone is on the same page and knows their responsibilities, as well as to track the progress of the project. To achieve this, we will conduct meetings through Slack and consider conducting meetings over the weekend.
 
- * Ordered from most to least important.
- * Explain why you are making a change.
+> **Integrate GitHub into Slack:** Integrating GitHub into Slack will allow for easier communication over changes and issues that arise throughout the project. We are already using Slack to communicate with each other when making significant commits or pull requests, however having it automated would greatly improve workflow.
 
+> **Test out organization system between task board and ladder:** We are currently using Slack to communicate about current tasks that are being completed. Ultimately, this is inefficient because no one is always on active on Slack, and it is easy to miss a message when scrolling down the chat. We considered using two methods to organize tasks. The first was a task ladder located in Google Docs, and the second was GitHub's built in project board. We intend to test out both methods for future tasks, using one each for future deliverables and evaluating which organization system is most effective and should be used further.
 
 ## Product - Review
 
