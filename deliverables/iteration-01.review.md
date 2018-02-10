@@ -57,6 +57,9 @@ _This entire section is mandatory._
 
 ### Goals and/or tasks that were met/completed:
 
+ * From most to least important.
+ * Refer/link to artifact(s) that show that a goal/task was met/completed.
+ * If a goal/task was not part of the original iteration plan, please mention it.
 
 #### Feature List
 
@@ -64,7 +67,7 @@ _This entire section is mandatory._
 > and which additioanl features can be put off until after the core functionality
 > is present. This list, alongside the use case diagram, will be used as a
 > springboard for designating roles and responsibilities in the coming iterations.
-
+>
 ```markdown
 # Features required for MVP
 - web interface with user accounts (need active searches to be persistent)
@@ -112,7 +115,7 @@ _This entire section is mandatory._
 > The finished use case diagram displays all actions that can
 > be performed by users of the PairWise product. It provides a detailed visual of all interactions
 > and functions to be implemented, and the interactions between different parts of the program.
-
+>
 > ![use case diagram](../img_src/use_case_diagram.png)
 
 #### Main Webpage UI Mockup
@@ -120,7 +123,7 @@ _This entire section is mandatory._
 > The UI mockup helped to make clear exactly which options would be available to a user from
 > the main page of the website. The page's art style uses a colour scheme inspired by current
 > web services available at the university, such as ACORN and Blackboard.
-
+>
 > ![main webpage mockup](../img_src/PairWise_Main_Webpage_Mockup.png)
 
 #### Survey Information
@@ -132,16 +135,14 @@ _This entire section is mandatory._
 > compatible partners. The results of the survey, which was answered by 23 students, indicate
 > that other students recognize the same problems in Piazza group finder that PairWise aims to
 > solve, supporting the motivation behind building the application.
-
+>
 > ![survey question 1](../img_src/Survey_01.png)
-> ![survey question 2](../img_src/Survey_02.png)
-> ![survey question 3](../img_src/Survey_03.png)
-> ![survey question 4](../img_src/Survey_04.png)
 
- 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+> ![survey question 2](../img_src/Survey_02.png)
+
+> ![survey question 3](../img_src/Survey_03.png)
+
+> ![survey question 4](../img_src/Survey_04.png)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
