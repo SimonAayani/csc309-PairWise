@@ -1,4 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
+# PairWise
 
  > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
@@ -7,12 +7,11 @@
 ## Iteration 02
 
  * Start date: Feb. 12, 2018
- * End date: Mar. 16, 2018
+ * End date: Mar. 9, 2018
 
 ## Process
 
-(Optional:) Quick introduction
-> Alex
+> One of the aims of this iteration was to find a suitable workflow and organizational structure for development. We intend to test various systems and refine our process, settling on an optimally productive process for future iterations. In particular, finding times to hold group meetings is still an issue, as there is no time during weekdays that the group can all be present. By breaking up responsibilities into discrete sections, we will minimize the need for developers on different sections to interact with those on other sections, thus reducing the need for all members of the team to meet at once regularly. Additionally, we were intending to use this deliverable to find an ideal organization system, by choosing between GitHub's project taskboard and a custom-designed project ladder. Settling on the best options will leave the team well-prepared for the upcoming final iteration.
 
 #### Roles & responsibilities
 
