@@ -12,15 +12,19 @@
 ## Process
 
 (Optional:) Quick introduction
+> Alex
 
 #### Roles & responsibilities
 
 Describe the different roles on the team and the responsibilities associated with each role.
 
+> Priya
+
 #### Events
 
 Describe meetings (and other events) you are planning to have:
 
+> Salt
  * When and where? In-person or online?
  * What's the purpose of each meeting?
  * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
@@ -29,6 +33,7 @@ Describe meetings (and other events) you are planning to have:
 
 List/describe the artifacts you will produce in order to organize your team.       
 
+> Deanne
  * Artifacts can be To-do lists, Task boards, schedule(s), etc.
  * We want to understand:
    * How do you keep track of what needs to get done?
@@ -37,6 +42,7 @@ List/describe the artifacts you will produce in order to organize your team.
 
 #### Git / GitHub workflow
 
+> Evan
 Describe your Git / GitHub workflow.     
 Essentially, we want to understand how your team members share a codebase and avoid conflicts.
 
@@ -51,12 +57,14 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
 
 #### Goals and tasks
 
+> Cindy
  * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
  * Order the items from most to least important.
  * Feel free (but not obligated) to specify some/all tasks as user stories.
 
 #### Artifacts
 
+> Simon
 List/describe the artifacts you will produce in order to present your project idea.
 
  * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
