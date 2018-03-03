@@ -5,7 +5,7 @@ from PairWise.models.courses import CourseSection
 
 class Searching(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    course_id = models.ForeignKey(CourseSection, on_delete=models.CASCADE)
+    section_id = models.ForeignKey(CourseSection, on_delete=models.CASCADE)
     active_search = models.BooleanField()
 
 
