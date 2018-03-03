@@ -1,0 +1,18 @@
+.logo.large{
+	max-width: 450px;
+	margin:30px;
+}
+
+.aligned.grid{
+	background-image: url(../img/background_home.jpg) !important;  
+	background-size: cover !important;
+	flex: 1 1 auto;
+
+}
+
+body{
+	display: flex;
+	flex-flow: column;
+	height: 97.9%
+
+}
