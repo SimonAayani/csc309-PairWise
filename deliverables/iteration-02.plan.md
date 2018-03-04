@@ -15,9 +15,31 @@
 
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+> In this deliverable, the roles and responsibilities were more focused on the analysis of requirements, design and development of the product. Group members were assigned multiple roles that provided experience in both design and development. 
 
-> Priya
+Requirements Analysts: Analysts will be responsible of collecting and analyzing brainstormed project ideas and turning them into clear technical specifications that the group can consult. Expectations for this role include gathering and maintaining information about functional requirements, communicating the requirements to group members and provide necessary documentation that describe the features and scope of the PairWise product. Questions worth asking include:  
+What features will exist for the MVP and why they should exist?
+What goals will a user accomplish with a certain feature?
+What is the ultimate goal/purpose of the product?
+What architecture/software development tools will be used to create the product?
+Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
+UX Designers: This role requires gathering functional user requirements to specify how product features can and should be implemented. UX designers must decide the web application structure, design the layout between the different user pages and the placement of the features throughout the product. They may write user stories and review use cases to describe user behaviour when the application is use, while also deciding whether the product’s structure is efficient and helps resolve problems the target audience faces. 
+Contributors: Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Priyanka Narasimhan (PriyankaNarasi)
+
+UI Designers: Responsibilities cover all visual aspects of the web application including colour scheme, font, and overall style. The UI designer may also design logo, include animations and make decisions about using different fonts for differentiating sections of the application. 
+Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802)
+
+Since it was decided that deliverable 2 would be more focused on client-side interaction, the majority of group members were assigned front-end development tasks. Tasks were split up in such a way that had each group member create and deploy different pages/views in the PairWise web application.  
+
+HTML and CSS Developers:  Transform the product visuals and design into code. Create HTML and CSS files for each page view of the web application. All features part of the design must be visually present, without functionality. All pages/views in the web application must be correctly formatted as described by the UI. 
+Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi)
+
+Frontend Developers: Responsibilities include implementing functionality solely for the front end/client-side. The product consists of many pages that must acquire and submit information (ie. Registration, Login, Profile Creation, Group Creation..etc). The click of a button should submit information through a contact form through the use of JavaScript. Front-end developers must ensure fully-functioning buttons and forms in the web application’s interface.
+Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi)
+
+Backend Developer: Though this deliverable is not heavily focused on backend development, the responsibilities of the backend developer in this iteration is to create a setup for backend development to use in the next deliverable. This includes understanding how to install and use the Django framework, exploring and integrating the different features Django provides including the login feature and basic setup of database schemas. 
+Contributor: Alex Hurka (ahurka)
+
 
 #### Events
 
