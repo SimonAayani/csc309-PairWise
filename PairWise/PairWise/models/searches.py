@@ -1,11 +1,11 @@
 from django.db import models
 from PairWise.models.users import User, Group
-from PairWise.models.courses import CourseTerm
+from PairWise.models.courses import CourseOffering
 from PairWise.models.data_tags import SkillTag
 
 
 class SearchEntry(models.Model):
-    category = models.ForeignKey(CourseTerm, on_delete=models.CASCADE)
+    category = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     subhead = models.CharField(max_length=255)
     capacity = models.PositiveSmallIntegerField()
     description = models.TextField()

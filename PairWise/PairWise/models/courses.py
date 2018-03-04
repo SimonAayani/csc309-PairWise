@@ -7,9 +7,9 @@ class Course(models.Model):
     name = models.CharField(max_length=255)
 
 
-class CourseTerm(models.Model):
-    term_id = models.AutoField(primary_key=True)
-    course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
+class Term(models.Model):
+    id = models.AutoField(primary_key=True)
+    year = models.PositiveSmallIntegerField()
     TERM_OPTIONS = (
         ('F', 'Fall'),
         ('S', 'Winter'),
@@ -19,6 +19,12 @@ class CourseTerm(models.Model):
         ('SY', 'Summer-Long')
     )
     term = models.CharField(max_length=2, choices=TERM_OPTIONS)
+
+
+class CourseOffering(models.Model):
+    id = models.AutoField(primary_key=True)
+    term = models.ForeignKey(Term, on_delete=models.DO_NOTHING)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
 
 class TimeSection(models.Model):
@@ -39,6 +45,6 @@ class TimeSection(models.Model):
 
 class CourseSection(models.Model):
     section_id = models.AutoField(primary_key=True)
-    term_id = models.ForeignKey(CourseTerm, on_delete=models.CASCADE)
+    offering = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     section_name = models.CharField(max_length=10)
     times = models.ManyToManyField(TimeSection)
