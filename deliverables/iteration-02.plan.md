@@ -1,8 +1,5 @@
 # PairWise
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
-
 
 ## Iteration 02
 
@@ -15,7 +12,7 @@
 
 #### Roles & responsibilities
 
-> In this deliverable, the roles and responsibilities were more focused on the analysis of requirements, design and development of the product. Group members were assigned multiple roles that provided experience in both design and development. 
+> In this deliverable, the roles and responsibilities were more focused on the analysis of requirements, design and development of the product. Group members were assigned multiple roles that provided experience in both design and development. Since it was decided that deliverable 2 would be more focused on client-side interaction, the majority of group members were assigned front-end development tasks. Tasks were split up in such a way that had each group member create and deploy different pages/views in the PairWise web application. Back-end development looked into the setting up of database schemas and exploring the Django framework. 
 
 
 >* **Requirements Analysts:**
@@ -32,9 +29,7 @@
 
 >* **UI Designers:** 
 > Responsibilities cover all visual aspects of the web application including colour scheme, font, and overall style. The UI designer may also design logo, include animations and make decisions about using different fonts for differentiating sections of the application. 
->* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802)
-
-> Since it was decided that deliverable 2 would be more focused on client-side interaction, the majority of group members were assigned front-end development tasks. Tasks were split up in such a way that had each group member create and deploy different pages/views in the PairWise web application.  
+>* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802)  
 
 >* **HTML and CSS Developers:**  
 > Transform the product visuals and design into code. Create HTML and CSS files for each page view of the web application. All features part of the design must be visually present, without functionality. All pages/views in the web application must be correctly formatted as described by the UI. 
