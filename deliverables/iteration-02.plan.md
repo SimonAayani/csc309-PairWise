@@ -82,7 +82,7 @@ For example, "we use pull-requests" is not a precise statement since it leaves t
 #### Goals and tasks
 
 > **Goals:**
-> Our main goal for this iteration is to allow the user to view and navigate through most areas of the application. We plan to implement the frontend user interface for the majority of the screens, using the proper layout and design. As such, majority of the team will be working on the frontend for this iteration. For the backend, we aim to have the schemas and models of the database set up as well as implement the logic behind partner searching. Below are the detailed goals and tasks we are planning for this iteration:
+> Our main goal for this iteration is to allow the user to view and navigate through most areas of the application. We plan to implement the frontend user interface for the majority of the screens, using the proper layout and design. As such, the majority of the team effort will be focused on the frontend for this iteration. For the backend, we aim to have the schemas and models of the database set up as well as implement the logic behind partner searching. Below are the detailed goals and tasks we are planning for this iteration:
 >
 >* **View the home screen**
 >	* Create a splash screen with the PairWise name, description, and options to register and log in.
