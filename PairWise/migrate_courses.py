@@ -1,5 +1,5 @@
 from requests import get
-from PairWise.models.courses import Course, CourseTerm, TimeSection, CourseSection
+from PairWise.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
 import datetime
 
 
@@ -31,7 +31,9 @@ def _convert_term(c_code, term_str):
     else:
         term_code = c_code[-1]
 
-    return term_code
+    term_year = term_str[0: term_str.index(' ')]
+
+    return term_year, term_code
 
 
 def _convert_time_of_day(time_in_seconds):
@@ -57,12 +59,14 @@ def migrate():
         # Require course code, name, term, times, section names per section
         course_model = Course.objects.get_or_create(course_code=course['code'], name=course['name'])[0]
 
-        section_term = _convert_term(course['code'], course['term'])
-        new_course_term = CourseTerm.objects.get_or_create(course_id=course_model.course_id, term=section_term)[0]
+        section_year, section_term = _convert_term(course['code'], course['term'])
+        this_term = Term.objects.get_or_create(year=section_year, term=section_term)[0]
+
+        this_offering = CourseOffering.objects.get_or_create(term=this_term.term_id, course=course_model.course_id)
 
         for section in course['meeting_sections']:
             section_code = section['code']
-            new_section = CourseSection.objects.get_or_create(term_id=new_course_term.term_id, section_name=section_code)[0]
+            new_section = CourseSection.objects.get_or_create(term_id=this_offering.term_id, section_name=section_code)[0]
 
             for session in section['times']:
                 session_day = _convert_weekday(session['day'])
