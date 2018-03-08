@@ -1,5 +1,6 @@
-from PairWise.models import SearchEntry, SearchResultsCache, Group
+from PairWise.models import SearchEntry, UserSearchEntry, GroupSearchEntry, SearchResultsCache, Group, Profile
 from django.contrib.auth.models import User
+from django.db.models import Count, Sum, Q
 
 
 def enter_search(user_id, course_section, search_active=True):
@@ -33,3 +34,26 @@ def get_past_group_members(user_id):
     my_member_groups = Group.objects.filter(members__id=user_id)
 
     return list(group.members for group in my_member_groups)
+
+
+def measure_matches(user, cutoff=0):
+    my_search_entry = UserSearchEntry.objects.get(host=user)
+    my_match_filter = Q(host__profile__skills__in=list(my_search_entry.desired_fields))
+    num_fields = my_search_entry.desired_fields.count()
+    other_match_filter = Q(desired_fields__in=list(my_search_entry.host__profile__skills))
+
+    UserSearchEntry.objects.exclude(host=user).annotate(match_coeff=(Count('host__profile__skills',
+                                                                           filter=my_match_filter)
+                                                                     / num_fields) * 75
+                                                                  + (Count('desired_fields',
+                                                                           filter=other_match_filter)
+                                                                     / Count('desired_fields')) * 25)
+
+    my_match_filter = Q(host__members__profile__skills__in=list(my_search_entry.desired_fields))
+    GroupSearchEntry.objects.annotate(match_coeff=(Count('host__members__profile__skills',
+                                                         filter=my_match_filter) / num_fields) * 75
+                                                + (Count('desired_fields',
+                                                         filter=other_match_filter) / Count('desired_fields')) * 25)
+
+    singles = UserSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff')
+    groups = GroupSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff')
