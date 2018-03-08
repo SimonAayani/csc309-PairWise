@@ -55,5 +55,19 @@ def measure_matches(user, cutoff=0):
                                                 + (Count('desired_fields',
                                                          filter=other_match_filter) / Count('desired_fields')) * 25)
 
-    singles = UserSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff')
-    groups = GroupSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff')
+    singles = list(UserSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff'))
+    groups = list(GroupSearchEntry.objects.filter(match_coeff__gt=cutoff).order_by('match_coeff'))
+    combined = []
+
+    i = 0
+    j = 0
+    while i < len(singles) and j < len(groups):
+        if singles[i].match_coeff > groups[j].match_coeff:
+            combined.append(singles[i])
+        else:
+            combined.append(groups[i])
+
+    combined.extend(groups[j:])
+    combined.extend(singles[i:])
+
+    return combined
