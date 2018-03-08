@@ -1,4 +1,4 @@
-from PairWise.models import UserSearchEntry, GroupSearchEntry, SearchEntry, SearchResultsCache, Group
+from PairWise.models import UserSearchEntry, GroupSearchEntry, SearchResultsCache, Group, NewNotification
 from django.db.models import F
 from django.db.models.query_utils import Q
 
@@ -27,14 +27,14 @@ def add_to_group(newcomer, inviter, course_offr, capacity=2):
 def remove_from_group(user_id, category):
     my_group = Group.objects.filter(course_id=category, members__id=user_id).prefetch_related('members')
 
-    new_search_id = transfer_state_from_group(user_id, my_group.id)
-    transfer_searches(user_id, new_search_id)
+    new_search_id = _transfer_state_from_group(user_id, my_group.id)
+    _transfer_searches(user_id, new_search_id)
 
     if my_group.size == 2:
         other_user_id = my_group.members.get().id
 
-        new_search_id = transfer_state_from_group(other_user_id, my_group.id)
-        transfer_searches(other_user_id, new_search_id)
+        new_search_id = _transfer_state_from_group(other_user_id, my_group.id)
+        _transfer_searches(other_user_id, new_search_id)
 
         GroupSearchEntry.objects.get(host=my_group.id).delete()
         my_group.delete()
@@ -43,7 +43,7 @@ def remove_from_group(user_id, category):
         my_group.size = F('size') - 1
 
 
-def transfer_state_from_group(user_id, group_id):
+def _transfer_state_from_group(user_id, group_id):
     my_search_entry = GroupSearchEntry.objects.get(host=group_id)
     my_new_search = UserSearchEntry(host=user_id, category=my_search_entry.category, subhead=my_search_entry.subhead,
                                     capacity=my_search_entry.capacity, description=my_search_entry.description,
@@ -52,9 +52,16 @@ def transfer_state_from_group(user_id, group_id):
     return my_new_search.id
 
 
-def transfer_searches(my_group_id, my_search_id):
+def _transfer_searches(my_group_id, my_search_id):
     for searching_for_my_group in SearchResultsCache.objects.filter(result=my_group_id):
         SearchResultsCache.objects.create(searcher=searching_for_my_group.id, result=my_search_id)
 
     for found_by_my_group in SearchResultsCache.objects.filter(searcher=my_group_id):
         SearchResultsCache.objects.create(searcher=my_search_id, result=found_by_my_group.id)
+
+
+def send_invite(sender, receiver, msg_text=None):
+    if msg_text is None:
+        msg_text = "User {0} wants to invite you to a group!".format(sender)
+
+    NewNotification.objects.create(sender=sender, receiver=receiver, text=msg_text)
