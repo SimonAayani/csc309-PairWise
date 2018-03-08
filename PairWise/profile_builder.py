@@ -84,7 +84,8 @@ class ProfileBuilder:
 
     def build(self):
         if self.ready_to_build():
-            new_profile = Profile(student_id=self._student, location=self._location, bio=self._bio, pic=self._pic)
+            new_profile = Profile.objects.get_or_create(student_id=self._student, location=self._location,
+                                                        bio=self._bio, pic=self._pic)
 
             my_courses = Course.objects.filter(course_code_in=self._course_codes)
 
@@ -100,6 +101,7 @@ class ProfileBuilder:
                     new_profile.skills.add(SkillTag.objects.get(tag_text=skill))
 
             new_profile.save()
+            return new_profile
         else:
             missing = []
             if not self._course_codes:
