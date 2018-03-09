@@ -45,6 +45,6 @@ class TimeSection(models.Model):
 
 class CourseSection(models.Model):
     section_id = models.AutoField(primary_key=True)
-    offering = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     section_name = models.CharField(max_length=10)
+    offering = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     times = models.ManyToManyField(TimeSection)

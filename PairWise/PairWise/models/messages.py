@@ -12,3 +12,4 @@ class Notification(models.Model):
 
 class NewNotification(Notification):
     pass
+

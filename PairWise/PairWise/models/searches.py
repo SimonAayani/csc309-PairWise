@@ -5,11 +5,13 @@ from PairWise.models.data_tags import SkillTag
 
 
 class SearchEntry(models.Model):
+    id = models.AutoField(primary_key=True)
     category = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     subhead = models.CharField(max_length=255)
     capacity = models.PositiveSmallIntegerField()
     description = models.TextField()
     desired_fields = models.ManyToManyField(SkillTag)
+    active_search = models.BooleanField(default=True)
 
 
 class UserSearchEntry(SearchEntry):
@@ -20,12 +22,6 @@ class GroupSearchEntry(SearchEntry):
     host = models.ForeignKey(Group, on_delete=models.CASCADE)
 
 
-class Search(models.Model):
-    id = models.AutoField(primary_key=True)
-    searcher = models.ForeignKey(SearchEntry, on_delete=models.CASCADE)
-    active_search = models.BooleanField()
-
-
 class SearchResultsCache(models.Model):
-    searcher = models.ForeignKey(Search, on_delete=models.CASCADE)
-    result = models.ForeignKey(Search, related_name='found', on_delete=models.CASCADE)
+    searcher = models.ForeignKey(SearchEntry, on_delete=models.CASCADE)
+    result = models.ForeignKey(SearchEntry, related_name='found', on_delete=models.CASCADE)
