@@ -1,4 +1,5 @@
-from PairWise import Profile, Course, SkillTag
+from PairWise.models import Profile, Course, SkillTag
+from django.contrib.auth.models import User
 from django.db.transaction import atomic
 
 
@@ -84,10 +85,13 @@ class ProfileBuilder:
 
     def build(self):
         if self.ready_to_build():
-            new_profile = Profile.objects.get_or_create(student_id=self._student, location=self._location,
-                                                        bio=self._bio, pic=self._pic)
+            me = User.objects.get(id=self._student)
+            new_profile = Profile.objects.get_or_create(student_id=me)[0]
+            new_profile.location = self._location,
+            new_profile.bio = self._bio
+            new_profile.pic = self._pic
 
-            my_courses = Course.objects.filter(course_code_in=self._course_codes)
+            my_courses = Course.objects.filter(course_code__in=self._course_codes)
 
             all_skills = []
             all_skills.extend(self._language_tags)
@@ -114,3 +118,10 @@ class ProfileBuilder:
 
             missing_list = ", ".join(missing)
             raise AssertionError("Not ready to build! Missing items: {0}".format(missing_list))
+
+
+if __name__ == '__main__':
+    builder = ProfileBuilder(1)
+    builder.add_course('CSC369').add_course('CSC358').add_course('CSC301').add_prg_language('Java').add_prg_language('Python').add_prg_language('Verilog').add_prg_language('Bash').add_prg_language('C').add_prg_language('SQL').add_concept('Backend Development').set_location('Downtown').set_bio('\"The sincere friends of this world are as ship lights in the stormiest of nights').build()
+    samia_builder = ProfileBuilder(4)
+    samia_builder.add_course('CSC369').set_location('East York').set_bio('Sweetest person ever (besides Ria)').build()

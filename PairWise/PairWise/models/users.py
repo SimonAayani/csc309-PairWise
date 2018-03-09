@@ -5,8 +5,8 @@ from PairWise.models.data_tags import SkillTag
 
 
 class Profile(models.Model):
-    student_id = models.ForeignKey(User, on_delete=models.CASCADE, primary_key=True)
-    courses = models.ManyToManyField(Course, null=True)
+    student = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    courses = models.ManyToManyField(Course)
     location = models.CharField(max_length=255, null=True)
     skills = models.ManyToManyField(SkillTag)
     bio = models.TextField()

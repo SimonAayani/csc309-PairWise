@@ -81,7 +81,7 @@ location_options = [
 def load_tags(data, dest_class):
     if type(data[0]) == str:
         for i in range(len(data)):
-            data[i] = dest_class(data[i])
+            data[i] = dest_class(tag_text=data[i])
 
     with atomic():
         for datapoint in data:
@@ -93,3 +93,4 @@ if __name__ == '__main__':
     load_tags(concept_options, ConceptTag)
     load_tags(framework_options, FrameworkTag)
     load_tags(location_options, LocationTag)
+    print('Done')
