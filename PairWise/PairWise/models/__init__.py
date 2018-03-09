@@ -1,3 +1,6 @@
-from .users import Enrolment, Group
-from .courses import Course, CourseSection, TimeSection
-from .searches import Searching, Results
+from .users import Profile, Group
+from .courses import Course, CourseOffering, CourseSection, TimeSection, Term
+from .searches import SearchEntry, UserSearchEntry, GroupSearchEntry, Search, SearchResultsCache
+from .data_tags import DataTag, SkillTag, LanguageTag, ConceptTag, FrameworkTag, LocationTag
+from .messages import Notification, NewNotification
+

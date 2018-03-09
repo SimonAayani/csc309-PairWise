@@ -9,7 +9,6 @@ language_options = [
         'C#',
         'Haskell',
         'HTML',
-        'Lisp',
         'Java',
         'JavaScript',
         'MATLAB',
@@ -21,7 +20,6 @@ language_options = [
         'R',
         'Racket',
         'Ruby',
-        'Scheme',
         'SQL',
         'Swift',
         'Unity',
@@ -48,6 +46,7 @@ concept_options = [
     ]
 
 framework_options = [
+        'Android',
         'Angular',
         'Bootstrap',
         'Django',
@@ -79,11 +78,10 @@ location_options = [
         'York',
     ]
 
-
 def load_tags(data, dest_class):
     if type(data[0]) == str:
         for i in range(len(data)):
-            data[i] = dest_class(tag_text=data[i])
+            data[i] = dest_class(data[i])
 
     with atomic():
         for datapoint in data:
@@ -92,10 +90,6 @@ def load_tags(data, dest_class):
 
 if __name__ == '__main__':
     load_tags(language_options, LanguageTag)
-    print('Finished Languages')
     load_tags(concept_options, ConceptTag)
-    print('Finished Concepts')
     load_tags(framework_options, FrameworkTag)
-    print('Finished Frameworks')
     load_tags(location_options, LocationTag)
-    print('Finished Locations')
