@@ -118,10 +118,3 @@ class ProfileBuilder:
 
             missing_list = ", ".join(missing)
             raise AssertionError("Not ready to build! Missing items: {0}".format(missing_list))
-
-
-if __name__ == '__main__':
-    builder = ProfileBuilder(1)
-    builder.add_course('CSC369').add_course('CSC358').add_course('CSC301').add_prg_language('Java').add_prg_language('Python').add_prg_language('Verilog').add_prg_language('Bash').add_prg_language('C').add_prg_language('SQL').add_concept('Backend Development').set_location('Downtown').set_bio('\"The sincere friends of this world are as ship lights in the stormiest of nights').build()
-    samia_builder = ProfileBuilder(4)
-    samia_builder.add_course('CSC369').set_location('East York').set_bio('Sweetest person ever (besides Ria)').build()

@@ -81,21 +81,3 @@ def send_invite(sender, receiver, category, msg_text=None):
     msg = NewNotification.objects.get_or_create(sender=sender, receiver=receiver, category=category, is_invite=True)[0]
     msg.text = msg_text
     msg.save()
-
-
-if __name__ == '__main__':
-    alex = User.objects.get(username="AHurka")
-    isabelle = User.objects.get(last_name="Strang")
-    kelsey = User.objects.get(last_name="Zhao")
-    samia = User.objects.get(last_name="Anwar")
-
-    csc369 = CourseOffering.objects.get(course__course_code="CSC369", id=22)
-
-    send_invite(alex, samia, csc369)
-    add_to_group(samia, alex, csc369)
-    add_to_group(isabelle, samia, csc369)
-    add_to_group(kelsey, alex, csc369)
-
-    remove_from_group(alex, csc369)
-
-    # Group.objects.all().delete()

@@ -66,25 +66,3 @@ def measure_matches(user, category, cutoff=0):
     combined.extend(singles[i:])
 
     return combined
-
-
-if __name__ == '__main__':
-    # Change so offering input is made in course code and term description?
-    alex = User.objects.get(username="AHurka")
-    isabelle = User.objects.get(last_name="Strang")
-    kelsey = User.objects.get(last_name="Zhao")
-    samia = User.objects.get(last_name="Anwar")
-
-    csc369 = CourseOffering.objects.get(course__course_code="CSC369", id=22)
-
-    print(get_past_group_members(alex))
-    print(get_marked_results(alex))
-
-    enter_search(alex, csc369, "Yearbook Head", "Join me in a year of neverending lights!")
-    print(get_past_group_members(alex))
-    print(get_marked_results(alex))
-    print(measure_matches(alex, csc369))
-
-    enter_search(samia, csc369, "Team Tungsten", "Be subjected to the awesomeness that is Samia")
-    res = measure_matches(alex, csc369)
-    print(res[0].abs_match_coeff)
