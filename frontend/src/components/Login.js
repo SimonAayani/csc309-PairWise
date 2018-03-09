@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Dashboard from './Dashboard';
+import React, { Component } from "react";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    return <Redirect to="/dashboard" component={Dashboard} />
-  }
-  render() {
-    return(
-      <button onClick={this.handleClick}>Log In</button>
-    )
-  }
+    render() {
+        return (
+            <div className="login">
+            <h2>Login</h2>
+            <button onClick={this.props.handleLogin}>Log In</button>
+            </div>
+        )
+    }
 }
 
 export default Login;
