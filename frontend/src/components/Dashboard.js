@@ -5,6 +5,7 @@ class Dashboard extends Component {
         return (
             <div className="dashboard">
             <h2>Dashboard</h2>
+            <p>You are seeing this because you are logged in.</p>
             </div>
         )
     }
