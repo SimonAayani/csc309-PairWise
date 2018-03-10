@@ -46,13 +46,13 @@
 
 #### Events
 
-> **Meetings:**
+>* **Meetings:**
 >We will meet twice in person for this phase, and code sessions if it is needed. We decide to meet at February 17th, and March 3rd. In the first meeting, we will decide what we are going to use for frontend and backend, and assign everyone a role for this deliverable. In the second meeting, we will discuss how everyone is doing for his/her work during the reading week.
 
-> **Code Session:**
+>* **Code Session:**
 >We will have a code session right after the second meeting if it is needed, because we may run into problem individually, and then we can help out each other. The code session should help team to make a good process on each one's work.
 
-> **Other Events:**
+>* **Other Events:**
 >During the reading week, we will cooperate with each other by using Slack, and inform each other about the change that is made in the repository. We will have online meeting throught Slack if it is necessary.
 
 #### Artifacts
