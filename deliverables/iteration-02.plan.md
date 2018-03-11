@@ -66,14 +66,16 @@
 
 #### Git / GitHub workflow
 
-> Evan
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts.
+> The team prepared a document describing [git workflows](https://github.com/csc301-winter-2018/project-team-15/blob/master/deliverables/git-workflow.md), which each member could refer to at any time to brush up on our standards.
 
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
+>* **Task Board:**
+>Before beginning to work on a component of the project, developers will note it as an issue in the GitHub project taskboard and assign it to themself, or simply assign it to themself if the issue is already present. Later, this issue can be linked to commits and pull requests, and its status can be updated automatically so that we can accurately track the progress of each feature.
+
+>* **Branches:**
+>The group will use the upstream master branch on the repository as the branch for deployable features, and use other branches on the upstream for testing. Each user may create one or more personal test branches, which other users may clone from to test and integrate multiple people's work before incorporating it into the master branch. The full developer workflow for pushing a new feature to the public repository is to push their work to any branch of their choice on their personal fork of the upstream, send a pull request to merge their fork with one of their personal branches on the upstream, and merge the pull request themselves. Only after the feature has been tested can a pull request be made to the upstream master branch. This workflow allows all developers to interact with everyone's features through their branches, while keeping a clean and deployable master branch at all times Additionally, there are never any merge conflicts in this phase because only one developer pushes to their own branch.
+
+>* **Pull Requests:**
+>After testing their feature, a developer may create a pull request from their personal branch on the upstream repository to the master branch on the same repository. This pull request must be reviewed by at least one or two other members before being merged. Who reviews  the request is different in different cases, but it should generally be someone who was working on a similar or related component. After being approved, the developer is free to merge their own pull request into master. Merge conflicts are generally avoided through assigning different team members to different components. This workflow is light on peer reviews, to let team members continue to work on their own features without being pulled aside to figure out someone else's code; meanwhile, it encourages thorough testing of each feature before the request is merged. The pull request's intial comment should have an in-depth description of how the new feature should be used by other components, so that other team members can see how to use the feature without having to search through multiple separate files for documentation.
 
 
 
