@@ -18,11 +18,11 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
-	> GitHub Issues
-	>* This decision was extremely useful, as it allowed our group to work on tasks and know for certain that no one else would be. 
-			Since we could assign each task to a group member there was no confusion as to who was doing what.
-	> Slack GitHub Feed
-	>* The Slack GitHub Feed was successful as it allowed us to see when new things were pushed to the repo, and thus allowing us to get the newest version of everyfile so that when each person went to commit they could easily do so.
+  > GitHub Issues
+  >* This decision was extremely useful, as it allowed our group to work on tasks and know for certain that no one else would be. Since we could assign each task to a group member there was no confusion as to who was doing what.
+  
+  > Slack GitHub Feed
+  >* The Slack GitHub Feed was successful as it allowed us to see when new things were pushed to the repo, and thus allowing us to get the newest version of everyfile so that when each person went to commit they could easily do so.
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
@@ -33,8 +33,8 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
-	>* FrontEnd / BackEnd Slack Channels
-	>* Did we use the ladder?
+  >* FrontEnd / BackEnd Slack Channels
+  >* Did we use the ladder?
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
@@ -45,7 +45,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 
 List any process-related changes you are planning to make (if there are any)
 
-	>Move Away Front-End Back-End Slack channels
+  > Move Away Front-End Back-End Slack channels
 
 
  * Ordered from most to least important.
@@ -62,9 +62,12 @@ List any process-related changes you are planning to make (if there are any)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
-	*Search Function
-	*Forming Groups
-	*Group should be removed once formed & at capacity.
+  * Search Function
+
+  * Forming Groups
+
+  * Group should be removed once formed & at capacity.
+
  * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
