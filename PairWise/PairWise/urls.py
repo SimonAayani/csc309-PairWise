@@ -27,9 +27,11 @@ urlpatterns = [
     url(r'^tags/framework/$', views.FrameworkList.as_view(), name='framework-list'),
     url(r'^tags/course/$', views.CourseList.as_view(), name='course-list'),
     url(r'^users/(?P<user>[0-9]+)$', views.user_categories_root),
+    url(r'^users/(?P<user>[0-9]+)/msg/$', views.NotificationsByUser.as_view(), name='messages'),
     url(r'^users/(?P<pk>[0-9]+)/profile/$', views.ProfileReader.as_view(), name='profile-view'),
     url(r'^users/(?P<pk>[0-9]+)/profile/new/$', views.ProfileWriter.as_view(), name='profile-view'),
-    url(r'^users/(?P<user>[0-9]+)/search/(?P<course_code>\w{3}\d{3,})$', views.SearchDetails.as_view(), name='user-search'),
-    url(r'^users/(?P<user>[0-9]+)/search/(?P<course_code>\w{3}\d{3,})/results/$', views.SearchList.as_view(), name='search-results'),
+    url(r'^users/(?P<user>[0-9]+)/(?P<course_code>\w{3}\d{3,})/search/$', views.SearchDetails.as_view(), name='user-search'),
+    url(r'^users/(?P<user>[0-9]+)/(?P<course_code>\w{3}\d{3,})/search/results/$', views.SearchList.as_view(), name='search-results'),
+    url(r'^users/(?P<user>[0-9]+)/(?P<course_code>\w{3}\d{3,})/group/', views.GroupForm.as_view(), name='group-former'),
     url(r'^admin/', admin.site.urls),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
