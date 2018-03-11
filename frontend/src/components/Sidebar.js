@@ -17,16 +17,19 @@ export default class Sidebar extends Component {
     const { activeIndex } = this.state
 
     return (
+      // Side Bar
       <Segment inverted vertical fixed id="sidebar">
+      
         <Button color='teal' id="btn-dash" dashActive={true}>
-          Dash
-          <Icon name='exclamation' id="icon-notif" />
+          Notifications 
+          <i class=" right bell icon"></i> 
         </Button>
         <Menu.Item id="category-wrapper">
           <Accordion as={Menu} inverted styled vertical id="category">
             <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
               <Icon name='dropdown' />
-              Searches
+              Searches 
+              <i class=" right search icon"></i> 
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               <Segment inverted color='teal'>
@@ -42,6 +45,7 @@ export default class Sidebar extends Component {
               <Segment inverted color='teal'>
                 <Button color='teal' name='newSearch'>
                   New Search
+                  <i class=" right plus icon"></i>
                 </Button>
               </Segment>
             </Accordion.Content>
@@ -49,6 +53,7 @@ export default class Sidebar extends Component {
             <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
               <Icon name='dropdown' />
               Groups
+              <i class=" right users icon"></i>
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 1}>
               <Segment inverted color='teal'>
@@ -62,9 +67,14 @@ export default class Sidebar extends Component {
                 </Button>
               </Segment>
             </Accordion.Content>
+  
+            
+
+
           </Accordion>
         </Menu.Item>
       </Segment>
     )
   }
+
 }
