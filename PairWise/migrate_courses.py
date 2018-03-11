@@ -6,7 +6,7 @@ import datetime
 def load_course_data():
     cbl_site = "https://cobalt.qas.im/api/1.0/courses"
     net_key = "mYsO2m1KfJYFBEd3BYVvho4bmI9PKR2x"
-    start_term = "2017 Fall"
+    start_term = "2018 Winter"
     filters = "code:\"CSC\" AND campus:\"UTSG\" AND term:>=\"{0}\"".format(start_term)
     skip_amt = 100
     params = "&limit={0}".format(skip_amt)

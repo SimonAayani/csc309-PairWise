@@ -6,26 +6,70 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def fetch_languages():
+    """
+    Returns a list of programming language tags from the database, which represent the whole list of options
+    for programming languages a user may report under the skills in their profile, or as group search criteria.
+    """
     return list(LanguageTag.objects.all())
 
 
 def fetch_concepts():
+    """
+    Returns a list of conceptual area tags (such as machine learning, functional programming, concurrency),
+    which represent the whole list of concept options a user may report under the skills in their profile,
+    or as group search criteria.
+    """
     return list(ConceptTag.objects.all())
 
 
 def fetch_frameworks():
+    """
+    Returns a list of frameworks and library tags (such sa web frameworks, DBMS, and oter libraries)
+    that a user may report under the skills in their profile, or as group search criteria.
+    """
     return list(FrameworkTag.objects.all())
 
 
 def fetch_locations():
+    """
+    Returns a list of options a user may choose as their home location for their profile.
+
+    :return: The location tags in the database
+    :rtype: list[LocationTag]
+    """
     return list(LocationTag.objects.all())
 
 
 def fetch_course_by_course_code(code):
-    return Course.objects.get(course_code=code)
+    """
+    Returns the whole course entry that matches the course code (i.e. CSC301) provided, or
+    None if no course matches the code. Note that any term information such as H1F must not
+    be included, or the match will fail.
+
+    :param code: The course code of a course
+    :type code: str
+    :return: The course matching the provided course code
+    :rtype: Course | None
+
+    :raises: MultipleObjectsReturned
+             If multiple courses in the database have the given course code
+    """
+    try:
+        return Course.objects.get(course_code=code)
+    except ObjectDoesNotExist:
+        return None
 
 
 def fetch_course_by_subtitle(subtitle):
+    """
+    Returns the course whose title (e.g. Introduction to Software Engineering) matches the
+    string provided.
+
+    :param subtitle:
+    :type subtitle:
+    :return:
+    :rtype:
+    """
     return Course.objects.get(name=subtitle)
 
 
@@ -50,6 +94,10 @@ def fetch_user_by_username(name):
 
 def fetch_user_by_name_email(first, last, email):
     return User.objects.get(first_name=first, last_name=last, email=email)
+
+
+def fetch_profile_by_user(user):
+    return Profile.objects.get(student=user)
 
 
 def fetch_group_by_member(member, offering):

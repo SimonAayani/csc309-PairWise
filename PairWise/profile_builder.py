@@ -1,4 +1,4 @@
-from PairWise.models import Profile, Course, SkillTag
+from PairWise.models import Profile, Course, SkillTag, LocationTag
 from django.contrib.auth.models import User
 from django.db.transaction import atomic
 
@@ -85,11 +85,16 @@ class ProfileBuilder:
 
     def build(self):
         if self.ready_to_build():
-            me = User.objects.get(id=self._student)
-            new_profile = Profile.objects.get_or_create(student_id=me)[0]
-            new_profile.location = self._location,
+            if Profile.objects.filter(student__id=self._student).exists():
+                new_profile = Profile.objects.get(student__id=self._student)
+            else:
+                me = User.objects.get(id=self._student)
+                new_profile = Profile(student=me)
+
+            new_profile.location = LocationTag.objects.get(tag_text=self._location)
             new_profile.bio = self._bio
             new_profile.pic = self._pic
+            new_profile.save()
 
             my_courses = Course.objects.filter(course_code__in=self._course_codes)
 
@@ -100,8 +105,10 @@ class ProfileBuilder:
 
             with atomic():
                 for course in my_courses:
+                    print(course)
                     new_profile.courses.add(course)
                 for skill in all_skills:
+                    print(skill)
                     new_profile.skills.add(SkillTag.objects.get(tag_text=skill))
 
             new_profile.save()
@@ -118,3 +125,9 @@ class ProfileBuilder:
 
             missing_list = ", ".join(missing)
             raise AssertionError("Not ready to build! Missing items: {0}".format(missing_list))
+
+
+if __name__ == '__main__':
+    # me = User.objects.get(id=1)
+    me = 1
+    builder = ProfileBuilder(me).add_course("CSC369").set_bio("BLNE").set_location("BA3200").add_prg_language("Java").build()
