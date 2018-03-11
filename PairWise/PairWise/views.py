@@ -9,6 +9,7 @@ from .serializers import DataTagSerializer, CourseSerializer, UserSerializer, Gr
                          NotificationSerializer, UserSearchSerializer, GroupSearchSerializer,\
                          ProfileWriteSerializer, ProfileReadSerializer
 from .search_ops import enter_search, cancel_search, measure_matches
+from .group_ops import send_invite, add_to_group
 from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code, fetch_search_by_user,\
                    fetch_profile_by_user
 
@@ -79,6 +80,27 @@ class NotificationsByUser(APIView):
             'old': old_serializer.data
         })
 
+    def _get_course(self, course_code):
+        course = fetch_course_by_course_code(course_code)
+        current_term = fetch_term_by_time_of_year(2018, 'S')
+
+        course_offr = fetch_offering_by_term(course, current_term)
+
+        return course_offr
+
+    def post(self, request, user):
+        me = User.objects.get(id=user)
+        invitee = User.objects.get(id=request.data['invitee'])
+        course = self._get_course(request.data['course'])
+
+        if 'text' in request.data:
+            message = request.data['text']
+        else:
+            message = None
+
+        send_invite(me, invitee, course, message)
+        return Response(status=status.HTTP_201_CREATED)
+
 
 @api_view(['GET'])
 def user_categories_root(request, user):
@@ -97,6 +119,27 @@ class ProfileWriter(generics.CreateAPIView):
 class ProfileReader(generics.RetrieveUpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileReadSerializer
+
+
+class GroupForm(APIView):
+    def _get_course(self, course_code):
+        course = fetch_course_by_course_code(course_code)
+        current_term = fetch_term_by_time_of_year(2018, 'S')
+
+        course_offr = fetch_offering_by_term(course, current_term)
+
+        return course_offr
+
+    def get(self, request, user, course_code):
+        return Response(status=status.HTTP_501_NOT_IMPLEMENTED)
+
+    def post(self, request, user, course_code):
+        me = User.objects.get(id=user)
+        invitee = request.data['invitee']
+        course = self._get_course(course_code)
+
+        add_to_group(newcomer=invitee, inviter=me, offering=course)
+        return Response(status=status.HTTP_201_CREATED)
 
 
 class SearchDetails(APIView):
@@ -146,7 +189,3 @@ class SearchList(APIView):
 
         serializer = UserSerializer(results, many=True)
         return Response(serializer.data)
-
-
-# class ProfileDetails(APIView):
-    # def post(self, request, user):
