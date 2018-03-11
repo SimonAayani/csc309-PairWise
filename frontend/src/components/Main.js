@@ -44,19 +44,17 @@ class Main extends Component {
             return(
                 <BrowserRouter>
                     <div className="container">
+                      <div className="navbar">
+                          <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
+                      </div> {/* navbar */}
 
-                        <div className="navbar">
-                            <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
-                        </div> {/* navbar */}
-
-                            <div className="main">
-                                <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
-                                <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
-                                <Route path="/splash" component={Splash}/>
-                                <Route path="/dashboard" component={Dashboard}/>
-                                <Route path="/logout" component={Splash} />
-                            </div> {/* closes main */}
-
+                      <div className="main">
+                          <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
+                          <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
+                          <Route path="/splash" component={Splash}/>
+                          <Route path="/dashboard" component={Dashboard}/>
+                          <Route path="/logout" component={Splash} />
+                      </div> {/* closes main */}
                     </div>
                 </BrowserRouter>
             )

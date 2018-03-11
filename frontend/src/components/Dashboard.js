@@ -27,7 +27,7 @@ class Dashboard extends Component {
 		              	<Switch>
 		              		<Route exact path='/' component={Notifications} />
 		              		<Route exact path='/dashboard' component={Notifications} />
-		              		<Route path='/dashboard/searchResults/' component={SearchResults} />
+		              		<Route path='/dashboard/searchresults/' component={SearchResults} />
 		              	</Switch>
 		              </Segment>
 		            </Grid.Column>
