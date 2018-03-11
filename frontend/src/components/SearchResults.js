@@ -1,29 +1,43 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Card } from 'semantic-ui-react'
-import SearchResultCard from './SearchResultCard'
-import logo from '../logo.svg'
+import Profile from './ViewProfile'
 
 export default class SearchResults extends Component {
 
   render() {
     const results = [
       {
-        userName: "Lisa",
-        userMeta: "90% match",
-        userDesc: "This is Lisa's description.",
-        userPic: {logo}
+        userInfo: {
+          name: "Lisa",
+          match: "90% match",
+          location: "Ajax",
+          bio: "This is Lisa's description. This is Lisa's description. This is Lisa's description. This is Lisa's description.",
+          picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
+          skills: "C, Java, Python",
+          courses: "CSC309, CSC369"
+        }
       },
       {
-        userName: "Harry",
-        userMeta: "80% match",
-        userDesc: "This is Harry's description.",
-        userPic: {logo}
+        userInfo: {
+          name: "Harry",
+          match: "80% match",
+          location: "Toronto",
+          bio: "This is Harry's description. This is Harry's description. This is Harry's description. This is Harry's description.",
+          picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
+          skills: "C, Java, Python",
+          courses: "CSC309, CSC369"
+        }
       },
       {
-        userName: "Benny",
-        userMeta: "75% match",
-        userDesc: "This is Benny's description.",
-        userPic: {logo}
+        userInfo: {
+          name: "Benny",
+          match: "70% match",
+          location: "Downtown Toronto",
+          bio: "This is Benny's description. This is Benny's description. This is Benny's description. This is Benny's description.",
+          picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
+          skills: "C, Java, Python",
+          courses: "CSC309, CSC369"
+        }
       }
     ]
 
@@ -33,7 +47,7 @@ export default class SearchResults extends Component {
       <Card.Group>
 
         {results.map((result, i) => 
-          <SearchResultCard key={i} {...result} />)}
+          <Profile key={i} {...result} />)}
 
       </Card.Group>
     )

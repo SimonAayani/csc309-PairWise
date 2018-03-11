@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import 'semantic-ui-css/semantic.min.css'
-import { Card, Image, Icon, Divider, Container, Button, Modal, Header } from 'semantic-ui-react'
+import { Card, Image, Icon, Divider, Container, Button, Modal, Header, Grid } from 'semantic-ui-react'
 import './ViewProfile.css'
 
 class Profile extends Component {
