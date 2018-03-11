@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> -->
+	    <meta charset="utf-8">
+	    <title>PairWise</title>
+	    <link rel="stylesheet" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    </head>
+
+    <body>
+		<!-- Navbar (sit on top) -->
+        <div class="navbar">
+        		<ul>
+        			<li id="navbar_logo"> <a href="#home"> PairWise</a> </li>
+        			<li id="login_btn"> <a onclick="show_login()" href="#login"> Sign In</a> </li>
+        		</ul>
+        </div>
+        <div class="navbar">
+        		<ul>
+        			<li id="navbar_logo"> <a href="#home"> PairWise</a> </li>
+        			<li id="logout_btn"> <a onclick="" href="#login"> Sign Out</a> </li>
+        			<li id="navbar_btn"> <a onclick="" href="#login"> Inbox</a> </li>
+        			<li id="navbar_btn"> <a onclick="" href="#login"> Groups</a> </li>
+        			<li id="navbar_btn"> <a onclick="" href="#login"> Profile</a> </li>
+        		</ul>
+        </div>
+        <!-- <button onclick="show_login()" class="buttons" value="Login/SignUp">Login/SignUp</button> -->
+
+        <div class="container" >
+
+            <div id = "logindiv" class="logindiv">
+                <div class ="registerdiv">
+                    <img src = "images/register.png">
+                        <form>
+                            <input id="test" type="text" placeholder="First Name" name="f_name">
+                            <input type="text" placeholder="Last Name" name="l_name">
+                            <input type="email" placeholder="Email" name="email">
+                            <input type="text" placeholder="Username" name="user">
+                            <input type="password" placeholder="Password" name="pass">
+                            <input type=submit name="submit" value="Submit">
+                        </form>
+                        <button onclick="show_login()" class="buttons" value="Login/SignUp">Login</button>
+                        <button onclick="login_goback()" id="back" class="buttons" value="back">Back</button>
+                </div>
+                <div class ="login_info_div">
+                    <img src = "images/login.png">
+                        <form>
+                            <input type="text" placeholder="Username" name="user_login">
+                            <input type="password" placeholder="Password" name="pass_login">
+                            <input type=submit name="submit" value="Login">
+                            
+                        </form>
+                        <button onclick="show_register()"  class="buttons" value="show_register">Register</button>
+                        <button onclick="login_goback()" id="back"class="buttons" value="back">Back</button>
+                </div>
+
+            </div>  
+        </div>
+        <!-- <button onclick="show_register()" class="buttons" value="show_register">Register</button> -->
+
+		<script
+	      src="https://code.jquery.com/jquery-3.2.1.min.js"
+	      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	      crossorigin="anonymous"></script>
+        <script src="login.js"></script>
+
+    </body>
+</html>
