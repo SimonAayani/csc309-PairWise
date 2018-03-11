@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon } from "semantic-ui-react";
 import avatar from '../avatar.png'
 
 
@@ -15,7 +15,20 @@ export default class Profile extends Component{
   		{ menuItem: 'Profile', 
   			pane: (
   				<Tab.Pane key = "1">
-  				<Image src = {avatar} size = "small" />
+  				<div>
+  					<Button floated = "right" icon>
+  						<Icon name = 'setting' />
+  					</Button>
+  				</div>
+  				<Image src = {avatar} size = "small" centered/>
+  				<div>
+  					<p></p>
+  					<p>Name: Parry</p>
+  					<p>Birthday: 1996-05-08</p>
+            		<p>Gender: Male</p>
+            		<p>E-mail: parry@hotmail.com</p>
+            		<p>Skill: Java</p>
+  				</div>
       			</Tab.Pane>
 
   		) },
