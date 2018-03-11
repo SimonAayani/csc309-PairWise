@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import SearchResultCard from './SearchResultCard'
 import logo from '../logo.svg'
 

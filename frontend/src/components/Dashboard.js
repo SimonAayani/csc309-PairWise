@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import { Grid, Segment } from 'semantic-ui-react'
 
 import Sidebar from './Sidebar'
 import Notifications from './Notifications'
 import SearchResults from './SearchResults'
-import NavBar from './NavBar';
 
 import './Dashboard.css'
 

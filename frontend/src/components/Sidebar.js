@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { Accordion, Menu, Icon, Button, Segment, Label } from 'semantic-ui-react'
+import { Accordion, Menu, Button, Segment, Label } from 'semantic-ui-react'
 
 import './Sidebar.css'
 

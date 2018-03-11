@@ -4,9 +4,6 @@ import logo from '../logo.svg'
 import './Notifications.css';
 
 class Notifications extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

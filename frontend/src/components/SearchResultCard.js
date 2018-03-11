@@ -3,9 +3,6 @@ import { Button, Card, Image } from 'semantic-ui-react'
 import logo from '../logo.svg'
 
 export default class SearchResultCard extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
