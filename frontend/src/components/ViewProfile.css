@@ -6,3 +6,22 @@
   margin-top: 0!important;
   display:block
 }
+
+.location {
+	font-size: 14px;
+}
+
+.matchPercentage{
+	font-weight: normal;
+	font-size : x-large;
+	text-align : right;
+	font-style : italic;
+	color : lightseagreen;
+	margin-top: 2%;
+	margin-right: 2%; 
+}
+
+.cardName {
+	margin-top : 2%;
+	margin-bottom : 0px;
+}
