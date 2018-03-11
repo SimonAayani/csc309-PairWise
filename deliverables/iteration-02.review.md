@@ -7,8 +7,8 @@
 
 ## Iteration 02 - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: Saturday March 10th, 2018
+ * Where: BA3200
 
 ## Process - Reflection
 
@@ -18,6 +18,8 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
+	> GitHub Issues
+	> Slack GitHub Feed
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
@@ -28,6 +30,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
+	>* FrontEnd / BackEnd Slack Channels
+	>* Did we use the ladder?
+
  * 2 - 4 decisions.
  * Ordered from most to least important.
  * Feel free to refer/link to process artifact(s).
@@ -36,6 +41,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 #### Planned changes
 
 List any process-related changes you are planning to make (if there are any)
+
+	>Move Away Front-End Back-End Slack channels
+	
 
  * Ordered from most to least important.
  * Explain why you are making a change.
@@ -51,13 +59,19 @@ List any process-related changes you are planning to make (if there are any)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
+	*Search Function
+	*Forming Groups
+	*Group should be removed once formed & at capacity.
  * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
+   	
 
 ## Meeting Highlights
 
 Going into the next iteration, our main insights are:
+
+
 
  * 2 - 4 items
  * Short (no more than one short paragraph per item)
