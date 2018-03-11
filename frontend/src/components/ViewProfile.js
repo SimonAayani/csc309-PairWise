@@ -6,8 +6,8 @@ import './ViewProfile.css'
 class Profile extends Component {
   state = { open : false }
 
-  show = dimmer => () => this.setState({ dimmer, open : true})
-  close = () => this.setState({ open : false})
+  show = dimmer => () => this.setState({ dimmer, open : true })
+  close = () => this.setState({ open : false })
 
   render() {
     const { open, dimmer } = this.state
@@ -16,7 +16,17 @@ class Profile extends Component {
       <div className="fullProfile">
         <div className="modalHeight">
         <Modal dimmer={dimmer} open={open} onClose={this.close} closeIcon size='small'>
-          <Modal.Header>{this.props.userInfo.name}</Modal.Header>
+          <Modal.Header>
+            <Grid columns={2} relaxed>
+              <Grid.Column>
+                <Header content={this.props.userInfo.name} subheader={this.props.userInfo.location} />
+              </Grid.Column>
+              <Divider vertical />
+              <Grid.Column>
+                <Button basic floated='right' color='teal'>Send Message</Button>
+              </Grid.Column>
+            </Grid>
+          </Modal.Header>
           <Modal.Content image>
             <Image scrolling
               wrapped
