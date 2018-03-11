@@ -4,7 +4,7 @@ import { Route, NavLink, BrowserRouter } from "react-router-dom";
 import Dashboard from './Dashboard';
 import Login from './Login';
 import NavBar from './NavBar';
-import SearchForm from './SearchForm';
+/*import SearchForm from './SearchForm';*/
 import Splash from './Splash';
 
 import './main.css';
@@ -49,24 +49,13 @@ class Main extends Component {
                             <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
                         </div> {/* navbar */}
 
-                        <div className="main">
-                            <div className="sidebar">
-                                <h1>Sidebar</h1>
-                                <ul>
-                                    <li><NavLink to="/new-search">New Search</NavLink></li>
-                                    <li>right now this sidebar is on every page</li>
-                                    <li>and it shows the same content whether logged in or out</li>
-                                </ul>
-                            </div> {/* closes sidebar */}
-
-                            <div className="content">
+                            <div className="main">
                                 <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
                                 <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
                                 <Route path="/splash" component={Splash}/>
                                 <Route path="/dashboard" component={Dashboard}/>
                                 <Route path="/logout" component={Splash} />
-                            </div> {/* closes content */}
-                        </div> {/* closes main */}
+                            </div> {/* closes main */}
 
                     </div>
                 </BrowserRouter>
