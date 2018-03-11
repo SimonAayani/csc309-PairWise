@@ -5,6 +5,11 @@ import avatar from '../avatar.png'
 
 
 export default class Profile extends Component{
+  state = { modalOpen: false }
+
+  handleOpen = () => this.setState({ modalOpen: true })
+
+  handleClose = () => this.setState({ modalOpen: false })
 	
 
 
@@ -18,9 +23,9 @@ export default class Profile extends Component{
 		const panes = [
   		{ menuItem: 'Profile', 
   			pane: (
-  				<Tab.Pane key = "1">
+  				<Tab.Pane key =  "1">
     				<div>
-    					<Modal trigger={<Button basic floated = "right" icon>
+    					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic floated = "right" icon>
                 <Icon name = 'setting' /></Button>} size='small'>
                 <Modal.Header>Setting:</Modal.Header>
                 <Modal.Content>
@@ -50,7 +55,7 @@ export default class Profile extends Component{
                   </Form>
                 </Modal.Content>
                 <Modal.Actions>
-                  <Button type='submit' basic color='blue'>
+                  <Button type='submit' basic color='blue' onClick={this.handleClose} >
                     Submit
                   </Button>
                 </Modal.Actions>
@@ -120,10 +125,10 @@ export default class Profile extends Component{
 		]
 
   	return (
-  		<Grid textAlign='center'>
+  		<Grid textAlign='center' style = {{marginTop: '100px'}}>
   			<Grid.Column width={10}>
   			
-				<Tab menu={{ fluid: true, vertical: true, tabular: 'right'}} panes={panes} renderActiveOnly={false}/>
+				<Tab menu={{ fluid: true, vertical: true, tabular: 'right'}} panes={panes}  renderActiveOnly={false}/>
 
   			</Grid.Column>
   		</Grid>
