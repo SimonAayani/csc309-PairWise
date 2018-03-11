@@ -9,7 +9,7 @@ export default class SearchResults extends Component {
       {
         userInfo: {
           name: "Lisa",
-          match: "90% match",
+          match: "90",
           location: "Ajax",
           bio: "This is Lisa's description. This is Lisa's description. This is Lisa's description. This is Lisa's description.",
           picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
@@ -20,7 +20,7 @@ export default class SearchResults extends Component {
       {
         userInfo: {
           name: "Harry",
-          match: "80% match",
+          match: "80",
           location: "Toronto",
           bio: "This is Harry's description. This is Harry's description. This is Harry's description. This is Harry's description.",
           picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
@@ -31,7 +31,7 @@ export default class SearchResults extends Component {
       {
         userInfo: {
           name: "Benny",
-          match: "70% match",
+          match: "70",
           location: "Downtown Toronto",
           bio: "This is Benny's description. This is Benny's description. This is Benny's description. This is Benny's description.",
           picture: "https://cdn4.iconfinder.com/data/icons/eldorado-user/40/user-512.png",
@@ -44,12 +44,8 @@ export default class SearchResults extends Component {
 
 
     return (
-      <Card.Group>
-
-        {results.map((result, i) => 
-          <Profile key={i} {...result} />)}
-
-      </Card.Group>
+      <Card.Group children={results.map((result, i) => 
+          <Profile key={i} {...result} />)} />
     )
   }
 }

@@ -9,7 +9,7 @@ class NavBar extends Component {
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
 				<li>{this.props.loginLink}</li>
 				<li><NavLink to="/inbox">Inbox</NavLink></li>
-				<li><NavLink to="/groups">Profile</NavLink></li>
+				<li><NavLink to="/profile">Profile</NavLink></li>
 				</ul>
 			)
     } else { /* user is not logged in */

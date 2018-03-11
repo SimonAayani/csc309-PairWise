@@ -3,17 +3,17 @@
 	margin: 5% 0 10% 15%;
 }
 
-.button {
-	width: 100%;
-	text-align: center;
-}
-
 /* styling for sidebar options */
 .ui.segment.sideOption {
 	padding: 0.5em 0.5em;
 	width: 80%;
 	margin: auto;
 	margin-top: 5%;
+}
+
+.sideOption>.button {
+	width: 100%;
+	text-align: center;
 }
 
 .sideLink {
