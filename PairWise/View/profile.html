@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+  </head>
+  <body>
+
+    <div class="ui grid tablet computer only">
+      <nav class="ui grid fixed inverted menu tablet computer only">
+        <div class="ui container">
+          <a href="" class="header item ">
+            <img src="img/small_logo.png" alt="logo" class="logo" style="width:50px; height:50px;">
+          </a>
+          <a href="profile.html" class="item">
+            <i class="user icon"></i>
+            Profile
+          </a>
+          <a href="search.html" class="item">
+            <i class="search icon"></i>
+            Search
+          </a>
+          <a href="setting.html" class="item">
+            <i class="setting icon"></i>
+            Setting
+          </a>
+          <a href="" onclick="sign_out()" class="item right floated">
+            <i class="sign out icon"></i>
+            Sign out
+          </a>
+        </div>
+      </nav>
+    </div>
+   
+    <!-- big grid for all ui -->
+    <div class="ui container ">
+      <div class="ui three column stackable grid" id="mainbox">
+        <!-- left -->
+        <div class="four wide column">
+          <!-- user profile -->
+          <div class="ui segment" id="profile">
+            <div class="ui grid">
+              <div class="ui two column centered row">
+                <div class="column">
+                  <img class="ui circular image" id="profile_img" src="img/avatar.png" alt="">
+                </div>
+              </div>
+              <div class="ui divider"></div>
+              <div class="ui row">
+                <div class="ui column text container" id="personal_info">
+                  <p class="username">Username: <span class="firstname">User 001</span></p>
+                  <p class="name">Name: <span class="firstname">Donut</span> <span class="lastname">Trumpet</span></p>
+                  <p class="gender">Gender: <span class="icon"><i class="man icon"></i></span> <span class="gd">Male</span></p>
+                  <p class="birthday">Birthday: <span class="year">1995</span>/<span class="month">09</span>/<span class="day">25</span></p>
+                  <div class="goals">My Skills:
+                    <div class="skill" id="s1">Java</div>
+                    <div class="skill" id="s2">C++</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- middle -->
+        <div class="eight wide centered column">
+          <!--Recent Task header -->
+          <div class="ui segment">
+            <div class="ui grid">
+              <div class="fourteen wide column huge">
+                <h3><i class="calendar icon"></i>My Groups</h3>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="ui groups">
+            <div class="ui segment groups" id="g1">
+              <h3 class="groupname">Group 1</h3>
+              <div class="ui divider"></div>
+              
+
+            </div>
+            <div class="ui segment groups" id="g1">
+              <h3 class="groupname">Group 2</h3>
+              <div class="ui divider"></div>
+              
+            </div>
+            <div class="ui segment groups" id="g1">
+              <h3 class="groupame">Group 3</h3>
+              <div class="ui divider"></div>
+              
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- right -->
+        <div class="four wide centered column">
+          <div class="ui segment">
+            <div class="ui center aligned">
+              <h3><i class="users icon"></i>Friends</h3>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui friendlist">
+              <div class="ui text container friend" id="f0">
+                <a href="#"><img class="ui mini circular image inline" src="img/avatar.png" alt=""> <span class="fusername">user007</span></a>
+              </div>
+              <div class="ui fitted divider"></div>
+              <div class="ui text container friend" id="f1">
+                <a href="#"><img class="ui mini circular image inline" src="img/avatar.png" alt=""> <span class="fusername">user077</span></a>
+              </div>
+              <div class="ui fitted divider"></div>
+              <div class="ui text container friend" id="f2">
+                <a href="#"><img class="ui mini circular image inline" src="img/avatar.png" alt=""> <span class="fusername">user777</span></a>
+              </div>
+              <div class="ui fitted divider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="dist/semantic.min.js"></script>
+  </body>
+</html>

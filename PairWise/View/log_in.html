@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in page</title>
+    <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/log_in.css">
+  </head>
+  <body>
+
+    <div class="ui grid tablet computer only">
+      <nav class="ui grid fixed inverted menu tablet computer only">
+        <div class="ui container">
+          <a href="" class="header item ">
+            <img src="img/small_logo.png" alt="logo" class="logo" style="width:50px; height:50px;">
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="ui center aligned grid">
+      <div class="column">
+        <h2 class="ui image header">
+          <img src="img/small_logo.png" class="image">
+          <div class="content">
+            Log-in to your account
+          </div>
+        </h2>
+        <form class="ui big form segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="username" placeholder="Username">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="ui fluid large submit button blue" onclick="">Login</div>
+          <div class="ui error message"></div>
+        </form>
+        <div class="ui message">
+          Don't have an account yet? <a href="sign_up.html">Sign up here!</a>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="dist/semantic.min.js"></script>
+    <script src="log_in.js"></script>
+  </body>
+</html>

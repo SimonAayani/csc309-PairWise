@@ -1,0 +1,13 @@
+/*to pull down form avoiding collapse with menu bar*/
+.ui.two.column.centered.grid div.column#form{
+  /*margin-top: 100px;*/
+}
+#header{
+  margin-top:100px;
+}
+body{
+  /*background-color: black;*/
+}
+.ui.centered.grid .row .column{
+  max-width: 800px;
+}
