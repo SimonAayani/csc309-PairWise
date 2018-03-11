@@ -26,6 +26,8 @@ class Dashboard extends Component {
 		              	<Switch>
 		              		<Route exact path='/' component={Notifications} />
 		              		<Route exact path='/dashboard' component={Notifications} />
+		              		{/* Uncomment below after adding NewSearch component }
+		              		{/*<Route path='/dashboard/newsearch' component={NewSearch} />*/}
 		              		<Route path='/dashboard/searchresults/' component={SearchResults} />
 		              	</Switch>
 		              </Segment>
