@@ -1,0 +1,213 @@
+*{
+    font-size: 1vw;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* GOOD RED #FF5733 */
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+.container
+{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding-top: 2vw;
+    overflow:auto;
+    
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */    
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+/* LOGINDIV START */
+.logindiv {
+    display:block;  
+    width:30%;
+    height: auto;
+    margin: 5px auto;
+    padding-top: 2vw;
+    padding-bottom: 1vw;
+    background-color: white;
+    /* display: block; */
+    border-radius: 10px;
+    /*background-color: #4CAF50;*/
+    font-size: 16px;
+    /*padding-top: 30px;*/
+
+}
+
+.logindiv img{
+    display: block;
+    width:40%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logindiv input{
+    
+    background-color: white;
+    width: 95%;
+    font-size: 15px;
+    margin: 1vw auto;
+    padding: .5vw 0 .5vw .5vw;
+    display: block;
+    color: black;
+    border-radius: 1px;	
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.logindiv input[type="submit"]{
+    border: none;
+    background-color:#2ECC71;
+    color: white;
+}
+.logindiv h2{
+
+    font-size:2vw;
+
+    /*text-shadow: 30px;*/
+    color: #303030;
+}
+
+.registerdiv{
+    display:none;
+    text-align: center;
+    margin-left: 0 auto;
+    width:100%;
+}
+.login_info_div{
+    display:none;
+    text-align: center;
+    margin-left: 0 auto;
+    width:100%;
+}
+
+.login_info_div form{
+
+    padding-top:1vw;
+    padding-bottom:.25vw;
+    margin: auto;
+    border-radius: 3px;
+    /*background-color: #F5F5F5;*/
+}
+
+.registerdiv form{
+
+    padding-top:1vw;
+    padding-bottom:.25vw;
+    margin: auto;
+    border-radius: 3px;
+    /*background-color: #F5F5F5;*/
+}
+/* LOGINDIV END */
+
+
+
+
+
+/* BUTTONS START */
+.buttons{
+    width: 95%;
+    font-size: 15px;
+    margin: 1vw auto;
+    padding: .5vw 0 .5vw .5vw;
+    display: block;
+    border-radius: 1px; 
+    box-sizing: border-box;
+    border: none;
+    background-color:#33A5FF;
+    color: white;
+}
+
+#back {
+    background-color: #FF5733;
+}
+
+
+#navbar_btn{
+    float:right;
+    margin-right: 3vw;
+}
+
+#navbar_btn :hover{
+    background-color: #E3E1E0;
+}
+
+#login_btn{
+    background-color: #2ECC71;
+    float:right;
+    margin-right: 3vw;
+}
+
+
+#login_btn :hover{
+    background-color: #62CD8F;
+    opacity: 
+}
+
+#logout_btn{
+    float:right;
+    background-color: #FF4F33;
+    margin-right: 3vw;
+}
+#logout_btn :hover{
+    background-color: #FF6F58;
+}
+/* BUTTONS END */
+
+
+
+/* NAVBAR START */
+
+.navbar {
+    /*position: fixed;
+    width:100%;
+    top:0;*/
+    background-color: white;
+    border-bottom: .1vw solid #E3E1E0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+
+    float: left;
+}
+.navbar li a {
+    display: block;
+    padding: .75vw 2vw .75vw 2vw;
+    text-decoration: none;
+    font-size: 1.3vw;
+    color: black;
+}
+
+
+#navbar_logo{
+    font-weight: bold;
+}
+
+/* NAVBAR END */
+
+.show {display:block;}
+.hide{display:none;}
