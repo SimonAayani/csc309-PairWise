@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from './components/Profile';
+import Main from './components/Main';
 import './index.css';
 
-ReactDOM.render(<Profile />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
