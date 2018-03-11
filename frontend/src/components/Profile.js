@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input } from "semantic-ui-react";
 import avatar from '../avatar.png'
 
 
 
-export default class Profile extends Component{
+export default class MyProfile extends Component{
   state = { modalOpen: false }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -34,12 +34,6 @@ export default class Profile extends Component{
                       <label>Name:</label>
                       <input placeholder='Name' />
                     </Form.Field>
-                    <Form.Group inline>
-                      <label>Birthday:</label>
-                      <Dropdown placeholder='Year' selection options={year} />
-                      <Dropdown placeholder='Month' selection options={month} />
-                      <Dropdown placeholder='Day' selection options={day} />
-                    </Form.Group>
                     <Form.Field  inline>
                       <label>Gender:</label>
                       <Dropdown placeholder='Gender' selection options={gender} />
@@ -52,10 +46,17 @@ export default class Profile extends Component{
                       <label>Skills:</label>
                       <Dropdown placeholder='Skills' multiple selection options={skills} />
                     </Form.Field>
+                    <Form.Field  inline>
+                      <label>Bio:</label>
+                      <Input placeholder='Bio' width={10} />
+                    </Form.Field>
                   </Form>
                 </Modal.Content>
                 <Modal.Actions>
-                  <Button type='submit' basic color='blue' onClick={this.handleClose} >
+                  <Button basic color='blue' onClick={this.handleClose} >
+                    Close
+                  </Button>
+                  <Button basic color='blue' onClick={this.handleClose} >
                     Submit
                   </Button>
                 </Modal.Actions>
@@ -66,10 +67,11 @@ export default class Profile extends Component{
     				<div>
     					<p></p>
     					<p>Name: Parry</p>
-    					<p>Birthday: 1996-05-08</p>
+    					
               		<p>Gender: Male</p>
               		<p>E-mail: parry@hotmail.com</p>
               		<p>Skill: Java</p>
+                  <p>Bio: I'm a hardworking person.</p>
     				</div>
       		</Tab.Pane>
 			) },

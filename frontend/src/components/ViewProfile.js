@@ -18,7 +18,7 @@ class Profile extends Component {
           <Modal.Header>
             <Grid columns={2} relaxed>
               <Grid.Column>
-                <Header content={this.props.userInfo.name} subheader={this.props.userInfo.location} />
+                <Header content={this.props.userInfo.name} subheader={this.props.userInfo.email} />
               </Grid.Column>
               <Divider vertical />
               <Grid.Column>

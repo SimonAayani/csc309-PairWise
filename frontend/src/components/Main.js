@@ -6,7 +6,7 @@ import Login from './Login';
 import NavBar from './NavBar';
 /*import SearchForm from './SearchForm';*/
 import Splash from './Splash';
-import Profile from './Profile'
+import MyProfile from './Profile'
 
 import './main.css';
 
@@ -55,7 +55,7 @@ class Main extends Component {
                           <Route path="/splash" component={Splash}/>
                           <Route path="/dashboard" component={Dashboard}/>
                           <Route path="/logout" component={Splash} />
-                          <Route path="/profile" component={Profile} />
+                          <Route path="/profile" component={MyProfile} />
                       </div> {/* closes main */}
                     </div>
                 </BrowserRouter>
