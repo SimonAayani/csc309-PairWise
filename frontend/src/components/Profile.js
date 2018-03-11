@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image, Icon } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon, Label, Checkbox } from "semantic-ui-react";
 import avatar from '../avatar.png'
 
 
@@ -30,11 +30,26 @@ export default class Profile extends Component{
             		<p>Skill: Java</p>
   				</div>
       			</Tab.Pane>
+			) },
 
-  		) },
-  		{ menuItem: 'Security', pane: { key: 'tab1', content: 'This is massive tab', size: 'massive' } },
-  		{ menuItem: 'Notifiction', pane: { key: 'tab1', content: 'This is massive tab', size: 'massive' } },
-  		{ menuItem: 'Social', pane: { key: 'tab1', content: 'This is massive tab', size: 'massive' } },
+  		{ menuItem: 'Security', 
+  			pane: (
+  				<Tab.Pane key = "2">
+  				
+  				</Tab.Pane>
+  			) },
+
+  		{ menuItem: 'Notifiction', 
+  			pane: (
+  				<Tab.Pane key = "3">
+  				</Tab.Pane>
+  			) },
+
+  		{ menuItem: 'Social',
+			pane: (
+  				<Tab.Pane key = "4">
+  				</Tab.Pane>
+  			) },
 		]
 
     	return (
