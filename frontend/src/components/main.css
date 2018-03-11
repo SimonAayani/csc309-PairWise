@@ -1,0 +1,96 @@
+*{
+    font-size: 1vw;
+    font-family: 'Quicksand', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+	margin: 0 auto;
+	padding-top: 1%;
+	width: 90%;
+}
+
+.content {
+	float: right;
+	width: 80%;
+}
+
+.navbar {
+	width: 90%;
+	margin: 0 auto;
+    background-color: white;
+    border-bottom: .1vw solid #E3E1E0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float:right;
+    margin-right: 3vw;
+    font-size: 1.3vw;
+}
+
+.navbar li a {
+    display: block;
+    padding: .75vw 2vw .75vw 2vw;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar li a:hover {
+    background-color: #E3E1E0;
+}
+
+
+#navbar_logo{
+    float:left;
+}
+
+#navbar_logo a {
+	font-weight: bold;
+	font-size: 1.3vw;
+}
+
+#navbar_logo a:hover {
+	background-color: #E3E1E0;
+}
+
+.sidebar {
+	float: left;
+	width: 18%;
+	background-color: #f3f3f3;
+	height: 100vh;
+}
+
+.searchForm {
+	clear: both;
+}
+.searchForm form {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.searchForm label, input {
+	display: inline-block;
+	clear: both;
+}
+.searchForm label {
+	width: 50%;
+	margin: 10px;
+	padding: 10px;
+}
+
+.searchForm label + input {
+	width: 30%;
+	margin: 0 30% 0 4%;
+}

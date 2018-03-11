@@ -57,14 +57,12 @@
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
+> For this iteration we will be using GitHub's Project Board as a task board to organize tasks within the team. We decided to use the project board over the ticket ladder system mentioned in deliverable 1. This is to keep all matters for the project concentrated in our GitHub repository as well as to avoid confusion as most team members were unsure of how to use the ticket ladder system. Once tasks are assigned, an issue will be created for each task, which will then automatically be added to the task board. More information on how we will be using the task board can be seen under ***Git / GitHub workflow***.
 
-> Deanne
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+> During the first in-person meeting we will decide on tasks that need to be completed for this iteration. We will also discuss the priority of each task, with the core tasks being assigned to different team members first. We identify core tasks as the components that need to be implemented in order to show the main functionalities of Pairwise. Tasks are assigned to team members based on how experienced and comfortable team members are with completing them. The more difficult tasks will be assigned to multiple team members.
+
+> During future team meetings, whether in-person or through Slack, tasks can be moved around amongst team members if needed, and new tasks can be created. Any tasks regarding bug fixes will be prioritized before any non-core tasks. Ideally, bug fixes should be completed as soon as possible.    
+
 
 #### Git / GitHub workflow
 
