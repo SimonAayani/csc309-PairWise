@@ -1,77 +1,71 @@
 import React, { Component } from 'react'
-import { Accordion, Menu, Icon, Button, Transition, Advertisement, Segment } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
+
+import { Accordion, Menu, Button, Segment, Label } from 'semantic-ui-react'
+
 import './Sidebar.css'
 
 export default class Sidebar extends Component {
-  state = { activeIndex: 0 }
-
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps
-    const { activeIndex } = this.state
-    const newIndex = activeIndex === index ? -1 : index
-
-    this.setState({ activeIndex: newIndex })
-  }
 
   render() {
-    const { activeIndex } = this.state
+    const panels = [
+      {
+        title: {
+            content: <Label color='blue' size="large">
+                      Searches <i class=" right search icon"></i></Label>,
+            key: 0
+          },
+        content: {
+          content: (
+            <div>
+            <Segment className="sideOption" inverted color='teal'>
+              <Button color='teal' name='CSC309' onClick={this.handleClick}>
+                <NavLink to="/dashboard/searchresults/csc309" className="sideLink">CSC309</NavLink>
+              </Button>
+            </Segment>
+
+            <Segment className="sideOption" inverted color='teal'>
+              <Button color='teal' name='newSearch'>
+                <NavLink to="/dashboard/newsearch" className="sideLink">
+                  New Search <i class=" right plus icon"></i>
+                </NavLink>
+              </Button>
+            </Segment>
+            </div>
+          ),
+          key: 0
+        }
+      }, {
+        title: {
+          content: <Label color='blue' size="large">
+                      Groups <i class=" right users icon"></i></Label>,
+          key: 1
+        },
+        content: {
+          content: (
+              <div>
+                <Segment className="sideOption" inverted color='teal'>
+                    <Button color='teal' name='grp-csc309'>
+                      CSC309 Group
+                    </Button>
+                  </Segment>
+                </div>
+              ),
+            key: 1
+        }
+      }
+    ]
 
     return (
       // Side Bar
-      <Segment inverted vertical fixed id="sidebar">
-      
-        <Button color='teal' id="btn-dash" dashActive={true}>
-          Notifications 
-          <i class=" right bell icon"></i> 
+      <Segment inverted vertical id="sidebar">
+        <Button color='teal' id="btn-dash">
+          <NavLink to="/dashboard" className="sideLink">Notifications &nbsp;&nbsp;
+          {/*<Label circular color="blue" id="icon-notif">3</Label>*/}
+          <i class=" right bell icon"></i></NavLink>
         </Button>
         <Menu.Item id="category-wrapper">
-          <Accordion as={Menu} inverted styled vertical id="category">
-            <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-              <Icon name='dropdown' />
-              Searches 
-              <i class=" right search icon"></i> 
-            </Accordion.Title>
-            <Accordion.Content active={activeIndex === 0}>
-              <Segment inverted color='teal'>
-                <Button color='teal' name='CSC309' dashActive={false}>
-                  CSC309
-                </Button>
-              </Segment>
-              <Segment inverted color='teal'>
-                <Button color='teal' name='CSC369'>
-                  CSC369
-                </Button>
-              </Segment>
-              <Segment inverted color='teal'>
-                <Button color='teal' name='newSearch'>
-                  New Search
-                  <i class=" right plus icon"></i>
-                </Button>
-              </Segment>
-            </Accordion.Content>
-
-            <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-              <Icon name='dropdown' />
-              Groups
-              <i class=" right users icon"></i>
-            </Accordion.Title>
-            <Accordion.Content active={activeIndex === 1}>
-              <Segment inverted color='teal'>
-                <Button color='teal' name='grp-csc309'>
-                  CSC309 Group
-                </Button>
-              </Segment>
-              <Segment inverted color='teal'>
-                <Button color='teal' name='grp-csc369'>
-                  CSC369 Group
-                </Button>
-              </Segment>
-            </Accordion.Content>
-  
-            
-
-
-          </Accordion>
+          <Accordion inverted styled defaultActiveIndex={[0]} panels={panels} exclusive={false} id="category" />
         </Menu.Item>
       </Segment>
     )
