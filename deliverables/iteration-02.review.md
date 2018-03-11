@@ -1,4 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
+# PairWise
 
  > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
  >      
@@ -19,7 +19,10 @@
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
 	> GitHub Issues
+	>* This decision was extremely useful, as it allowed our group to work on tasks and know for certain that no one else would be. 
+			Since we could assign each task to a group member there was no confusion as to who was doing what.
 	> Slack GitHub Feed
+	>* The Slack GitHub Feed was successful as it allowed us to see when new things were pushed to the repo, and thus allowing us to get the newest version of everyfile so that when each person went to commit they could easily do so.
 
  * 2 - 4 decisions.
  * Ordered from most to least important.
@@ -43,7 +46,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 List any process-related changes you are planning to make (if there are any)
 
 	>Move Away Front-End Back-End Slack channels
-	
+
 
  * Ordered from most to least important.
  * Explain why you are making a change.
