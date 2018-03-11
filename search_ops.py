@@ -67,12 +67,3 @@ def measure_matches(user, category, cutoff=0):
     combined.extend(singles[i:])
 
     return combined
-
-
-if __name__ == '__main__':
-    alex = fetch_user_by_username('AHurka')
-    csc369 = fetch_course_by_course_code('CSC369')
-    winter2018 = fetch_term_by_time_of_year(2018, 'S')
-    my_class = fetch_offering_by_term(csc369, winter2018)
-
-    enter_search(alex, my_class)

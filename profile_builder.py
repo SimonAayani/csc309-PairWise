@@ -125,9 +125,3 @@ class ProfileBuilder:
 
             missing_list = ", ".join(missing)
             raise AssertionError("Not ready to build! Missing items: {0}".format(missing_list))
-
-
-if __name__ == '__main__':
-    # me = User.objects.get(id=1)
-    me = 1
-    builder = ProfileBuilder(me).add_course("CSC369").set_bio("BLNE").set_location("BA3200").add_prg_language("Java").build()
