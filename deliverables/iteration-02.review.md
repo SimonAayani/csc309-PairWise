@@ -1,10 +1,14 @@
-# PairWise
+# PairWise/Group 15
+
+ > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
+ >      
+ > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
 
 
 ## Iteration 02 - Review & Retrospect
 
- * When: 7:00-9:00pm, Sunday March 11th, 2018
- * Where: Bahen Centre for Information Technology, Room 3200
+ * When: Saturday March 10th, 2018
+ * Where: BA3200
 
 ## Process - Reflection
 
@@ -42,6 +46,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 List any process-related changes you are planning to make (if there are any)
 
   > Move Away Front-End Back-End Slack channels
+  >* We plan to move away from this format of segregated channels so that we can create a workflow that is constantly moving through each end of development. It will increase our efficiency if we are able to properly communicate with the other end so that our implementations are compatible.
 
 
  * Ordered from most to least important.
@@ -51,6 +56,8 @@ List any process-related changes you are planning to make (if there are any)
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
+  * User Interface of website
+  * Database Implementation (tables)
 
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
