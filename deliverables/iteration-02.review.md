@@ -41,13 +41,18 @@
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
-  * User Interface of website
-  * Database Implementation (tables)
-  >* Views
+  > **User Interface of website**
+  >* [User Interface Files](https://github.com/csc301-winter-2018/project-team-15/tree/master/deliverables/deliverable2)
+  
+  > **Database Implementation**
+  >* [Django Database Files](https://github.com/csc301-winter-2018/project-team-15/tree/master/project)
+  
+  > **Views**
   > ![View 1](../img_src/view1.jpg)
   > ![View 2](../img_src/view2.jpg)
   > ![View 3](../img_src/view3.jpg)
   > ![View 4](../img_src/view4.jpg)
+  
 
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
