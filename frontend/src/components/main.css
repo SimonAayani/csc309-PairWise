@@ -12,12 +12,6 @@ html, body {
 .main {
 	margin: 0 auto;
 	padding-top: 1%;
-	width: 90%;
-}
-
-.content {
-	float: right;
-	width: 80%;
 }
 
 .navbar {
@@ -72,25 +66,51 @@ html, body {
 	height: 100vh;
 }
 
-.searchForm {
-	clear: both;
+.searchForm form, h1, h2 {
+	float: left;
 }
+
 .searchForm form {
-	width: 80%;
-	margin: 0 auto;
-}
-
-.searchForm label, input {
-	display: inline-block;
-	clear: both;
-}
-.searchForm label {
+	padding-left: 2%;
+	padding-top: 4%;
 	width: 50%;
-	margin: 10px;
-	padding: 10px;
 }
 
-.searchForm label + input {
-	width: 30%;
-	margin: 0 30% 0 4%;
+.searchForm input, textarea {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: #fafafa;
+	outline: 0 !important;
+	min-height: 36px;
+	padding: 8px 10px;
+	-webkit-box-align: center;
+    -webkit-align-items: center;
+    -webkit-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -webkit-transition: all 100ms;
+	display: flex;
+	width: 96%;
+	color: #666;
+}
+
+.searchForm label {
+	display: block;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.searchForm button {
+	float: center;
+	margin-top: 10px;
+}
+
+/* using this to make our inputs/textareas look like react-select forms until I
+ * can figure out how to edit their CSS */
+
+.fakeSelect input:focus, textarea:focus {
+	border-width: 1px;
+	border-color: #2684ff;
+	box-shadow: 0 0 0 1px #2684ff;
 }

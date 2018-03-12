@@ -6,6 +6,9 @@ import Login from './Login';
 import NavBar from './NavBar';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
+import Profile from './Profile'
+
+import './main.css';
 
 import './main.css';
 
@@ -45,28 +48,18 @@ class Main extends Component {
                 <BrowserRouter>
                     <div className="container">
 
-                        <div className="navbar">
-                            <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
-                        </div> {/* navbar */}
+                      <div className="navbar">
+                          <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
+                      </div> {/* navbar */}
 
-                        <div className="main">
-                            <div className="sidebar">
-                                <h1>Sidebar</h1>
-                                <ul>
-                                    <li><NavLink to="/new-search">New Search</NavLink></li>
-                                    <li>right now this sidebar is on every page</li>
-                                    <li>and it shows the same content whether logged in or out</li>
-                                </ul>
-                            </div> {/* closes sidebar */}
-
-                            <div className="content">
-                                <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
-                                <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
-                                <Route path="/splash" component={Splash}/>
-                                <Route path="/dashboard" component={Dashboard}/>
-                                <Route path="/logout" component={Splash} />
-                            </div> {/* closes content */}
-                        </div> {/* closes main */}
+                      <div className="main">
+                          <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
+                          <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
+                          <Route path="/splash" component={Splash}/>
+                          <Route path="/dashboard" component={Dashboard}/>
+                          <Route path="/logout" component={Splash} />
+                          <Route path="/profile" component={Profile} />
+                      </div> {/* closes main */}
 
                     </div>
                 </BrowserRouter>

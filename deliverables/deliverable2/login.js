@@ -32,6 +32,3 @@ function show_register(){
 		    $(".logindiv").fadeIn(300);
 	    });
     }
-
-	
-}

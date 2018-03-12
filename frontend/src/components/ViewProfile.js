@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import 'semantic-ui-css/semantic.min.css'
-import { Card, Image, Icon, Divider, Container, Button, Modal, Header } from 'semantic-ui-react'
+import { Card, Image, Icon, Divider, Container, Button, Modal, Header, Grid } from 'semantic-ui-react'
 import './ViewProfile.css'
 
 class Profile extends Component {
@@ -44,20 +43,18 @@ class Profile extends Component {
         </div>
 
         <div className="profileCard">
-          <Card raised>
-            <Card.Content>
-              <Container textAlign='center' name='picture'>
-                <Image src={this.props.userInfo.picture} size='small' circular bordered/>
-              </Container>
-              <Divider hidden />
-              <Card.Header textAlign='center'>{this.props.userInfo.name}</Card.Header>
+          <Card fluid raised>
+            <div className="matchPercentage">{this.props.userInfo.match}%</div>
+            <Card.Header textAlign="left">
+              <Image spaced="left" src={this.props.userInfo.picture} size='tiny' circular bordered floated="left"/>
+              <div className="cardName">
+                <Header>{this.props.userInfo.name}</Header>
+              </div>
               <Card.Meta name="location">
-                <Container textAlign='center'> 
-                  <Icon name='marker'/> {this.props.userInfo.location}
-                </Container>
+                <Icon name='marker'/> {this.props.userInfo.location}
               </Card.Meta>
-              <Card.Description>{this.props.userInfo.bio}</Card.Description>
-            </Card.Content>
+            </Card.Header>
+            <Card.Description fluid>{this.props.userInfo.bio}</Card.Description>
             <Button size='medium' compact onClick={this.show(true)}>
               View Full Profile
             </Button>
