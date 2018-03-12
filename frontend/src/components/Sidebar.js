@@ -25,6 +25,18 @@ export default class Sidebar extends Component {
             </Segment>
 
             <Segment className="sideOption" inverted color='teal'>
+              <Button color='teal' name='CSC369' onClick={this.handleClick}>
+                <NavLink to="/dashboard/searchresults/csc369" className="sideLink">CSC369</NavLink>
+              </Button>
+            </Segment>
+
+            <Segment className="sideOption" inverted color='teal'>
+              <Button color='teal' name='CSC301' onClick={this.handleClick}>
+                <NavLink to="/dashboard/searchresults/csc301" className="sideLink">CSC301</NavLink>
+              </Button>
+            </Segment>
+
+            <Segment className="sideOption" inverted color='teal'>
               <Button color='teal' name='newSearch'>
                 <NavLink to="/dashboard/newsearch" className="sideLink">
                   New Search <i class=" right plus icon"></i>
