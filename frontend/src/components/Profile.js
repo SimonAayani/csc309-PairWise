@@ -4,7 +4,7 @@ import avatar from '../avatar.png'
 
 
 
-export default class Profile extends Component{
+export default class MyProfile extends Component{
   state = { modalOpen: false }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -27,19 +27,13 @@ export default class Profile extends Component{
     				<div>
     					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic floated = "right" icon>
                 <Icon name = 'setting' /></Button>} size='small'>
-                <Modal.Header>Setting:</Modal.Header>
+                <Modal.Header>Settings:</Modal.Header>
                 <Modal.Content>
                   <Form>
                     <Form.Field  inline>
-                      <label>Name:</label>
+                      <label>Name:&nbsp;</label>
                       <input placeholder='Name' />
                     </Form.Field>
-                    <Form.Group inline>
-                      <label>Birthday:</label>
-                      <Dropdown placeholder='Year' selection options={year} />
-                      <Dropdown placeholder='Month' selection options={month} />
-                      <Dropdown placeholder='Day' selection options={day} />
-                    </Form.Group>
                     <Form.Field  inline>
                       <label>Gender:</label>
                       <Dropdown placeholder='Gender' selection options={gender} />
@@ -65,11 +59,10 @@ export default class Profile extends Component{
     				<Image src = {avatar} size = "small" centered/>
     				<div>
     					<p></p>
-    					<p>Name: Parry</p>
-    					<p>Birthday: 1996-05-08</p>
-              		<p>Gender: Male</p>
-              		<p>E-mail: parry@hotmail.com</p>
-              		<p>Skill: Java</p>
+    					   <p><b>Name:</b> Parry</p>
+              		<p><b>Gender:</b> Male</p>
+              		<p><b>E-mail:</b> parry@hotmail.com</p>
+              		<p><b>Skills:</b> Java</p>
     				</div>
       		</Tab.Pane>
 			) },
@@ -88,24 +81,24 @@ export default class Profile extends Component{
               </Form.Field>
               <Form.Field  inline>
                 <label>Comfirm Password:</label>
-                <input placeholder='Passowrd Again' />
+                <input placeholder='Password Again' />
               </Form.Field>
               <Button type='submit' basic color='blue'>Submit</Button>
             </Form>
   				</Tab.Pane>
   			) },
 
-  		{ menuItem: 'Notifiction', 
+  		{ menuItem: 'Notifications', 
   			pane: (
   				<Tab.Pane key = "3">
             <Form>
               <Form.Field  inline>
                 <Checkbox toggle />
-                <label>Pop up Notifiction:</label>
+                <label>Popup notifications:</label>
               </Form.Field>
               <Form.Field  inline>
                 <Checkbox toggle />
-                <label>Send Notifiction by E-mail:</label>
+                <label>Send notifications by E-mail:</label>
               </Form.Field>
             </Form>         
   				</Tab.Pane>
