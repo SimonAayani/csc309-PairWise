@@ -82,7 +82,7 @@ Going into the next iteration, our main insights are:
 
 #### Search algorithm/matching system
 
-> The most important characteristic of the Pairwise application, with no doubt is its complex algorithmic feature which performs a search and matches potential partners to the user based on profile similarities and personalities. In this deliverable we were able to come up with a simple structure of how the search feature will be presented to the user. The search feature created is purely frontend, as it reads from api and presents a list of courses/languages/ the user can select from… In the backend, the search feature must use the user’s input and traverse through its stored list of other user profiles the output a list of results in order of best to worst match.
+> The most important characteristic of the Pairwise application, with no doubt is its complex algorithmic feature which performs a search and matches potential partners to the user based on profile similarities and personalities. In this deliverable we were able to come up with a simple structure of how the search feature will be presented to the user. The search feature created is purely frontend, as it reads data from the[Cobalt API](https://github.com/cobalt-uoft/cobalt) and presents a list of courses and programming languages the user can select from. In the backend, the search feature must use the user’s input and traverse through its stored list of other user profiles the output a list of results in order of best to worst match.
 
 #### Delegation of Roles
 
