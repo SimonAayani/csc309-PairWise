@@ -13,34 +13,24 @@
 
 #### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
   > GitHub Issues
   >* This decision was extremely useful, as it allowed our group to work on tasks and know for certain that no one else would be. Since we could assign each task to a group member there was no confusion as to who was doing what.
   
   > Slack GitHub Feed
   >* The Slack GitHub Feed was successful as it allowed us to see when new things were pushed to the repo, and thus allowing us to get the newest version of everyfile so that when each person went to commit they could easily do so.
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
 
 #### Decisions that did not turn out as well as we hoped
 
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
   >* FrontEnd / BackEnd Slack Channels
   >* Did we use the ladder?
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
+
 
 
 #### Planned changes
 
-List any process-related changes you are planning to make (if there are any)
 
   > Move Away Front-End Back-End Slack channels
   >* We plan to move away from this format of segregated channels so that we can create a workflow that is constantly moving through each end of development. It will increase our efficiency if we are able to properly communicate with the other end so that our implementations are compatible.
