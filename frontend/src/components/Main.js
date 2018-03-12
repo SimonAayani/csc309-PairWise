@@ -4,9 +4,11 @@ import { Route, NavLink, BrowserRouter } from "react-router-dom";
 import Dashboard from './Dashboard';
 import Login from './Login';
 import NavBar from './NavBar';
-/*import SearchForm from './SearchForm';*/
+import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
+
+import './main.css';
 
 import './main.css';
 
@@ -45,6 +47,7 @@ class Main extends Component {
             return(
                 <BrowserRouter>
                     <div className="container">
+
                       <div className="navbar">
                           <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
                       </div> {/* navbar */}
@@ -57,6 +60,7 @@ class Main extends Component {
                           <Route path="/logout" component={Splash} />
                           <Route path="/profile" component={MyProfile} />
                       </div> {/* closes main */}
+
                     </div>
                 </BrowserRouter>
             )

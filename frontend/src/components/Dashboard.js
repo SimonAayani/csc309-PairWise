@@ -5,6 +5,7 @@ import { Grid, Segment } from 'semantic-ui-react'
 
 import Sidebar from './Sidebar'
 import Notifications from './Notifications'
+import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 
 import './Dashboard.css'
@@ -26,8 +27,7 @@ class Dashboard extends Component {
 		              	<Switch>
 		              		<Route exact path='/' component={Notifications} />
 		              		<Route exact path='/dashboard' component={Notifications} />
-		              		{/* Uncomment below after adding NewSearch component }
-		              		{/*<Route path='/dashboard/newsearch' component={NewSearch} />*/}
+		              		<Route path='/dashboard/newsearch' component={SearchForm} />
 		              		<Route path='/dashboard/searchresults/' component={SearchResults} />
 		              	</Switch>
 		              </Segment>
