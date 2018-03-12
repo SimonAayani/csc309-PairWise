@@ -142,9 +142,9 @@
 
 #### Artifacts
 
-Website View Mockups
+**Website View Mockups**
   > A set of images drawn to show what the layout of our user interface will look like. These images will help us get a general idea of what we want our website to look like and will guide every member of the team to strive for the same outcome. Using these images will also avoid confusion of which functionality is to be present on each page/view.
 
-Walkthrough Video
+**Walkthrough Video**
   > A video which will show all the functionality and the workflow of our application step by step. This will allow users to better understand how the application works, and how to access everything.
 
