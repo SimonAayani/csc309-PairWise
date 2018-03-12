@@ -8,7 +8,7 @@ class NavBar extends Component {
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
 				<li>{this.props.loginLink}</li>
-				<li><NavLink to="/inbox">Inbox</NavLink></li>
+        <li><NavLink to="/inbox">Inbox</NavLink></li>
 				<li><NavLink to="/profile">Profile</NavLink></li>
 				</ul>
 			)
