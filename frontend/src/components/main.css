@@ -102,8 +102,14 @@ html, body {
 }
 
 .searchForm button {
-	float: center;
+	display: inline;
+	padding: 8px 10px;
 	margin-top: 10px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: #fafafa;
+	outline: 0 !important;
+	padding: 10px;
 }
 
 /* using this to make our inputs/textareas look like react-select forms until I
