@@ -14,10 +14,10 @@
 #### Decisions that turned out well
 
   > GitHub Issues
-  >* This decision was extremely useful, as it allowed our group to work on tasks and know for certain that no one else would be. Since we could assign each task to a group member there was no confusion as to who was doing what.
+  >* 'Issues' are a GitHub feature and are a great way to keep track of tasks, improvements, and code issues for projects. They are similar to emails except that they can be shared and discussed with other team members. This decision to use GitHub Issues was extremely useful, as it allowed our group to claim certain tasks to let others know what each member was working on. This was an easier communication method rathering than having to ask other group members repeatedly about which tasks were already being worked on. Since we could assign each task to a group member there was no confusion as to who was doing what.
   
   > Slack GitHub Feed
-  >* The Slack GitHub Feed was successful as it allowed us to see when new things were pushed to the repo, and thus allowing us to get the newest version of everyfile so that when each person went to commit they could easily do so.
+  >* The Slack GitHub Feed was successful as it allowed us to see when new pieces of code/files were pushed to the repository, and thus allowing us to get the newest version of every file so that when each person went to commit they could easily do so.
 
 
 #### Decisions that did not turn out as well as we hoped
@@ -36,25 +36,19 @@
   >* We plan to move away from this format of segregated channels so that we can create a workflow that is constantly moving through each end of development. It will increase our efficiency if we are able to properly communicate with the other end so that our implementations are compatible.
 
 
- * Ordered from most to least important.
- * Explain why you are making a change.
 
 
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
-  > **User Interface of website**
-  >* [User Interface Files](https://github.com/csc301-winter-2018/project-team-15/tree/master/deliverables/deliverable2)
-  
-  > **Database Implementation**
-  >* [Django Database Files](https://github.com/csc301-winter-2018/project-team-15/tree/master/project)
-  
-  > **Views**
+  * User Interface of website
+  * Database Implementation (tables)
+  >* Views
   > ![View 1](../img_src/view1.jpg)
   > ![View 2](../img_src/view2.jpg)
   > ![View 3](../img_src/view3.jpg)
   > ![View 4](../img_src/view4.jpg)
-  
+
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
@@ -86,7 +80,7 @@ Going into the next iteration, our main insights are:
 
 #### Search algorithm/matching system
 
-> The most important characteristic of the Pairwise application, with no doubt is its complex algorithmic feature which performs a search and matches potential partners to the user based on profile similarities and personalities. In this deliverable we were able to come up with a simple structure of how the search feature will be presented to the user. The search feature created is purely frontend, as it reads data from the[Cobalt API](https://github.com/cobalt-uoft/cobalt) and presents a list of courses and programming languages the user can select from. In the backend, the search feature must use the user’s input and traverse through its stored list of other user profiles the output a list of results in order of best to worst match.
+> The most important characteristic of the Pairwise application, with no doubt is its complex algorithmic feature which performs a search and matches potential partners to the user based on profile similarities and personalities. In this deliverable we were able to come up with a simple structure of how the search feature will be presented to the user. The search feature created is purely frontend, as it reads data from the [Cobalt API](https://github.com/cobalt-uoft/cobalt) and presents a list of courses and programming languages the user can select from. In the backend, the search feature must use the user’s input and traverse through its stored list of other user profiles the output a list of results in order of best to worst match.
 
 #### Delegation of Roles
 
