@@ -22,7 +22,7 @@ class Profile extends Component {
               </Grid.Column>
               <Divider vertical />
               <Grid.Column>
-                <Button basic floated='right' color='teal'>Send Message</Button>
+                <Button basic floated='right' color='teal'>Send Invite</Button>
               </Grid.Column>
             </Grid>
           </Modal.Header>
