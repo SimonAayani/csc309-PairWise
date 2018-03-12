@@ -48,6 +48,7 @@
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
+
   >* Views
   		>* [View 1](../img_src/view1.jpg)
   		>* [View 2](../img_src/view2.jpg)
