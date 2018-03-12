@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input } from "semantic-ui-react";
 import avatar from '../avatar.png'
 
 
@@ -46,10 +46,17 @@ export default class MyProfile extends Component{
                       <label>Skills:</label>
                       <Dropdown placeholder='Skills' multiple selection options={skills} />
                     </Form.Field>
+                    <Form.Field  inline>
+                      <label>Bio:</label>
+                      <Input placeholder='Bio' width={10} />
+                    </Form.Field>
                   </Form>
                 </Modal.Content>
                 <Modal.Actions>
-                  <Button type='submit' basic color='blue' onClick={this.handleClose} >
+                  <Button basic color='blue' onClick={this.handleClose} >
+                    Close
+                  </Button>
+                  <Button basic color='blue' onClick={this.handleClose} >
                     Submit
                   </Button>
                 </Modal.Actions>
@@ -59,10 +66,19 @@ export default class MyProfile extends Component{
     				<Image src = {avatar} size = "small" centered/>
     				<div>
     					<p></p>
+<<<<<<< HEAD
+    					<p>Name: Parry</p>
+    					
+              		<p>Gender: Male</p>
+              		<p>E-mail: parry@hotmail.com</p>
+              		<p>Skill: Java</p>
+                  <p>Bio: I'm a hardworking person.</p>
+=======
     					   <p><b>Name:</b> Parry</p>
               		<p><b>Gender:</b> Male</p>
               		<p><b>E-mail:</b> parry@hotmail.com</p>
               		<p><b>Skills:</b> Java</p>
+>>>>>>> refs/remotes/csc301-winter-2018/master
     				</div>
       		</Tab.Pane>
 			) },

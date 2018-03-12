@@ -7,8 +7,11 @@ import NavBar from './NavBar';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
+<<<<<<< HEAD
+=======
 
 import './main.css';
+>>>>>>> refs/remotes/csc301-winter-2018/master
 
 import './main.css';
 
