@@ -1,14 +1,12 @@
 from django.db import models
-from PairWise.models.users import User, Group
-from PairWise.models.courses import CourseOffering
-from PairWise.models.data_tags import SkillTag
+from PairWise.server.models.users import User, Group
+from PairWise.server.models.courses import CourseOffering
+from PairWise.server.models.data_tags import SkillTag
 
 
 class SearchEntry(models.Model):
     id = models.AutoField(primary_key=True)
-    category = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
     subhead = models.CharField(max_length=255)
-    capacity = models.PositiveSmallIntegerField()
     description = models.TextField()
     desired_fields = models.ManyToManyField(SkillTag)
     active_search = models.BooleanField(default=True)
@@ -16,6 +14,7 @@ class SearchEntry(models.Model):
 
 class UserSearchEntry(SearchEntry):
     host = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(CourseOffering, on_delete=models.CASCADE)
 
 
 class GroupSearchEntry(SearchEntry):

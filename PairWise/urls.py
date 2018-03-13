@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from PairWise import views
+from PairWise.server import views
 from django.conf.urls.static import static
-from PairWise.settings import MEDIA_ROOT, MEDIA_URL, DATABASES
+from PairWise.server.settings import MEDIA_ROOT, MEDIA_URL, DATABASES
 
 urlpatterns = [
     url(r'^tags/$', views.data_tag_root),

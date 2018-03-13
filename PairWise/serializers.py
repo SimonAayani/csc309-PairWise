@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from PairWise.models import DataTag, Course, Profile, User, Group, Notification, UserSearchEntry, GroupSearchEntry
+from PairWise.server.models import DataTag, Course, Profile, User, Group, Notification, UserSearchEntry, GroupSearchEntry
 
 
 class DataTagSerializer(serializers.ModelSerializer):

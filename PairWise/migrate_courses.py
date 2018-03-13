@@ -1,12 +1,12 @@
 from requests import get
-from PairWise.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
+from PairWise.server.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
 import datetime
 
 
 def load_course_data():
     cbl_site = "https://cobalt.qas.im/api/1.0/courses"
     net_key = "mYsO2m1KfJYFBEd3BYVvho4bmI9PKR2x"
-    start_term = "2017 Fall"
+    start_term = "2018 Winter"
     filters = "code:\"CSC\" AND campus:\"UTSG\" AND term:>=\"{0}\"".format(start_term)
     skip_amt = 100
     params = "&limit={0}".format(skip_amt)
@@ -57,16 +57,20 @@ def migrate():
     data = load_course_data()
     for course in data:
         # Require course code, name, term, times, section names per section
-        course_model = Course.objects.get_or_create(course_code=course['code'], name=course['name'])[0]
+        course_code = course['code'][:-3]
+        print(course_code)
+        course_model = Course.objects.get_or_create(course_code=course_code)[0]
+        course_model.name=course['name']
+        course_model.save()
 
         section_year, section_term = _convert_term(course['code'], course['term'])
         this_term = Term.objects.get_or_create(year=section_year, term=section_term)[0]
 
-        this_offering = CourseOffering.objects.get_or_create(term=this_term.term_id, course=course_model.course_id)
+        this_offering = CourseOffering.objects.get_or_create(term=this_term, course=course_model)[0]
 
         for section in course['meeting_sections']:
             section_code = section['code']
-            new_section = CourseSection.objects.get_or_create(term_id=this_offering.term_id, section_name=section_code)[0]
+            new_section = CourseSection.objects.get_or_create(offering=this_offering, section_name=section_code)[0]
 
             for session in section['times']:
                 session_day = _convert_weekday(session['day'])
@@ -79,3 +83,4 @@ def migrate():
 
 if __name__ == '__main__':
     migrate()
+    print('Done')
