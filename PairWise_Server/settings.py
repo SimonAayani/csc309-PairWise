@@ -25,7 +25,7 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.197.89']
+ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35']
 
 
 # Application definition
@@ -60,7 +60,7 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:3000'
 )
 
-ROOT_URLCONF = 'PairWise.urls'
+ROOT_URLCONF = 'PairWise_Server.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PairWise.wsgi.application'
+WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 
 
 # Database
@@ -90,11 +90,12 @@ DATABASES = {
         'NAME': 'pairwise_testing',
         'USER': 'PairWise Dev',
         'PASSWORD': 'StudentTinder301',
-        'HOST': '100.64.186.110',
+        'HOST': '192.168.2.121',
         'PORT': 3306
     }
 }
 
+DUMP = "Blah"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
