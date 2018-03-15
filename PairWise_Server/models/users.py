@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PairWise.server.models.courses import CourseOffering, Course
-from PairWise.server.models.data_tags import SkillTag, LocationTag
+from PairWise_Server.models.courses import CourseOffering, Course
+from PairWise_Server.models.data_tags import SkillTag, LocationTag
 
 
 class Profile(models.Model):

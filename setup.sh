@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PROJECT_DIR="PairWise_Server"
+
 echo "Installing dependencies..."
 
 pip install django
@@ -11,10 +13,10 @@ pip install Pillow
 echo "Relocating Files..."
 for file in "__init__.py" "settings.py" "urls.py" "wsgi.py";
 do
-    if test -f PairWise/$file;
+    if test -f $PROJECT_DIR/$file;
     then
-	cp PairWise/$file ./
-        rm -f PairWise/$file
+        cp $PROJECT_DIR/$file ./
+        rm -f $PROJECT_DIR/$file
     fi
 done
 
@@ -24,13 +26,13 @@ then
 fi
 
 echo "Initializing project..."
-django-admin startproject PairWise .
+django-admin startproject PairWise-server .
 
 for file in "__init__.py" "settings.py" "urls.py" "wsgi.py";
 do
     if test -f ./$file;
     then
-	cp ./$file PairWise
+        cp ./$file $PROJECT_DIR
         rm -f ./$file
     fi
 done

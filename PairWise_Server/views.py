@@ -3,9 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from PairWise.server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
+from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
                                    Course, User, Group, Notification, NewNotification, Profile, NewNotification
-from PairWise.server.serializers import DataTagSerializer, CourseSerializer, UserSerializer, GroupSerializer,\
+from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, UserSerializer, GroupSerializer,\
                                         NotificationSerializer, UserSearchSerializer, GroupSearchSerializer,\
                                         ProfileWriteSerializer, ProfileReadSerializer
 from .search_ops import enter_search, cancel_search, measure_matches

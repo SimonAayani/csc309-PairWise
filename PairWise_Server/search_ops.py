@@ -1,7 +1,9 @@
-from PairWise.server.models import SearchEntry, UserSearchEntry, GroupSearchEntry, SearchResultsCache, Group, CourseOffering, Course
+from PairWise_Server.models import SearchEntry, UserSearchEntry, GroupSearchEntry, SearchResultsCache,\
+                                   Group, CourseOffering, Course
 from django.contrib.auth.models import User
 from django.db.models import Count, Q, F
-from PairWise.server.fetch import fetch_user_by_username, fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code
+from PairWise_Server.fetch import fetch_user_by_username, fetch_term_by_time_of_year,\
+                                  fetch_offering_by_term, fetch_course_by_course_code
 
 
 def enter_search(user, course_section, headline='', descr='', search_active=True, cap=2):

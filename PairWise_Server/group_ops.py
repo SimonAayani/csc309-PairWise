@@ -1,4 +1,5 @@
-from PairWise.server.models import UserSearchEntry, GroupSearchEntry, SearchResultsCache, Group, NewNotification, CourseOffering
+from PairWise_Server.models import UserSearchEntry, GroupSearchEntry, SearchResultsCache,\
+                                   Group, NewNotification, CourseOffering
 from django.db.models import F, ObjectDoesNotExist
 from django.db.models.query_utils import Q
 

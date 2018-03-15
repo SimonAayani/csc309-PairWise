@@ -1,4 +1,4 @@
-from PairWise.server.models import Profile, Course, SkillTag, LocationTag
+from PairWise_Server.models import Profile, Course, SkillTag, LocationTag
 from django.contrib.auth.models import User
 from django.db.transaction import atomic
 

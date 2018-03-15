@@ -1,7 +1,7 @@
 from django.db import models
-from PairWise.server.models.users import User, Group
-from PairWise.server.models.courses import CourseOffering
-from PairWise.server.models.data_tags import SkillTag
+from PairWise_Server.models.users import User, Group
+from PairWise_Server.models.courses import CourseOffering
+from PairWise_Server.models.data_tags import SkillTag
 
 
 class SearchEntry(models.Model):

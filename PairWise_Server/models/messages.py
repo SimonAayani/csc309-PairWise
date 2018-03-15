@@ -1,5 +1,5 @@
 from django.db import models
-from PairWise.server.models.courses import CourseOffering, Course
+from PairWise_Server.models.courses import CourseOffering, Course
 from django.contrib.auth.models import User
 
 
