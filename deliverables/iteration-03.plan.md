@@ -1,29 +1,25 @@
 # YOUR PRODUCT/TEAM NAME
 
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
-
 
 ## Iteration 3
 
- * Start date: FILL IN THE DATE WHEN YOU HAD YOUR FIRST TEAM PLANNING MEETING
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
+ * Start date: Mar. 18, 2018
+ * End date: Mar. 18, 2018
 
 ## Process
 
-(Optional:) Quick introduction
+>Looking back at the last two iterations, and comparing the process methods for both, we are able to see vast improvements in the project workflow and organizational structure for development. Notably, the software tools that were used for communication and organization purposes including Slack’s GitHub integration and GitHub issues turned out to be extremely useful as it provided us with updated information about assigned tasks, file changes and code bugs. We plan to continue using these tools during this deliverable. In regards to the group’s organization, our plan for the last deliverable was to assign the major role of Frontend Developer to multiple group members, where each group member had the responsibility to implement a certain user view in the webpage. However, because we had not outlined clear standards for code, it lead to incredibly different unmergeable implementations. This strategy was indeed inefficient as it lead to a lot of unused code, wasted time and the group having to re-implement much of the frontend work in the little time that was left. Clearly, group organization is still an issue, and we plan to find an optimal strategy to divide up work within the given time frame.
 
 #### Changes from previous iteration
 
-List the most significant changes you made to your process (if any).
+>* **Delegation of Roles:**
+>Delegation of roles is a main priority in this deliverable, as our strategy to delegate multiple group members to a single role in the previous deliverable was not as successful as it could have been. Although splitting up frontend tasks by the different user pages may have been a good idea, the strategy was not successful because the members were not provided clear enough specifications about how to implement the user page they were given. Hence delegation in the final deliverable will focus on assigning responsibilities and authority to group members in order to complete a clearly defined and agreed upon task, which will be followed up upon by other group members to track progress, successes and failures. Specifications for each task will be decided by all group members including which software/tools to build with, goals, functionalities and outcomes. 
 
- * At most 3 items
- * Start with the most significant change
- * For each change, explain why you are making it and what you are hoping to achieve from it
- * Ideally, for each change, you will define a clear success metric (i.e. something you can measure at the end of the iteration to determine whether the change you made was successful)
+>* **Meetings:**
+>In the last deliverable we found having in-person coding sessions over the weekends to be quite useful as we were able to ask questions to each other and solve code bugs quicker. However we were not able to have enough coding sessions as we wanted to. We are planning to have more in-person coding sessions spread throughout the next few weeks to ensure that group members have ample time to discuss/assign tasks, work on tasks, and share progress. If necessary, we also aim to have a few coding sessions on weekdays. 
 
- > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
- > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
+>* **Create a Measurable Organization System:**
+>It would be unreasonable to assign major tasks like implementing a search algorithm, or connecting frontend with backend to a single group member to complete. Not only does it risk failure to complete the task, but also does not allow enough time for learning. So we have decided to create a step-by-step system that outlines the small steps and processes needed to be completed to ensure the desired outcome. Group members will be assigned smarter and measurable tasks, and will be given earlier deadlines for said tasks spread throughout the next few weeks. This way, we will have a steady flow of development of new features; this process will allow time for any errors/problems faced or learning curves and avoid last minute work, while still keeping the project on track. 
 
 #### Roles & responsibilities
 
