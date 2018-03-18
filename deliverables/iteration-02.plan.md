@@ -142,10 +142,17 @@
 
 #### Artifacts
 
-> Simon
-List/describe the artifacts you will produce in order to present your project idea.
-
- * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
- * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
- * Be concise, yet precise.         
-   For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
+>**Website View Mockups**
+  >* A set of images drawn to show what the layout of our user interface will look like. These images will help us get a general idea of what we want our website to look like and will guide every member of the team to strive for the same outcome. Using these images will also avoid confusion of which functionality is to be present on each page/view.
+>
+>**Walkthrough Video**
+  >* A video which will show all the functionality and the workflow of our application step by step. This will allow users to better understand how the application works, and how to access everything.
+>
+>**User Interface**
+  >* The purpose of the user interface is to allow users to seemlessly navigate through our web application without trouble. Creating a polished user interface allows us to store a large amount of information on the screen while not confusing anyone who is using our service.
+>
+>**React App**
+  >* The purpose of the React App is to be able to communicate between the front-end and the back-end. It is important for our application as it allows us to register and store user information in a database which we can access on login to create user specific sessions. As a result of creating sessions we are able to deliver user specific information (Such as profile, and groups).
+>
+>**Django Database**
+  >* Set up a database to store all of the users pertinent information. Setting up such a databse allows us to fetch user specific data for our users as well as a directory to iterate through when creating our search results.
