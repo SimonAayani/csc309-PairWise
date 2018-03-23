@@ -1,5 +1,5 @@
 from requests import get
-from PairWise.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
+from PairWise_Server.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
 import datetime
 
 

@@ -1,4 +1,5 @@
-from PairWise import Profile, Course, SkillTag
+from PairWise_Server.models import Profile, Course, SkillTag, LocationTag
+from django.contrib.auth.models import User
 from django.db.transaction import atomic
 
 
@@ -84,10 +85,18 @@ class ProfileBuilder:
 
     def build(self):
         if self.ready_to_build():
-            new_profile = Profile.objects.get_or_create(student_id=self._student, location=self._location,
-                                                        bio=self._bio, pic=self._pic)
+            if Profile.objects.filter(student__id=self._student).exists():
+                new_profile = Profile.objects.get(student__id=self._student)
+            else:
+                me = User.objects.get(id=self._student)
+                new_profile = Profile(student=me)
 
-            my_courses = Course.objects.filter(course_code_in=self._course_codes)
+            new_profile.location = LocationTag.objects.get(tag_text=self._location)
+            new_profile.bio = self._bio
+            new_profile.pic = self._pic
+            new_profile.save()
+
+            my_courses = Course.objects.filter(course_code__in=self._course_codes)
 
             all_skills = []
             all_skills.extend(self._language_tags)
@@ -96,8 +105,10 @@ class ProfileBuilder:
 
             with atomic():
                 for course in my_courses:
+                    print(course)
                     new_profile.courses.add(course)
                 for skill in all_skills:
+                    print(skill)
                     new_profile.skills.add(SkillTag.objects.get(tag_text=skill))
 
             new_profile.save()
