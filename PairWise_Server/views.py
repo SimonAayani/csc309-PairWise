@@ -189,3 +189,23 @@ class SearchList(APIView):
 
         serializer = UserSerializer(results, many=True)
         return Response(serializer.data)
+
+
+class RegistrationView(APIView):
+    def post(self, request):
+        username = request.data['username']
+        password = request.data['password']
+
+        if User.objects.filter(username=username).exists():
+            return Response(status=status.HTTP_403_FORBIDDEN)
+        elif (len(password) < 1):
+            return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+        else:
+            email = request.data['email']
+
+            newUser = User.objects.create_user(username=username, email=email, password=password)
+            newUser.first_name = request.data['firstname']
+            newUser.last_name = request.data['lastname']
+            newUser.save()
+
+            return Response(status=status.HTTP_201_CREATED)

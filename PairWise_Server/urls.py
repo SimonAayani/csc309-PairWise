@@ -14,13 +14,14 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from PairWise_Server import views
 from django.conf.urls.static import static
 from PairWise_Server.settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
+    url(r'^registration/$', views.RegistrationView.as_view(), name='register'),
     url(r'^tags/$', views.data_tag_root),
     url(r'^tags/language/$', views.LanguageList.as_view(), name='language-list'),
     url(r'^tags/concept/$', views.ConceptList.as_view(), name='concept-list'),
