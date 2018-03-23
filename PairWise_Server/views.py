@@ -14,33 +14,42 @@ from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_cou
                    fetch_profile_by_user
 
 
+RW_SAFE_METHODS = ['GET']
+
+
 class LanguageList(generics.ListAPIView):
+    # Readable by anyone: no authentication
     queryset = LanguageTag.objects.all()
     serializer_class = DataTagSerializer
 
 
 class ConceptList(generics.ListAPIView):
+    # Readable by anyone: no authentication
     queryset = ConceptTag.objects.all()
     serializer_class = DataTagSerializer
 
 
 class FrameworkList(generics.ListAPIView):
+    # Readable by anyone: no authentication
     queryset = FrameworkTag.objects.all()
     serializer_class = DataTagSerializer
 
 
 class LocationList(generics.ListAPIView):
+    # Readable by anyone: no authentication
     queryset = LocationTag.objects.all()
     serializer_class = DataTagSerializer
 
 
 class CourseList(generics.ListAPIView):
+    # Readable by anyone: no authentication
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
 
 @api_view(['GET'])
 def data_tag_root(request, format=None):
+    # Readable by anyone: no authentication
     return Response({
         'languages': LanguageList.as_view()(request=request._request, format=format).data,
         'concepts': ConceptList.as_view()(request=request._request, format=format).data,
@@ -50,6 +59,7 @@ def data_tag_root(request, format=None):
 
 
 class CourseListByUser(APIView):
+    # Readable only by user
     def get(self, request, user):
         courses = Course.objects.filter(courseoffering__group__members__id=user)
 
@@ -61,6 +71,7 @@ class CourseListByUser(APIView):
 
 
 class GroupListByUser(APIView):
+    # Readable only by user
     def get(self, request, user):
         groups = Group.objects.filter(members__id=user)
         serializer = GroupSerializer(groups, many=True)
@@ -68,9 +79,10 @@ class GroupListByUser(APIView):
 
 
 class NotificationsByUser(APIView):
-    def get(self, request, user):
-        new = NewNotification.objects.filter(receiver__id=user).select_related('notification_ptr')
-        old = Notification.objects.filter(newnotification__isnull=True)
+    # Readable only by user; writeable by anyone
+    def get(self, request):
+        new = Notification.objects.filter(receiver__id=request.user.id, newnotification__isnull=False)
+        old = Notification.objects.filter(receiver__id=request.user.id, newnotification__isnull=True)
 
         new_serializer = NotificationSerializer(new, many=True)
         old_serializer = NotificationSerializer(old, many=True)
@@ -88,8 +100,7 @@ class NotificationsByUser(APIView):
 
         return course_offr
 
-    def post(self, request, user):
-        me = User.objects.get(id=user)
+    def post(self, request):
         invitee = User.objects.get(id=request.data['invitee'])
         course = self._get_course(request.data['course'])
 
@@ -98,30 +109,34 @@ class NotificationsByUser(APIView):
         else:
             message = None
 
-        send_invite(me, invitee, course, message)
+        send_invite(request.user, invitee, course, message)
         return Response(status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
-def user_categories_root(request, user):
+def user_categories_root(request):
+    # Readable only by user
     return Response({
-        'courses': CourseListByUser.as_view()(request=request._request, user=user).data,
-        'groups': GroupListByUser.as_view()(request=request._request, user=user).data,
-        'notifications': NotificationsByUser.as_view()(request=request._request, user=user).data
+        'courses': CourseListByUser.as_view()(request=request._request, user=request.user).data,
+        'groups': GroupListByUser.as_view()(request=request._request, user=request.user).data,
+        'notifications': NotificationsByUser.as_view()(request=request._request, user=request.user).data
     })
 
 
 class ProfileWriter(generics.CreateAPIView):
+    # Writeable only by user
     queryset = Profile.objects.all()
     serializer_class = ProfileWriteSerializer
 
 
 class ProfileReader(generics.RetrieveUpdateAPIView):
+    # Readable by anyone authenticated
     queryset = Profile.objects.all()
     serializer_class = ProfileReadSerializer
 
 
 class GroupForm(APIView):
+    # Writeable only by user
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
         current_term = fetch_term_by_time_of_year(2018, 'S')
@@ -143,6 +158,7 @@ class GroupForm(APIView):
 
 
 class SearchDetails(APIView):
+    # Readable by anyone; writeable only by user
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
         current_term = fetch_term_by_time_of_year(2018, 'S')
@@ -174,6 +190,7 @@ class SearchDetails(APIView):
 
 
 class SearchList(APIView):
+    # Readable by everyone authenticated
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
         current_term = fetch_term_by_time_of_year(2018, 'S')
@@ -192,6 +209,7 @@ class SearchList(APIView):
 
 
 class RegistrationView(APIView):
+    # Writeable by anyone
     def post(self, request):
         username = request.data['username']
         password = request.data['password']
@@ -209,3 +227,24 @@ class RegistrationView(APIView):
             newUser.save()
 
             return Response(status=status.HTTP_201_CREATED)
+
+# Readable by anyone: no authentication
+# Readable by anyone: no authentication
+# Readable by anyone: no authentication
+# Readable by anyone: no authentication
+# Readable by anyone: no authentication
+# Readable by anyone: no authentication
+
+# Readable only by user
+# Readable only by user
+
+# Readable only by user; writeable by anyone
+
+# Readable only by user
+
+# Writeable only by user
+# Readable by everyone authenticated
+# Writeable only by user
+# Readable by anyone; writeable only by user
+# Readable by everyone authenticated
+# Writeable by anyone

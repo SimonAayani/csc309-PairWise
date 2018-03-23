@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from PairWise_Server.settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
+    url(r'^login/', include('rest_framework.urls')),
     url(r'^registration/$', views.RegistrationView.as_view(), name='register'),
     url(r'^tags/$', views.data_tag_root),
     url(r'^tags/language/$', views.LanguageList.as_view(), name='language-list'),
@@ -28,7 +29,7 @@ urlpatterns = [
     url(r'^tags/framework/$', views.FrameworkList.as_view(), name='framework-list'),
     url(r'^tags/course/$', views.CourseList.as_view(), name='course-list'),
     url(r'^users/(?P<user>[0-9]+)$', views.user_categories_root),
-    url(r'^users/(?P<user>[0-9]+)/msg/$', views.NotificationsByUser.as_view(), name='messages'),
+    url(r'^users/msg/$', views.NotificationsByUser.as_view(), name='messages'),
     url(r'^users/(?P<pk>[0-9]+)/profile/$', views.ProfileReader.as_view(), name='profile-view'),
     url(r'^users/(?P<pk>[0-9]+)/profile/new/$', views.ProfileWriter.as_view(), name='profile-view'),
     url(r'^users/(?P<user>[0-9]+)/(?P<course_code>\w{3}\d{3,})/search/$', views.SearchDetails.as_view(), name='user-search'),
