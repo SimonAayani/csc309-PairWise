@@ -1,21 +1,16 @@
 from PairWise_Server.models import SearchEntry, UserSearchEntry, GroupSearchEntry, SearchResultsCache,\
-                                   Group, CourseOffering, Course
+                                   CourseOffering, Course
 from django.contrib.auth.models import User
 from django.db.models import Count, Q, F
 from PairWise_Server.fetch import fetch_user_by_username, fetch_term_by_time_of_year,\
                                   fetch_offering_by_term, fetch_course_by_course_code
 
 
-def enter_search(user, course_section, headline='', descr='', search_active=True, cap=2):
-    UserSearchEntry.objects.get_or_create(host=user, category=course_section, subhead=headline,
-                                          description=descr, active_search=search_active)
-
-
 def cancel_search(user, course_section):
     if isinstance(user, User):
         UserSearchEntry.objects.filter(host=user, category=course_section).delete()
     else:
-        GroupSearchEntry.objects.filter(host=user, category=course_section).delete()
+        GroupSearchEntry.objects.filter(members__user=user, category=course_section).delete()
 
 
 def mark_search_result(searcher, found):
@@ -31,7 +26,7 @@ def get_marked_results(searcher, category=None):
 
 
 def get_past_group_members(user):
-    my_member_groups = Group.objects.filter(members=user)
+    my_member_groups = GroupSearchEntry.objects.filter(members__user=user)
 
     return list(group.members for group in my_member_groups)
 

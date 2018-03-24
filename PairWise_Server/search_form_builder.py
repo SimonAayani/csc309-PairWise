@@ -1,6 +1,6 @@
 from PairWise_Server.fetch import fetch_user_by_username, fetch_course_by_course_code, fetch_most_recent_term,\
                                   fetch_offering_by_term, fetch_course_section_by_name
-from PairWise_Server.models import SkillTag, LocationTag, UserSearchEntry
+from PairWise_Server.models import SkillTag, LocationTag, UserSearchData, UserSearchEntry
 
 
 class SearchFormBuilder:
@@ -28,10 +28,10 @@ class SearchFormBuilder:
         self._requre_same_section = False
         self._skills = []
         self._preferred_location = None
+        self._capacity = 2
         self._title = ""
         self._description = ""
         self._active_search = True
-
 
     def set_course_section(self, section):
         if section is None or type(section) != str:
@@ -66,6 +66,15 @@ class SearchFormBuilder:
         self._preferred_location = LocationTag.objects.get(datatag_ptr_id=loc_id)
         return self
 
+    def set_capacity(self, cap):
+        if cap is None or type(cap) != int:
+            raise ValueError("Capacity must be an integer (is {0})".format(cap))
+        elif cap < 2:
+            raise ValueError("Capacity must be greater than 1 (is {0})".format(cap))
+
+        self._capacity = cap
+        return self
+
     def set_title(self, title):
         if title is None or type(title) != str:
             raise ValueError("Title must be a string (is {0})".format(title))
@@ -91,12 +100,25 @@ class SearchFormBuilder:
 
     def build(self):
         if self.ready_to_build():
-            new_search = UserSearchEntry.objects.create(host=self._student, category=self._course)
-
-            new_search.subhead = self._title
-            new_search.description = self._description
+            search_criteria = UserSearchData.objects.create(user=self._student)
+            search_criteria.course_section = self._course_section
+            search_criteria.location = self._preferred_location
 
             for tag in self._skills:
-                new_search.desired_fields.add(tag)
+                search_criteria.desired_skills.add(tag)
 
+            search_criteria.save()
+
+            new_search = UserSearchEntry.objects.create(host=search_criteria, category=self._course)
+
+            new_search.capacity = self._capacity
+            new_search.title = self._title
+            new_search.description = self._description
             new_search.active_search = self._active_search
+
+            if self._requre_same_section:
+                new_search.reqired_section = self._course_section
+            else:
+                new_search.reqired_section = None
+
+            new_search.save()
