@@ -1,6 +1,6 @@
 from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
                                    Course, CourseOffering, CourseSection, Term,\
-                                   Group, GroupSearchEntry, UserSearchEntry, Profile
+                                   GroupSearchEntry, UserSearchEntry, Profile
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -106,7 +106,7 @@ def fetch_profile_by_user(user):
 
 def fetch_group_by_member(member, offering):
     try:
-        return Group.objects.get(members=member, category=offering)
+        return GroupSearchEntry.objects.get(members__user=member, category=offering)
     except ObjectDoesNotExist:
         return None
 

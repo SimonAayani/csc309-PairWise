@@ -11,11 +11,3 @@ class Profile(models.Model):
     skills = models.ManyToManyField(SkillTag)
     bio = models.TextField()
     pic = models.ImageField(upload_to='images/profiles/')
-
-
-class Group(models.Model):
-    group_id = models.AutoField(primary_key=True)
-    offering = models.ForeignKey(CourseOffering, on_delete=models.DO_NOTHING)
-    members = models.ManyToManyField(User)
-    capacity = models.IntegerField()
-    size = models.IntegerField()

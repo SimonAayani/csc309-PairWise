@@ -13,10 +13,8 @@ class Term(models.Model):
     TERM_OPTIONS = (
         ('F', 'Fall'),
         ('S', 'Winter'),
-        ('Y', 'Year-Long'),
         ('SF', 'Summer I'),
         ('SS', 'Summer II'),
-        ('SY', 'Summer-Long')
     )
     term = models.CharField(max_length=2, choices=TERM_OPTIONS)
 
