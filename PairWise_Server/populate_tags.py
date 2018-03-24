@@ -1,4 +1,4 @@
-from PairWise.models.data_tags import LanguageTag, ConceptTag, FrameworkTag, LocationTag
+from PairWise_Server.models.data_tags import LanguageTag, ConceptTag, FrameworkTag, LocationTag
 from django.db.transaction import atomic
 
 language_options = [

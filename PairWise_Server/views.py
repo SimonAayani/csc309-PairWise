@@ -3,11 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from PairWise.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
-                            Course, User, Group, Notification, NewNotification, Profile, NewNotification
-from PairWise.serializers import DataTagSerializer, CourseSerializer, UserSerializer, GroupSerializer,\
-                                 NotificationSerializer, UserSearchSerializer, GroupSearchSerializer,\
-                                 ProfileWriteSerializer, ProfileReadSerializer
+from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
+                                   Course, User, Group, Notification, NewNotification, Profile, NewNotification
+from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, UserSerializer, GroupSerializer,\
+                                        NotificationSerializer, UserSearchSerializer, GroupSearchSerializer,\
+                                        ProfileWriteSerializer, ProfileReadSerializer
 from .search_ops import enter_search, cancel_search, measure_matches
 from .group_ops import send_invite, add_to_group
 from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code, fetch_search_by_user,\
