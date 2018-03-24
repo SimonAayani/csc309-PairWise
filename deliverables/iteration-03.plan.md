@@ -23,7 +23,22 @@
 
 #### Roles & responsibilities
 
-Describe the different roles on the team and the responsibilities associated with each role.
+>* **Project Supervisors:**
+>Supervisors have the responsibility of collecting group decisions from the planning meeting and keeping track of the product’s progress. They will collect and maintain information about tasks, including tasks that have been assigned to group members, completed and incomplete tasks. Expectations of the Supervisor is to host weekly meetings to review each individual’s progress and check if they have been keeping up with their deadlines, discuss solutions/problems that arose, and re-distribute tasks if necessary. 
+>Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
+
+>* **Frontend developers:**
+>Frontend developers will continue to implement views in the application that were not completed in the previous iteration. They will remove the dummy code and make changes where necessary to follow best React practices. These developers will also be involved in enhancing the product to be more visually appealing, in terms of colour scheme and layout, using Semantic UI and custom CSS.
+>* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi)
+
+>* **Backend developers:**
+>Backend developers will improve existing server logic, providing new database support and logic for new features such as user messaging. They will solidify a login and registration system, as well as access restrictions such as requiring a user to create a profile before they can launch a search, and work on improving partner matching logic using additional criteria from the search form and user profiles.
+>* Contributor: Alex Hurka (ahurka)
+
+>* **Middle end:**
+>This role involves figuring out how to integrate frontend and backend to ensure proper communication and response between the two. 
+>Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
+
 
 >* **Project Supervisors:**
 >Supervisors have the responsibility of collecting group decisions from the planning meeting and keeping track of the product’s progress. They will collect and maintain information about tasks, including tasks that have been assigned to group members, completed and incomplete tasks. Expectations of the Supervisor is to host weekly meetings to review each individual’s progress and check if they have been keeping up with their deadlines, discuss solutions/problems that arose, and re-distribute tasks if necessary.
@@ -53,10 +68,9 @@ Describe the different roles on the team and the responsibilities associated wit
 
 #### Artifacts
 
-> **GitHub Issues and Task Board**
->
+>* **GitHub Issues and Task Board**
 > After discussing the features left to implement and the tasks associated with them, we will create each task as an issue on GitHub and assign them to the most appropriate member, based on which features they have previously worked on. The issues help us to keep track of our remaining tasks for the iteration, and also have labels to help with indicating which part of the stack they are associated with and the priority they should take. As this is our final iteration, any tasks related to the application’s core functionality will take high priority.
-
+>
 > Throughout the iteration developers can refer to the project task board, which shows the progress of our issues, to see which components need work and which have already been assigned. Moreover, issues can be linked to pull requests so that the task board remains up to date automatically whenever they are resolved. Over the course of the iteration, as other issues and bugs emerge, these can be added to the board as necessary.
 
 > The [git workflow](https://github.com/csc301-winter-2018/project-team-15/blob/master/deliverables/git-workflow.md) document created in the previous iteration explains the processes followed by the team, from task creation, to code commits, to push requests.
@@ -112,7 +126,6 @@ Describe the different roles on the team and the responsibilities associated wit
 >	* As a user, I want to delete an existing search for a course to be able to create a new one with a different set of criteria.
 >	* As a group member, I want to not see further search results in a course after forming a group in that course.
 >	* As a returning user, I want to delete a group after an assignment is over, in order to create a different group for the next assignment.
-
 
 #### Artifacts
 

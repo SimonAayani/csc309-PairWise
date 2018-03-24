@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 import { Grid, Segment } from 'semantic-ui-react'
 
 import Sidebar from './Sidebar'
-import Notifications from './Notifications'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 
@@ -25,8 +24,6 @@ class Dashboard extends Component {
 		            <Grid.Column width={8}>
 		              <Segment padded id="contentContainer">
 		              	<Switch>
-		              		<Route exact path='/' component={Notifications} />
-		              		<Route exact path='/dashboard' component={Notifications} />
 		              		<Route path='/dashboard/newsearch' component={SearchForm} />
 		              		<Route path='/dashboard/searchresults/' component={SearchResults} />
 		              	</Switch>

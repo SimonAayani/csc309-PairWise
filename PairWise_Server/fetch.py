@@ -1,6 +1,6 @@
-from PairWise.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
-                            Course, CourseOffering, CourseSection, Term,\
-                            Group, GroupSearchEntry, UserSearchEntry, Profile
+from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
+                                   Course, CourseOffering, CourseSection, Term,\
+                                   Group, GroupSearchEntry, UserSearchEntry, Profile
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
