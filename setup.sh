@@ -8,6 +8,7 @@ pip install django==2.0.2
 pip install djangorestframework
 pip install django-cors-headers
 pip install mysqlclient
+pip install requests
 pip install Pillow
 
 echo "Relocating Files..."
