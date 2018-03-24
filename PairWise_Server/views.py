@@ -15,9 +15,6 @@ from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_cou
                    fetch_profile_by_user, fetch_user_by_username
 
 
-RW_SAFE_METHODS = ['GET']
-
-
 class LanguageList(generics.ListAPIView):
     permission_classes = (permissions.AllowAny,)
 
@@ -83,6 +80,7 @@ class GroupListByUser(APIView):
 
     def get(self, request):
         groups = Group.objects.filter(members=request.user)
+
         serializer = GroupSerializer(groups, many=True)
         return Response(serializer.data)
 
@@ -240,25 +238,3 @@ class RegistrationView(APIView):
             newUser.save()
 
             return Response(status=status.HTTP_201_CREATED)
-
-# Readable by anyone: no authentication
-# Readable by anyone: no authentication
-# Readable by anyone: no authentication
-# Readable by anyone: no authentication
-# Readable by anyone: no authentication
-# Readable by anyone: no authentication
-
-
-# Readable only by user
-# Readable only by user
-
-# Readable only by user; writeable by anyone
-
-# Readable only by user
-
-# Writeable only by user
-# Readable by everyone authenticated
-# Writeable only by user
-# Readable by anyone; writeable only by user
-# Readable by everyone authenticated
-# Writeable by anyone

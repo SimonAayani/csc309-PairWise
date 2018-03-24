@@ -10,7 +10,7 @@ export default class MyProfile extends Component{
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
-	
+
 
 
 	render() {
@@ -21,7 +21,7 @@ export default class MyProfile extends Component{
 
 
 		const panes = [
-  		{ menuItem: 'Profile', 
+  		{ menuItem: 'Profile',
   			pane: (
   				<Tab.Pane key =  "1">
     				<div>
@@ -66,24 +66,16 @@ export default class MyProfile extends Component{
     				<Image src = {avatar} size = "small" centered/>
     				<div>
     					<p></p>
-<<<<<<< HEAD
     					<p>Name: Parry</p>
-    					
               		<p>Gender: Male</p>
               		<p>E-mail: parry@hotmail.com</p>
               		<p>Skill: Java</p>
                   <p>Bio: I'm a hardworking person.</p>
-=======
-    					   <p><b>Name:</b> Parry</p>
-              		<p><b>Gender:</b> Male</p>
-              		<p><b>E-mail:</b> parry@hotmail.com</p>
-              		<p><b>Skills:</b> Java</p>
->>>>>>> refs/remotes/csc301-winter-2018/master
     				</div>
       		</Tab.Pane>
 			) },
 
-  		{ menuItem: 'Security', 
+  		{ menuItem: 'Security',
   			pane: (
   				<Tab.Pane key = "2">
             <Form>
@@ -104,7 +96,7 @@ export default class MyProfile extends Component{
   				</Tab.Pane>
   			) },
 
-  		{ menuItem: 'Notifications', 
+  		{ menuItem: 'Notifications',
   			pane: (
   				<Tab.Pane key = "3">
             <Form>
@@ -116,7 +108,7 @@ export default class MyProfile extends Component{
                 <Checkbox toggle />
                 <label>Send notifications by E-mail:</label>
               </Form.Field>
-            </Form>         
+            </Form>
   				</Tab.Pane>
   			) },
 
@@ -136,7 +128,7 @@ export default class MyProfile extends Component{
   	return (
   		<Grid textAlign='center' style = {{marginTop: '100px'}}>
   			<Grid.Column width={10}>
-  			
+
 				<Tab menu={{ fluid: true, vertical: true, tabular: 'right'}} panes={panes}  renderActiveOnly={false}/>
 
   			</Grid.Column>
