@@ -49,7 +49,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -90,7 +89,7 @@ DATABASES = {
         'NAME': 'pairwise',
         'USER': 'PairWise Dev',
         'PASSWORD': 'StudentTinder301',
-        'HOST': '100.64.177.195',
+        'HOST': '192.168.2.121',
         'PORT': 3306
     }
 }
