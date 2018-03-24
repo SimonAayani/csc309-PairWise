@@ -73,6 +73,10 @@ def fetch_course_by_subtitle(subtitle):
     return Course.objects.get(name=subtitle)
 
 
+def fetch_most_recent_term():
+    return Term.objects.all().order_by('-year', '-term')[0]
+
+
 def fetch_term_by_time_of_year(year, term_code):
     return Term.objects.get(year=year, term=term_code)
 
@@ -116,3 +120,8 @@ def fetch_search_by_user(user, offering):
             return GroupSearchEntry.objects.get(host=my_group, host__category=offering)
     except ObjectDoesNotExist:
         return None
+
+
+if __name__ == '__main__':
+    recent = fetch_most_recent_term()
+    print("{0} {1}".format(recent.year, recent.term))
