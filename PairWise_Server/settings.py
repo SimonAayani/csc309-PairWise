@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,14 +41,13 @@ INSTALLED_APPS = [
     'PairWise_Server',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -87,15 +85,13 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwise_testing',
+        'NAME': 'pairwise',
         'USER': 'PairWise Dev',
         'PASSWORD': 'StudentTinder301',
         'HOST': '192.168.2.121',
         'PORT': 3306
     }
 }
-
-DUMP = "Blah"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
