@@ -1,28 +1,19 @@
 from PairWise_Server.fetch import fetch_user_by_username, fetch_course_by_course_code, fetch_most_recent_term,\
                                   fetch_offering_by_term, fetch_course_section_by_name
-from PairWise_Server.models import SkillTag, LocationTag, UserSearchData, UserSearchEntry
+from PairWise_Server.models import SkillTag, LocationTag, UserSearchData, UserSearchEntry, CourseOffering
 
 
 class SearchFormBuilder:
-    def __init__(self, user_name, course_code):
-        if user_name is None or type(user_name) != str:
-            raise ValueError("Student username must be a string (is {0})".format(user_name))
-        elif course_code is None or type(course_code) != str:
-            raise ValueError("Course code must be a string (is {0})".format(course_code))
+    def __init__(self, user, course):
+        if user is None:
+            print("User is wrong")
+            raise ValueError("User must be of type User (is {0})".format(type(user)))
+        elif course is None or type(course) != CourseOffering:
+            print("Course is wrong")
+            raise ValueError("Course must be of type Course (is {0})".format(type(course)))
 
-        self._student = fetch_user_by_username(user_name)
-        course = fetch_course_by_course_code(course_code)
-
-        if course is None:
-            raise ValueError("No course found with course code {0}".format(course_code))
-
-        current_term = fetch_most_recent_term()
-        self._course = fetch_offering_by_term(course, current_term)
-
-        if self._student is None:
-            raise ValueError("No student found with username {0}".format(user_name))
-        elif self._course is None:
-            raise ValueError("Course {0} is not currently offered".format(course_code))
+        self._student = user
+        self._course = course
 
         self._course_section = None
         self._requre_same_section = False
@@ -31,13 +22,15 @@ class SearchFormBuilder:
         self._capacity = 2
         self._title = ""
         self._description = ""
+        self._cutoff = 0
         self._active_search = True
+
 
     def set_course_section(self, section):
         if section is None or type(section) != str:
             raise ValueError("Section code must be a string (is {0})".format(section))
-        elif not section.startswith("LEC"):
-            raise ValueError("Section code must begin with LEC (is {0})".format(section))
+        elif not section.startswith("L"):
+            raise ValueError("Section code must begin with L (is {0})".format(section))
 
         self._course_section = fetch_course_section_by_name(self._course, section)
 
@@ -88,7 +81,16 @@ class SearchFormBuilder:
         if descr is None or type(descr) != str:
             raise ValueError("Description must be a string (is {0})".format(descr))
 
-        self._title = descr
+        self._description = descr
+        return self
+
+    def set_quality_cutoff(self, cutoff):
+        if cutoff is None or type(cutoff) != int:
+            raise ValueError("Cutoff value must be an integer (is {0})".format(cutoff))
+        elif cutoff < 0:
+            raise ValueError("Cutoff value must be positive (is {0})".format(cutoff))
+
+        self._cutoff = cutoff
         return self
 
     def set_search_inactive(self):
@@ -99,7 +101,9 @@ class SearchFormBuilder:
         return self._course_section is not None
 
     def build(self):
-        if self.ready_to_build():
+        if not self.ready_to_build():
+            return None
+        else:
             search_criteria = UserSearchData.objects.create(user=self._student)
             search_criteria.course_section = self._course_section
             search_criteria.location = self._preferred_location
@@ -114,6 +118,7 @@ class SearchFormBuilder:
             new_search.capacity = self._capacity
             new_search.title = self._title
             new_search.description = self._description
+            new_search.quality_cutoff = self._cutoff
             new_search.active_search = self._active_search
 
             if self._requre_same_section:
@@ -122,3 +127,4 @@ class SearchFormBuilder:
                 new_search.reqired_section = None
 
             new_search.save()
+            return new_search

@@ -1,17 +1,16 @@
 from PairWise_Server.models import UserSearchEntry, GroupSearchEntry, SearchResultsCache,\
-                                   Group, NewNotification, CourseOffering
+                                   NewNotification, CourseOffering
 from django.db.models import F, ObjectDoesNotExist
 from django.db.models.query_utils import Q
+from django.db.transaction import atomic
 
 
-def add_to_group(newcomer, inviter, offering, capacity=2):
+def add_to_group(newcomer, inviter, offering):
 
     try:
-        old_group = Group.objects.get(members=inviter, offering=offering)
-        if GroupSearchEntry.objects.filter(host=old_group).exists():
-            group_srch = GroupSearchEntry.objects.get(host=old_group)
-            SearchResultsCache.objects.filter(searcher__id=newcomer).delete()
-            SearchResultsCache.objects.filter(result__id=newcomer).update(result=group_srch)
+        old_group = GroupSearchEntry.objects.get(members__user=inviter, category=offering)
+        SearchResultsCache.objects.filter(searcher=newcomer).delete()
+        SearchResultsCache.objects.filter(result=newcomer).update(result=old_group)
 
         old_group.members.add(newcomer)
         old_group.size += 1
@@ -24,16 +23,31 @@ def add_to_group(newcomer, inviter, offering, capacity=2):
 
         old_group.save()
     except ObjectDoesNotExist:
-        new_group = Group.objects.create(offering=offering, capacity=capacity, size=2)
-        new_group.members.add(inviter, newcomer)
-        new_group.save()
+        old_search_entry = UserSearchEntry.objects.get(host__user=inviter)
+        my_search_entry = UserSearchEntry.objects.get(host__user=newcomer)
 
-        UserSearchEntry.objects.filter(host__in=[newcomer, inviter]).delete()
+        new_group = GroupSearchEntry.objects.create(category=offering, title=old_search_entry.title, description=old_search_entry.description)
+        new_group.capacity = old_search_entry.capacity
+        new_group.required_section = old_search_entry.required_section
+        new_group.quality_cutoff = (old_search_entry.quality_cutoff + my_search_entry.quality_cutoff) / 2
+
+        new_group.members.add(old_search_entry.host, my_search_entry.host)
+        new_group.size = 2
+
+        with atomic():
+            new_group.save()
+            old_search_entry.delete()
+            my_search_entry.delete()
+        # Create a group search entry with two members
+        # new_group = GroupSearchEntry.objects.create(offering=offering, capacity=capacity, size=2)
+        # new_group.members.add(inviter, newcomer)
+        # new_group.save()
+        #
+        # UserSearchEntry.objects.filter(host__in=[newcomer, inviter]).delete()
 
 
 def remove_from_group(user, category):
-    my_group = Group.objects.get(offering=category, members=user)
-    print(my_group)
+    my_group = GroupSearchEntry.objects.get(members__user=user, offering=category)
 
     new_search = _transfer_state_from_group(user, my_group)
     _transfer_searches_from_group(my_group, new_search)
