@@ -113,7 +113,7 @@ def fetch_group_by_member(member, offering):
 
 def fetch_search_by_user(user, offering):
     try:
-        if isinstance(user, User):
+        if UserSearchEntry.objects.filter(host__user=user, category=offering).exists():
             return UserSearchEntry.objects.get(host__user=user, category=offering)
         else:
             return fetch_group_by_member(user, offering)
