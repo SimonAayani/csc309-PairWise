@@ -25,8 +25,20 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35']
+ALLOWED_HOSTS = ['100.65.197.89', '100.65.201.91', '192.168.2.121', '192.168.2.35', '192.168.56.1']
 
+# BACKEND TODO'S:
+
+# # # Introduce full search form functionality, add skills etc.
+# More fully implement group searching, figure out how to merge criteria from multiple members
+# # Group formation and access API's
+# Improve resilience (against crashing) for profile, search entry, group lookup
+
+# Revise matching algorithm to take into account more factors
+# Make use of search result cache table to improve search times
+
+# Research Firebase, plug in for messaging backends?
+# Store invite tags?
 
 # Application definition
 
@@ -42,14 +54,13 @@ INSTALLED_APPS = [
     'PairWise_Server',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -87,15 +98,13 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwise_testing',
-        'USER': 'PairWise Dev',
+        'NAME': 'PairWise_alex',
+        'USER': 'alex',
         'PASSWORD': 'StudentTinder301',
-        'HOST': '192.168.2.121',
+        'HOST': '165.227.40.205',
         'PORT': 3306
     }
 }
-
-DUMP = "Blah"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
