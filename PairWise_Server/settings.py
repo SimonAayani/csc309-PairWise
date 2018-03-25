@@ -29,9 +29,9 @@ ALLOWED_HOSTS = ['100.65.197.89', '100.65.201.91', '192.168.2.121', '192.168.2.3
 
 # BACKEND TODO'S:
 
-# # Introduce full search form functionality, add skills etc.
+# # # Introduce full search form functionality, add skills etc.
 # More fully implement group searching, figure out how to merge criteria from multiple members
-# Group formation and access API's
+# # Group formation and access API's
 # Improve resilience (against crashing) for profile, search entry, group lookup
 
 # Revise matching algorithm to take into account more factors
@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwise',
-        'USER': 'PairWise Dev',
+        'NAME': 'PairWise_alex',
+        'USER': 'alex',
         'PASSWORD': 'StudentTinder301',
-        'HOST': '100.64.177.195',
+        'HOST': '165.227.40.205',
         'PORT': 3306
     }
 }
