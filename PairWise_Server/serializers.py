@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from PairWise_Server.models import DataTag, Course, Profile, User, Group, Notification, UserSearchEntry, GroupSearchEntry
+from PairWise_Server.models import DataTag, Course, Profile, User, Notification,\
+                                   UserSearchEntry, GroupSearchEntry, UserSearchData, CourseSection, SearchEntry, SearchResultsCache
 
 
 class DataTagSerializer(serializers.ModelSerializer):
@@ -12,6 +13,14 @@ class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = ('course_id', 'course_code', 'name')
+
+
+class CourseSectionSerializer(serializers.ModelSerializer):
+    offering__course = CourseSerializer(read_only=True)
+
+    class Meta:
+        model = CourseSection
+        fields = ('section_id', 'section_name', 'offering__course')
 
 
 class ProfileReadSerializer(serializers.ModelSerializer):
@@ -34,20 +43,11 @@ class ProfileWriteSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileReadSerializer(read_only=True)
+    profile__pic = serializers.ImageField(max_length=100, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile', 'is_active', 'date_joined')
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    offering__course = CourseSerializer(read_only=True)
-    members = UserSerializer(read_only=True, many=True)
-
-    class Meta:
-        model = Group
-        fields = ('group_id', 'offering__course', 'members', 'capacity', 'size')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile__pic', 'last_login', 'date_joined')
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -60,20 +60,55 @@ class NotificationSerializer(serializers.ModelSerializer):
         fields = ('id', 'sender', 'receiver', 'category__course', 'text', 'is_invite')
 
 
+class UserSearchDataSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    course_section = CourseSectionSerializer(read_only=True)
+    location = DataTagSerializer(read_only=True)
+    desired_skills = DataTagSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = UserSearchData
+        fields = ('id', 'user', 'course_section', 'location', 'desired_skills')
+
+
 class UserSearchSerializer(serializers.ModelSerializer):
-    host = UserSerializer(read_only=True)
+    host = UserSearchDataSerializer(read_only=True)
     category__course = CourseSerializer(read_only=True)
-    desired_fields = DataTagSerializer(many=True, read_only=True)
+    required_section = CourseSectionSerializer(read_only=True)
 
     class Meta:
         model = UserSearchEntry
-        fields = ('id', 'host', 'category__course', 'description', 'subhead', 'desired_fields', 'active_search')
+        fields = ('id', 'host', 'category__course', 'title', 'description', 'capacity', 'required_section')
 
 
 class GroupSearchSerializer(serializers.ModelSerializer):
-    host = GroupSerializer(many=True, read_only=True)
-    desired_fields = DataTagSerializer(read_only=True)
+    members = UserSearchDataSerializer(many=True, read_only=True)
+    category__course = CourseSerializer(read_only=True)
+    required_section = CourseSectionSerializer(read_only=True)
 
     class Meta:
         model = GroupSearchEntry
-        fields = ('id', 'host', 'description', 'subhead', 'desired_fields', 'active_search')
+        fields = ('id', 'members', 'category__course', 'title', 'description', 'capacity', 'size', 'required_section')
+
+
+class GenericSearchSerializer(serializers.ModelSerializer):
+    def to_representation(self, instance):
+        if GroupSearchEntry.objects.filter(id=instance.id).exists():
+            return GroupSearchSerializer(instance=instance.groupsearchentry).data
+        elif UserSearchEntry.objects.filter(id=instance.id).exists():
+            return UserSearchDataSerializer(instance=instance.usersearchentry.host).data
+
+        else:
+            return {}
+
+    class Meta:
+        model = SearchEntry
+        fields = '__all__'
+
+
+class ResultsCacheSerializer(serializers.ModelSerializer):
+    result = GenericSearchSerializer(read_only=True)
+
+    class Meta:
+        model = SearchResultsCache
+        fields = ('result', 'match_coefficient')
