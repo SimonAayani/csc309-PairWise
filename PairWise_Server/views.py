@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status, permissions
-from .permissions import IsOwnerOrReadOnlyIfAuthenticated
+from .permissions import IsOwnerOrReadOnlyIfAuthenticated, IsNotAuthenticated, IsAuthenticatedAndHasProfile
 from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag, GroupSearchEntry,\
                                    Course, User, Notification, NewNotification, Profile, NewNotification,\
                                    SearchResultsCache, UserSearchEntry, SearchEntry
@@ -151,7 +151,7 @@ class ProfileReader(generics.RetrieveUpdateAPIView):
 
 
 class GroupForm(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (IsAuthenticatedAndHasProfile,)
 
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
@@ -204,7 +204,7 @@ class GroupForm(APIView):
 
 
 class SearchDetails(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (IsAuthenticatedAndHasProfile,)
 
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
@@ -269,7 +269,7 @@ class SearchEntryFieldsMixin(object):
 
 
 class SearchList(SearchEntryFieldsMixin, APIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (IsAuthenticatedAndHasProfile,)
 
     def _get_course(self, course_code):
         course = fetch_course_by_course_code(course_code)
@@ -295,7 +295,7 @@ class SearchList(SearchEntryFieldsMixin, APIView):
 
 
 class RegistrationView(APIView):
-    permission_classes = (permissions.AllowAny,)
+    permission_classes = (IsNotAuthenticated,)
 
     def post(self, request):
         username = request.data['username']
