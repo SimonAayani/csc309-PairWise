@@ -184,8 +184,13 @@ class GroupListByUser(APIView):
 
 class NotificationsByUser(APIView):
     """
-    Returns a list of notifications received by the user. Currently deprecated as we decide how and whether
-    to move into Firebase. May be repurposed for group invites.
+    API endpoint to access group invitation notifications. Invites are identified by the receiver and the
+    course, where they need identification; POST and DELETE requests operate on single invites, so they
+    requre that information to access single notifications.
+
+    GET requests return the list of all active invites that this user has sent, and that they have received.
+    Calling a GET request on this endpoint can be used to populate an invitations inbox or outbox in the
+    landing page or similar.
     """
     permission_classes = (permissions.IsAuthenticated,)
 
