@@ -1,6 +1,5 @@
-from PairWise_Server.fetch import fetch_user_by_username, fetch_course_by_course_code, fetch_most_recent_term,\
-                                  fetch_offering_by_term, fetch_course_section_by_name
-from PairWise_Server.models import SkillTag, LocationTag, UserSearchData, UserSearchEntry, CourseOffering
+from PairWise_Server.fetch import fetch_course_section_by_name
+from PairWise_Server.models import AvailableSearchEntry, UserSearchData, SkillTag, LocationTag, CourseOffering
 
 
 class SearchFormBuilder:
@@ -24,7 +23,6 @@ class SearchFormBuilder:
         self._description = ""
         self._cutoff = 0
         self._active_search = True
-
 
     def set_course_section(self, section):
         if section is None or type(section) != str:
@@ -104,16 +102,8 @@ class SearchFormBuilder:
         if not self.ready_to_build():
             return None
         else:
-            search_criteria = UserSearchData.objects.create(user=self._student)
-            search_criteria.course_section = self._course_section
-            search_criteria.location = self._preferred_location
-
-            for tag in self._skills:
-                search_criteria.desired_skills.add(tag)
-
-            search_criteria.save()
-
-            new_search = UserSearchEntry.objects.create(host=search_criteria, category=self._course)
+            # First create the search object, with core information about the search state.
+            new_search = AvailableSearchEntry.objects.create(category=self._course)
 
             new_search.capacity = self._capacity
             new_search.title = self._title
@@ -121,10 +111,21 @@ class SearchFormBuilder:
             new_search.quality_cutoff = self._cutoff
             new_search.active_search = self._active_search
 
+            print("Require same section? {0}".format(self._requre_same_section))
             if self._requre_same_section:
-                new_search.reqired_section = self._course_section
+                new_search.required_section = self._course_section
             else:
-                new_search.reqired_section = None
+                new_search.required_section = None
 
             new_search.save()
+
+            # Now create the user data, which is linked to the search by a search pointer.
+            host_data = UserSearchData.objects.create(user=self._student, search=new_search)
+            host_data.course_section = self._course_section
+            host_data.location = self._preferred_location
+
+            for tag in self._skills:
+                host_data.desired_skills.add(tag)
+
+            host_data.save()
             return new_search

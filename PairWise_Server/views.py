@@ -4,16 +4,16 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status, permissions
 from .permissions import IsOwnerOrReadOnlyIfAuthenticated, IsNotAuthenticated, IsAuthenticatedAndHasProfile
-from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag, GroupSearchEntry,\
-                                   Course, User, Notification, Profile, SearchResultsCache, SearchEntry
+from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
+                                   Course, User, Notification, Profile, SearchResultsCache, AvailableSearchEntry
 from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, NotificationSerializer,\
-                                        GroupSearchSerializer, ResultsCacheSerializer,\
-                                        ProfileWriteSerializer, ProfileReadSerializer, GenericSearchSerializer
+                                        ResultsCacheSerializer,\
+                                        ProfileWriteSerializer, ProfileReadSerializer, SearchEntrySerializer
 from .search_form_builder import SearchFormBuilder
-from .search_ops import measure_matches_user_to_user
-from .group_ops import send_invite, add_to_group
+from .search_ops import update_cache
+from .group_ops import send_invite, add_to_group, remove_from_group
 from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code, fetch_search_by_user,\
-                   fetch_most_recent_term, fetch_group_by_member
+                   fetch_most_recent_term
 
 from traceback import format_exc
 
@@ -162,13 +162,7 @@ class CourseListByUser(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
-        # First tries to find courses in which the user has formed groups.
-        courses = Course.objects.filter(courseoffering__searchentry__groupsearchentry__members__user=request.user)
-
-        if not courses.exists():
-            # Only actually looks for ongoing searches which have not yet formed groups, if not searches have
-            # formed groups yet. This is a bug.
-            courses = Course.objects.filter(courseoffering__searchentry__usersearchentry__host__user=request.user)
+        courses = Course.objects.filter(courseoffering__searchentry__members__user=request.user)
 
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
@@ -182,9 +176,9 @@ class GroupListByUser(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
-        groups = GroupSearchEntry.objects.filter(members__user=request.user)
+        groups = AvailableSearchEntry.objects.filter(members__user=request.user, size__gte=2)
 
-        serializer = GroupSearchSerializer(groups, many=True)
+        serializer = SearchEntrySerializer(groups, many=True)
         return Response(serializer.data)
 
 
@@ -219,17 +213,12 @@ class NotificationsByUser(APIView):
         invitee = User.objects.get(id=request.data['invitee'])
         course = self._get_course(request.data['course'])
 
-        if 'text' in request.data:
-            message = request.data['text']
-        else:
-            message = None
-
-        send_invite(request.user, invitee, course, message)
+        send_invite(request.user, invitee, course)
         return Response(status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET'])
-@permission_classes((permissions.IsAuthenticated))
+@permission_classes((permissions.IsAuthenticated,))
 def user_categories_root(request):
     """
     Function-based retrieval endpoint for user state information. Returns the output from the user courses
@@ -328,6 +317,7 @@ class SearchDetails(APIView):
 
         section = request.data['section']
         samesection = request.data['require_same_section']
+        print(samesection)
         skills = request.data['desired_skills']
         location = request.data['location']
         cap = request.data['group_capacity']
@@ -368,7 +358,7 @@ class SearchDetails(APIView):
         else:
             # Search entry was successfully created. It is matched beforehand, and the results are cached
             # to be used when the user next accesses their search results.
-            measure_matches_user_to_user(new_search_entry, cutoff=cutoff)
+            update_cache(new_search_entry)
             return Response(status=status.HTTP_201_CREATED)
 
     def get(self, request, course_code):
@@ -387,20 +377,12 @@ class SearchDetails(APIView):
         if my_search is None:
             return Response({})
         else:
-            serializer = GenericSearchSerializer(fetch_search_by_user(request.user, course))
+            search_entry = fetch_search_by_user(request.user, course)
+            serializer = SearchEntrySerializer(search_entry, allow_null=True)
             return Response(serializer.data)
 
 
-class SearchEntryFieldsMixin(object):
-    """
-    A class that enables use of inheritance managers to be able to query a parent model (such as SearchEntry)
-    and get information about its child models (UserSearchEntry and GroupSearchEntry) in one query.
-    """
-    def get_queryset(self):
-        return SearchEntry.objects.select_subclasses()
-
-
-class SearchList(SearchEntryFieldsMixin, APIView):
+class SearchList(APIView):
     """
     API endpoint for mass operations on search results. Namely, the endpoint through which to request
     a user's search results in a specified course. A user must provide a course code in the
@@ -474,11 +456,11 @@ class GroupForm(APIView):
         """
         course = _get_course(course_code)
 
-        group = fetch_group_by_member(request.user, course)
-        if group is None:
+        group = fetch_search_by_user(request.user, course)
+        if group is None or group.size < 2:
             return Response(status=status.HTTP_404_NOT_FOUND)
         else:
-            serializer = GroupSearchSerializer(group)
+            serializer = SearchEntrySerializer(group)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, course_code):
@@ -487,6 +469,11 @@ class GroupForm(APIView):
         in the request data, with the key "inviter": this is the user ID of the person who sent
         the group invite. The user who sends the request to this endpoint is the newcomer to the
         group, should it already exist.
+
+        The newcomer always abandons their old search, and joins the existing search without
+        modifying its parameters extensively. The search retains the same title, description,
+        capacity, and some other fields. However, the new user's preferences (desired skills,
+        location, section) will be taken into account when the group is matched again.
 
         :param request: A parsed HTTP request that arrived at this endpoint
         :type request: rest_framework.request.Request
@@ -504,6 +491,32 @@ class GroupForm(APIView):
         # such as title and capacity.
         add_to_group(newcomer=request.user, inviter=inviter, offering=course)
         return Response(status=status.HTTP_201_CREATED)
+
+    def delete(self, request, course_code):
+        """
+        Drop a user out of a group, dividing the one search into two. The leaving user gets back
+        the search details they lost when they joined the group; that is, the options they selected
+        when filling out the search form are recovered, and the user continues that search again.
+        The group's parameters (except for size) are unchanged.
+
+        A user can also send a DELETE request to this endpoint if they have not formed a group,
+        in which case their search will be cancelled and destroyed irrecoverably.
+
+        :param request: A parsed HTTP request that arrived at this endpoint
+        :type request: rest_framework.request.Request
+        :param course_code: The course string (e.g. CSC301) that identifies which course the user
+                            wants results from
+        :type course_code: str
+        :return: A HTTP response indicating the success or failre of the operation
+        :rtype: rest_framework.response.Response
+        """
+        course = _get_course(course_code)
+
+        # The newcomer joins the inviter's group should it exist. If the inviter is not in a
+        # group, then a new group is formed which inherits the inviter's search information
+        # such as title and capacity.
+        remove_from_group(request.user, course)
+        return Response(status=status.HTTP_202_ACCEPTED)
 
 
 def _get_course(course_code):

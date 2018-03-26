@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from PairWise_Server.models import DataTag, Course, Profile, User, Notification, CourseOffering, Term,\
-                                   UserSearchEntry, GroupSearchEntry, UserSearchData, CourseSection, SearchEntry, SearchResultsCache
+                                   UserSearchData, CourseSection, AvailableSearchEntry, SearchResultsCache
 
 
 class DataTagSerializer(serializers.ModelSerializer):
@@ -86,43 +86,18 @@ class UserSearchDataSerializer(serializers.ModelSerializer):
         fields = ('id', 'user', 'course_section', 'location', 'desired_skills')
 
 
-class UserSearchSerializer(serializers.ModelSerializer):
-    host = UserSearchDataSerializer(read_only=True)
-    category = CourseOfferingSerializer(read_only=True)
-    required_section = CourseSectionSerializer(read_only=True)
-
-    class Meta:
-        model = UserSearchEntry
-        fields = ('id', 'category', 'title', 'description', 'capacity', 'required_section', 'host')
-
-
-class GroupSearchSerializer(serializers.ModelSerializer):
+class SearchEntrySerializer(serializers.ModelSerializer):
     category = CourseOfferingSerializer(read_only=True)
     required_section = CourseSectionSerializer(read_only=True)
     members = UserSearchDataSerializer(many=True, read_only=True)
 
     class Meta:
-        model = GroupSearchEntry
-        fields = ('id', 'category', 'title', 'description', 'capacity', 'size', 'required_section', 'members')
-
-
-class GenericSearchSerializer(serializers.ModelSerializer):
-    def to_representation(self, instance):
-        if GroupSearchEntry.objects.filter(id=instance.id).exists():
-            return GroupSearchSerializer(instance=instance.groupsearchentry).data
-        elif UserSearchEntry.objects.filter(id=instance.id).exists():
-            return UserSearchDataSerializer(instance=instance.usersearchentry.host).data
-
-        else:
-            return {}
-
-    class Meta:
-        model = SearchEntry
-        fields = '__all__'
+        model = AvailableSearchEntry
+        fields = ('id', 'category', 'title', 'description', 'size', 'capacity', 'required_section', 'members')
 
 
 class ResultsCacheSerializer(serializers.ModelSerializer):
-    result = GenericSearchSerializer(read_only=True)
+    result = SearchEntrySerializer(read_only=True)
 
     class Meta:
         model = SearchResultsCache
