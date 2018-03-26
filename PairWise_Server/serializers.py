@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from PairWise_Server.models import DataTag, Course, Profile, User, Notification,\
-                                   UserSearchEntry, GroupSearchEntry, UserSearchData, CourseSection, SearchEntry, SearchResultsCache
+from PairWise_Server.models import DataTag, Course, Profile, User, Notification, CourseOffering, Term,\
+                                   UserSearchData, CourseSection, AvailableSearchEntry, SearchResultsCache
 
 
 class DataTagSerializer(serializers.ModelSerializer):
@@ -15,12 +15,27 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = ('course_id', 'course_code', 'name')
 
 
+class TermSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Term
+        fields = ('year', 'term')
+
+
+class CourseOfferingSerializer(serializers.ModelSerializer):
+    course = CourseSerializer(read_only=True)
+    term = TermSerializer(read_only=True)
+
+    class Meta:
+        model = CourseOffering
+        fields = ('course', 'term')
+
+
 class CourseSectionSerializer(serializers.ModelSerializer):
-    offering__course = CourseSerializer(read_only=True)
+    offering = CourseOfferingSerializer(read_only=True)
 
     class Meta:
         model = CourseSection
-        fields = ('section_id', 'section_name', 'offering__course')
+        fields = ('section_id', 'section_name', 'offering')
 
 
 class ProfileReadSerializer(serializers.ModelSerializer):
@@ -53,11 +68,11 @@ class UserSerializer(serializers.ModelSerializer):
 class NotificationSerializer(serializers.ModelSerializer):
     sender = UserSerializer(read_only=True)
     receiver = UserSerializer(read_only=True)
-    category__course = CourseSerializer(read_only=True)
+    category = CourseOfferingSerializer(read_only=True)
 
     class Meta:
         model = Notification
-        fields = ('id', 'sender', 'receiver', 'category__course', 'text', 'is_invite')
+        fields = ('id', 'sender', 'receiver', 'category', 'text', 'is_invite')
 
 
 class UserSearchDataSerializer(serializers.ModelSerializer):
@@ -71,43 +86,18 @@ class UserSearchDataSerializer(serializers.ModelSerializer):
         fields = ('id', 'user', 'course_section', 'location', 'desired_skills')
 
 
-class UserSearchSerializer(serializers.ModelSerializer):
-    host = UserSearchDataSerializer(read_only=True)
-    category__course = CourseSerializer(read_only=True)
+class SearchEntrySerializer(serializers.ModelSerializer):
+    category = CourseOfferingSerializer(read_only=True)
     required_section = CourseSectionSerializer(read_only=True)
-
-    class Meta:
-        model = UserSearchEntry
-        fields = ('id', 'host', 'category__course', 'title', 'description', 'capacity', 'required_section')
-
-
-class GroupSearchSerializer(serializers.ModelSerializer):
     members = UserSearchDataSerializer(many=True, read_only=True)
-    category__course = CourseSerializer(read_only=True)
-    required_section = CourseSectionSerializer(read_only=True)
 
     class Meta:
-        model = GroupSearchEntry
-        fields = ('id', 'members', 'category__course', 'title', 'description', 'capacity', 'size', 'required_section')
-
-
-class GenericSearchSerializer(serializers.ModelSerializer):
-    def to_representation(self, instance):
-        if GroupSearchEntry.objects.filter(id=instance.id).exists():
-            return GroupSearchSerializer(instance=instance.groupsearchentry).data
-        elif UserSearchEntry.objects.filter(id=instance.id).exists():
-            return UserSearchDataSerializer(instance=instance.usersearchentry.host).data
-
-        else:
-            return {}
-
-    class Meta:
-        model = SearchEntry
-        fields = '__all__'
+        model = AvailableSearchEntry
+        fields = ('id', 'category', 'title', 'description', 'size', 'capacity', 'required_section', 'members')
 
 
 class ResultsCacheSerializer(serializers.ModelSerializer):
-    result = GenericSearchSerializer(read_only=True)
+    result = SearchEntrySerializer(read_only=True)
 
     class Meta:
         model = SearchResultsCache
