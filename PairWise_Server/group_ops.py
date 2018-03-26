@@ -1,4 +1,4 @@
-from PairWise_Server.models import AvailableSearchEntry, SearchResultsCache, NewNotification
+from PairWise_Server.models import AvailableSearchEntry, SearchResultsCache, Notification
 from PairWise_Server.search_ops import update_cache, abandon_search, recover_search
 from django.db.models import F, ObjectDoesNotExist
 from django.db.models.query_utils import Q
@@ -39,8 +39,13 @@ def remove_from_group(user, category):
 
 
 def send_invite(sender, receiver, category):
-    msg_text = "{0} {1} ({2}) wants to invite you to a {3} group!".format(sender.first_name, sender.last_name, sender.username, category.course.course_code)
+    msg_text = "{0} {1} ({2}) has invited you to a group for {0}!".format(sender.first_name, sender.last_name,
+                                                                          sender.username, category.course.course_code)
 
-    msg = NewNotification.objects.get_or_create(sender=sender, receiver=receiver, category=category, is_invite=True)[0]
+    msg, new = Notification.objects.get_or_create(sender=sender, receiver=receiver, category=category)
     msg.text = msg_text
     msg.save()
+
+    
+def cancel_invite(sender, receiver, category):
+    Notification.objects.filter(sender=sender, receiver=receiver, category=category).delete()

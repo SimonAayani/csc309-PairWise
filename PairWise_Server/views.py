@@ -11,7 +11,7 @@ from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, Not
                                         ProfileWriteSerializer, ProfileReadSerializer, SearchEntrySerializer
 from .search_form_builder import SearchFormBuilder
 from .search_ops import update_cache
-from .group_ops import send_invite, add_to_group, remove_from_group
+from .group_ops import send_invite, cancel_invite, add_to_group, remove_from_group
 from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code, fetch_search_by_user,\
                    fetch_most_recent_term
 
@@ -190,31 +190,30 @@ class NotificationsByUser(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
     def get(self, request):
-        new = Notification.objects.filter(receiver__id=request.user.id, newnotification__isnull=False)
-        old = Notification.objects.filter(receiver__id=request.user.id, newnotification__isnull=True)
+        inbound = Notification.objects.filter(receiver=request.user)
+        outbound = Notification.objects.filter(sender=request.user)
 
-        new_serializer = NotificationSerializer(new, many=True)
-        old_serializer = NotificationSerializer(old, many=True)
+        in_serializer = NotificationSerializer(inbound, many=True)
+        out_serializer = NotificationSerializer(outbound, many=True)
 
         return Response({
-            'new': new_serializer.data,
-            'old': old_serializer.data
+            "in": in_serializer.data,
+            "out": out_serializer.data
         })
-
-    def _get_course(self, course_code):
-        course = fetch_course_by_course_code(course_code)
-        current_term = fetch_term_by_time_of_year(2018, 'S')
-
-        course_offr = fetch_offering_by_term(course, current_term)
-
-        return course_offr
 
     def post(self, request):
         invitee = User.objects.get(id=request.data['invitee'])
-        course = self._get_course(request.data['course'])
+        course = _get_course(request.data['course'])
 
         send_invite(request.user, invitee, course)
         return Response(status=status.HTTP_201_CREATED)
+
+    def delete(self, request):
+        invitee = User.objects.get(id=request.data['invitee'])
+        course = _get_course(request.data['course'])
+
+        cancel_invite(request.user, invitee, course)
+        return Response(status=status.HTTP_202_ACCEPTED)
 
 
 @api_view(['GET'])
@@ -490,6 +489,7 @@ class GroupForm(APIView):
         # group, then a new group is formed which inherits the inviter's search information
         # such as title and capacity.
         add_to_group(newcomer=request.user, inviter=inviter, offering=course)
+        cancel_invite(inviter, request.user, course)
         return Response(status=status.HTTP_201_CREATED)
 
     def delete(self, request, course_code):

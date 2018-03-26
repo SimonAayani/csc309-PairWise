@@ -72,7 +72,7 @@ class NotificationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Notification
-        fields = ('id', 'sender', 'receiver', 'category', 'text', 'is_invite')
+        fields = ('id', 'sender', 'receiver', 'category')
 
 
 class UserSearchDataSerializer(serializers.ModelSerializer):
