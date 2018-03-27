@@ -1,6 +1,12 @@
 from requests import get
-from PairWise_Server.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
 import datetime
+from os import environ
+from django import setup
+
+environ.setdefault('DJANGO_SETTINGS_MODULE', 'PairWise_Server.settings')
+setup()
+
+from models import Course, Term, CourseOffering, TimeSection, CourseSection
 
 
 def load_course_data():
@@ -82,5 +88,6 @@ def migrate():
 
 
 if __name__ == '__main__':
+    # Course.object.clear()
     migrate()
     print('Done')
