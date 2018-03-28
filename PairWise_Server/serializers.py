@@ -22,7 +22,7 @@ class TermSerializer(serializers.ModelSerializer):
 
 
 class CourseOfferingSerializer(serializers.ModelSerializer):
-    course = CourseSerializer(read_only=True)
+    course = serializers.SlugRelatedField(slug_field='course_code', read_only=True)
     term = TermSerializer(read_only=True)
 
     class Meta:
@@ -66,8 +66,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class NotificationSerializer(serializers.ModelSerializer):
-    sender = UserSerializer(read_only=True)
-    receiver = UserSerializer(read_only=True)
+    sender = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    receiver = serializers.SlugRelatedField(slug_field='username', read_only=True)
     category = CourseOfferingSerializer(read_only=True)
 
     class Meta:
