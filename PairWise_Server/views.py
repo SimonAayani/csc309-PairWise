@@ -238,10 +238,8 @@ def user_categories_root(request):
     :return: A serialized string containing all kinds of data tags, segregated by tag type
     :rtype: rest_framework.response.Response
     """
-    serializer = UserSerializer(request.user)
-
     return Response({
-        'me': serializer.data,
+        'user_id': request.user.id,
         'courses': CourseListByUser.as_view()(request=request._request).data,
         'groups': GroupListByUser.as_view()(request=request._request).data,
         'notifications': NotificationsByUser.as_view()(request=request._request).data
