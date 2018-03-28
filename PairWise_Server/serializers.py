@@ -49,6 +49,14 @@ class ProfileReadSerializer(serializers.ModelSerializer):
         fields = ('courses', 'location', 'skills', 'bio', 'pic')
 
 
+class ProfilePicSerializer(serializers.ModelSerializer):
+    pic = serializers.ImageField(max_length=100, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('pic',)
+
+
 class ProfileWriteSerializer(serializers.ModelSerializer):
     pic = serializers.ImageField(max_length=100, allow_null=True)
 
@@ -58,11 +66,11 @@ class ProfileWriteSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    # profile_set = serializers.SlugRelatedField(slug_field='pic', many=True, allow_null=True, read_only=True)
+    profile_set = ProfilePicSerializer(many=True, allow_null=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile_set', 'last_login', 'date_joined')
 
 
 class NotificationSerializer(serializers.ModelSerializer):
