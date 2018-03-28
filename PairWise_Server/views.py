@@ -97,6 +97,7 @@ def data_tag_root(request, format=None):
         'languages': LanguageList.as_view()(request=request._request, format=format).data,
         'concepts': ConceptList.as_view()(request=request._request, format=format).data,
         'frameworks': FrameworkList.as_view()(request=request._request, format=format).data,
+        'locations': LocationList.as_view()(request=request._request, format=format).data,
         'courses': CourseList.as_view()(request=request._request, format=format).data,
     })
 
@@ -522,6 +523,15 @@ class GroupForm(APIView):
         # such as title and capacity.
         remove_from_group(request.user, course)
         return Response(status=status.HTTP_202_ACCEPTED)
+
+
+def check_permissions(request, view):
+    user = view.authenticator.authenticate(request)
+    if user is None:
+        return False
+    else:
+        request.user = user
+        return view.permission.has_permission(request, view)
 
 
 def _get_course(course_code):
