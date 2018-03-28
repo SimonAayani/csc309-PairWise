@@ -25,20 +25,7 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.197.89', '100.65.201.91', '192.168.2.121', '192.168.2.35', '192.168.56.1']
-
-# BACKEND TODO'S:
-
-# # # Introduce full search form functionality, add skills etc.
-# More fully implement group searching, figure out how to merge criteria from multiple members
-# # Group formation and access API's
-# Improve resilience (against crashing) for profile, search entry, group lookup
-
-# Revise matching algorithm to take into account more factors
-# Make use of search result cache table to improve search times
-
-# Research Firebase, plug in for messaging backends?
-# Store invite tags?
+ALLOWED_HOSTS = ['100.65.78.81', '100.65.196.2', '100.65.201.91', '192.168.2.121', '192.168.2.35', '192.168.56.1']
 
 # Application definition
 
@@ -98,12 +85,18 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PairWise_alex',
-        'USER': 'alex',
+        'NAME': 'pairwise',
+        'USER': 'PairWise Dev',
         'PASSWORD': 'StudentTinder301',
-        'HOST': '165.227.40.205',
+        'HOST': '100.64.178.209',
         'PORT': 3306
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    )
 }
 
 # Password validation

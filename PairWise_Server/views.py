@@ -7,7 +7,7 @@ from .permissions import IsOwnerOrReadOnlyIfAuthenticated, IsNotAuthenticated, I
 from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
                                    Course, User, Notification, Profile, SearchResultsCache, AvailableSearchEntry
 from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, NotificationSerializer,\
-                                        ResultsCacheSerializer,\
+                                        ResultsCacheSerializer, UserSerializer, \
                                         ProfileWriteSerializer, ProfileReadSerializer, SearchEntrySerializer
 from .search_form_builder import SearchFormBuilder
 from .search_ops import update_cache
@@ -238,7 +238,10 @@ def user_categories_root(request):
     :return: A serialized string containing all kinds of data tags, segregated by tag type
     :rtype: rest_framework.response.Response
     """
+    serializer = UserSerializer(request.user)
+
     return Response({
+        'me': serializer.data,
         'courses': CourseListByUser.as_view()(request=request._request).data,
         'groups': GroupListByUser.as_view()(request=request._request).data,
         'notifications': NotificationsByUser.as_view()(request=request._request).data
@@ -523,15 +526,6 @@ class GroupForm(APIView):
         # such as title and capacity.
         remove_from_group(request.user, course)
         return Response(status=status.HTTP_202_ACCEPTED)
-
-
-def check_permissions(request, view):
-    user = view.authenticator.authenticate(request)
-    if user is None:
-        return False
-    else:
-        request.user = user
-        return view.permission.has_permission(request, view)
 
 
 def _get_course(course_code):
