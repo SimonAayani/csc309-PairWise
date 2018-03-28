@@ -1,5 +1,9 @@
 from requests import get
-from PairWise_Server.models.courses import Course, Term, CourseOffering, TimeSection, CourseSection
+from os import environ
+from django import setup
+environ.setdefault("DJANGO_SETTINGS_MODULE", "PairWise_Server.settings")
+setup()
+from models import Course, Term, CourseOffering, TimeSection, CourseSection
 import datetime
 
 

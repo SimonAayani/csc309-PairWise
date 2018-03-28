@@ -25,7 +25,7 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35']
+ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35', '165.227.40.205', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'PairWise_Server',
+    'PairWise_Server'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,9 +51,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = (
@@ -87,10 +86,10 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwise_testing',
-        'USER': 'PairWise Dev',
-        'PASSWORD': 'StudentTinder301',
-        'HOST': '192.168.2.121',
+        'NAME': 'pairwiseServer',
+        'USER': 'pw',
+        'PASSWORD': 'pairwise',
+        'HOST': '127.0.0.1',
         'PORT': 3306
     }
 }
