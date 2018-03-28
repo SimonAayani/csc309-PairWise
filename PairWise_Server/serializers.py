@@ -58,11 +58,11 @@ class ProfileWriteSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile__pic = serializers.ImageField(max_length=100, read_only=True)
+    # profile_set = serializers.SlugRelatedField(slug_field='pic', many=True, allow_null=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile__pic', 'last_login', 'date_joined')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'last_login', 'date_joined')
 
 
 class NotificationSerializer(serializers.ModelSerializer):
