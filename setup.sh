@@ -6,6 +6,7 @@ echo "Installing dependencies..."
 
 pip install django==2.0.2
 pip install djangorestframework
+pip install djangorestframework-jwt
 pip install django-cors-headers
 pip install mysqlclient
 pip install requests
