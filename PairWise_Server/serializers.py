@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from PairWise_Server.models import DataTag, Course, Profile, User, Group, Notification, UserSearchEntry, GroupSearchEntry
+from PairWise_Server.models import DataTag, Course, Profile, User, Notification, CourseOffering, Term,\
+                                   UserSearchData, CourseSection, AvailableSearchEntry, SearchResultsCache
 
 
 class DataTagSerializer(serializers.ModelSerializer):
@@ -14,6 +15,29 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = ('course_id', 'course_code', 'name')
 
 
+class TermSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Term
+        fields = ('year', 'term')
+
+
+class CourseOfferingSerializer(serializers.ModelSerializer):
+    course = serializers.SlugRelatedField(slug_field='course_code', read_only=True)
+    term = TermSerializer(read_only=True)
+
+    class Meta:
+        model = CourseOffering
+        fields = ('course', 'term')
+
+
+class CourseSectionSerializer(serializers.ModelSerializer):
+    offering = CourseOfferingSerializer(read_only=True)
+
+    class Meta:
+        model = CourseSection
+        fields = ('section_id', 'section_name', 'offering')
+
+
 class ProfileReadSerializer(serializers.ModelSerializer):
     courses = CourseSerializer(many=True, read_only=True)
     location = DataTagSerializer(read_only=True)
@@ -25,6 +49,14 @@ class ProfileReadSerializer(serializers.ModelSerializer):
         fields = ('courses', 'location', 'skills', 'bio', 'pic')
 
 
+class ProfilePicSerializer(serializers.ModelSerializer):
+    pic = serializers.ImageField(max_length=100, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('pic',)
+
+
 class ProfileWriteSerializer(serializers.ModelSerializer):
     pic = serializers.ImageField(max_length=100, allow_null=True)
 
@@ -34,46 +66,47 @@ class ProfileWriteSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileReadSerializer(read_only=True)
+    profile_set = ProfilePicSerializer(many=True, allow_null=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile', 'is_active', 'date_joined')
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    offering__course = CourseSerializer(read_only=True)
-    members = UserSerializer(read_only=True, many=True)
-
-    class Meta:
-        model = Group
-        fields = ('group_id', 'offering__course', 'members', 'capacity', 'size')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile_set', 'last_login', 'date_joined')
 
 
 class NotificationSerializer(serializers.ModelSerializer):
-    sender = UserSerializer(read_only=True)
-    receiver = UserSerializer(read_only=True)
-    category__course = CourseSerializer(read_only=True)
+    sender = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    receiver = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    category = CourseOfferingSerializer(read_only=True)
 
     class Meta:
         model = Notification
-        fields = ('id', 'sender', 'receiver', 'category__course', 'text', 'is_invite')
+        fields = ('id', 'sender', 'receiver', 'category')
 
 
-class UserSearchSerializer(serializers.ModelSerializer):
-    host = UserSerializer(read_only=True)
-    category__course = CourseSerializer(read_only=True)
-    desired_fields = DataTagSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = UserSearchEntry
-        fields = ('id', 'host', 'category__course', 'description', 'subhead', 'desired_fields', 'active_search')
-
-
-class GroupSearchSerializer(serializers.ModelSerializer):
-    host = GroupSerializer(many=True, read_only=True)
-    desired_fields = DataTagSerializer(read_only=True)
+class UserSearchDataSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    course_section = CourseSectionSerializer(read_only=True)
+    location = DataTagSerializer(read_only=True)
+    desired_skills = DataTagSerializer(many=True, read_only=True)
 
     class Meta:
-        model = GroupSearchEntry
-        fields = ('id', 'host', 'description', 'subhead', 'desired_fields', 'active_search')
+        model = UserSearchData
+        fields = ('id', 'user', 'course_section', 'location', 'desired_skills')
+
+
+class SearchEntrySerializer(serializers.ModelSerializer):
+    category = CourseOfferingSerializer(read_only=True)
+    required_section = CourseSectionSerializer(read_only=True)
+    members = UserSearchDataSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = AvailableSearchEntry
+        fields = ('id', 'category', 'title', 'description', 'size', 'capacity', 'required_section', 'members')
+
+
+class ResultsCacheSerializer(serializers.ModelSerializer):
+    result = SearchEntrySerializer(read_only=True)
+
+    class Meta:
+        model = SearchResultsCache
+        fields = ('result', 'match_coefficient')

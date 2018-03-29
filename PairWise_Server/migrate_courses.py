@@ -1,10 +1,12 @@
 from requests import get
+import datetime
 from os import environ
 from django import setup
-environ.setdefault("DJANGO_SETTINGS_MODULE", "PairWise_Server.settings")
+
+environ.setdefault('DJANGO_SETTINGS_MODULE', 'PairWise_Server.settings')
 setup()
+
 from models import Course, Term, CourseOffering, TimeSection, CourseSection
-import datetime
 
 
 def load_course_data():
@@ -86,5 +88,6 @@ def migrate():
 
 
 if __name__ == '__main__':
+    # Course.object.clear()
     migrate()
     print('Done')

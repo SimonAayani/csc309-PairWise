@@ -19,24 +19,6 @@ export default class Sidebar extends Component {
           content: (
             <div>
             <Segment className="sideOption" inverted color='teal'>
-              <Button color='teal' name='CSC309' onClick={this.handleClick}>
-                <NavLink to="/dashboard/searchresults/csc309" className="sideLink">CSC309</NavLink>
-              </Button>
-            </Segment>
-
-            <Segment className="sideOption" inverted color='teal'>
-              <Button color='teal' name='CSC369' onClick={this.handleClick}>
-                <NavLink to="/dashboard/searchresults/csc369" className="sideLink">CSC369</NavLink>
-              </Button>
-            </Segment>
-
-            <Segment className="sideOption" inverted color='teal'>
-              <Button color='teal' name='CSC301' onClick={this.handleClick}>
-                <NavLink to="/dashboard/searchresults/csc301" className="sideLink">CSC301</NavLink>
-              </Button>
-            </Segment>
-
-            <Segment className="sideOption" inverted color='teal'>
               <Button color='teal' name='newSearch'>
                 <NavLink to="/dashboard/newsearch" className="sideLink">
                   New Search <i class=" right plus icon"></i>
@@ -56,12 +38,7 @@ export default class Sidebar extends Component {
         content: {
           content: (
               <div>
-                <Segment className="sideOption" inverted color='teal'>
-                    <Button color='teal' name='grp-csc309'>
-                      CSC309 Group
-                    </Button>
-                  </Segment>
-                </div>
+              </div>
               ),
             key: 1
         }
@@ -71,11 +48,6 @@ export default class Sidebar extends Component {
     return (
       // Side Bar
       <Segment inverted vertical id="sidebar">
-        <Button color='teal' id="btn-dash">
-          <NavLink to="/dashboard" className="sideLink">Notifications &nbsp;&nbsp;
-          {/*<Label circular color="blue" id="icon-notif">3</Label>*/}
-          <i class=" right bell icon"></i></NavLink>
-        </Button>
         <Menu.Item id="category-wrapper">
           <Accordion inverted styled defaultActiveIndex={[0]} panels={panels} exclusive={false} id="category" />
         </Menu.Item>

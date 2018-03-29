@@ -4,11 +4,13 @@ PROJECT_DIR="PairWise_Server"
 
 echo "Installing dependencies..."
 
-#pip install django
-#pip install djangorestframework
-#pip install django-cors-headers
-#pip install mysqlclient
-#pip install Pillow
+pip install django==2.0.2
+pip install djangorestframework
+pip install djangorestframework-jwt
+pip install django-cors-headers
+pip install mysqlclient
+pip install requests
+pip install Pillow
 
 echo "Relocating Files..."
 for file in "__init__.py" "settings.py" "urls.py" "wsgi.py";

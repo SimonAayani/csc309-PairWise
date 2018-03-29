@@ -6,7 +6,7 @@ from django.db.transaction import atomic
 class ProfileBuilder:
     def __init__(self, student_id):
         if student_id is None or type(student_id) != int:
-            raise ValueError("Location value must be an integer (is {0})".format(student_id))
+            raise ValueError("Student ID must be an integer (is {0})".format(student_id))
 
         self._student = student_id
         self._course_codes = []

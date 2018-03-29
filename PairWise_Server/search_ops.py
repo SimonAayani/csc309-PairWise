@@ -1,71 +1,118 @@
-from PairWise_Server.models import SearchEntry, UserSearchEntry, GroupSearchEntry, SearchResultsCache,\
-                                   Group, CourseOffering, Course
-from django.contrib.auth.models import User
+from PairWise_Server.models import AvailableSearchEntry, AbandonedSearchEntry, UserSearchData, SearchResultsCache
 from django.db.models import Count, Q, F
-from PairWise_Server.fetch import fetch_user_by_username, fetch_term_by_time_of_year,\
-                                  fetch_offering_by_term, fetch_course_by_course_code
 
 
-def enter_search(user, course_section, headline='', descr='', search_active=True, cap=2):
-    UserSearchEntry.objects.get_or_create(host=user, category=course_section, subhead=headline,
-                                          description=descr, active_search=search_active)
+def cancel_search(user, offering):
+    AvailableSearchEntry.objects.filter(members__user=user, category=offering).delete()
 
 
-def cancel_search(user, course_section):
-    if isinstance(user, User):
-        UserSearchEntry.objects.filter(host=user, category=course_section).delete()
-    else:
-        GroupSearchEntry.objects.filter(host=user, category=course_section).delete()
-
-
-def mark_search_result(searcher, found):
-    for result in found:
-        SearchResultsCache.objects.create(searcher=searcher, result=result)
+def mark_search_result(searcher, found, match_coefficient):
+    SearchResultsCache.objects.create(searcher=searcher, result=found, match_coefficient=match_coefficient)
 
 
 def get_marked_results(searcher, category=None):
     if category is None:
-        return list(SearchResultsCache.objects.filter(searcher__usersearchentry__host=searcher))
+        return list(SearchResultsCache.objects.filter(searcher__members__user=searcher))
     else:
-        return list(SearchResultsCache.objects.filter(searcher__usersearchentry__host=searcher, searcher_category=category))
+        return list(SearchResultsCache.objects.filter(searcher__members__user=searcher,
+                                                      searcher__category=category))
 
 
-def get_past_group_members(user):
-    my_member_groups = Group.objects.filter(members=user)
+def abandon_search(user_search_data):
+    search_entry = user_search_data.search
+    SearchResultsCache.objects.filter(Q(searcher=search_entry) | Q(result=search_entry)).delete()
+    new_abandoned = AbandonedSearchEntry.objects.create(category=search_entry.category,
+                                                        title=search_entry.title,
+                                                        description=search_entry.description,
+                                                        size=search_entry.size,
+                                                        capacity=search_entry.capacity,
+                                                        required_section=search_entry.required_section,
+                                                        quality_cutoff=search_entry.quality_cutoff,
+                                                        active_search=search_entry.active_search,
+                                                        owner=user_search_data.user)
+    new_abandoned.save()
+    search_entry.delete()
 
-    return list(group.members for group in my_member_groups)
+
+def recover_search(user, category):
+    abandoned_search = AbandonedSearchEntry.objects.get(owner=user, category=category)
+    recovered_search = AvailableSearchEntry.objects.create(category=abandoned_search.category,
+                                                           title=abandoned_search.title,
+                                                           description=abandoned_search.description,
+                                                           size=abandoned_search.size,
+                                                           capacity=abandoned_search.capacity,
+                                                           required_section=abandoned_search.required_section,
+                                                           quality_cutoff=abandoned_search.quality_cutoff,
+                                                           active_search=abandoned_search.active_search)
+    recovered_search.save()
+
+    search_criteria = UserSearchData.objects.get(user=user, course_section__offering=category)
+    search_criteria.search = recovered_search
+    search_criteria.save()
+
+    update_cache(recovered_search)
+    abandoned_search.delete()
 
 
-def measure_matches(user, category, cutoff=0):
-    my_search_entry = UserSearchEntry.objects.get(host=user, category=category)
-    my_match_filter = Q(host__profile__skills__in=list(my_search_entry.desired_fields.all()))
-    other_match_filter = Q(desired_fields__in=list(my_search_entry.host.profile.skills.all()))
+def get_search_targets(search_entry, sections):
+    condition = Q(required_section=sections[0])
+    if len(sections) > 1:
+        for section in sections[1:]:
+            condition &= Q(required_section=section)
 
-    # print(UserSearchEntry.objects.filter(category=category).exclude(host=my_search_entry.host))
-    targets = UserSearchEntry.objects.filter(category=category).exclude(host=user)
-    results = targets.annotate(my_match_coeff=Count('host__profile__skills', filter=my_match_filter),
-                               other_match_coeff=Count('desired_fields', filter=other_match_filter))
-    singles = results.annotate(abs_match_coeff=(F('my_match_coeff') * 0.75 + F('other_match_coeff') * 0.25)
-                               ).filter(abs_match_coeff__gte=cutoff).order_by('-abs_match_coeff')
+    targets = AvailableSearchEntry.objects.filter(category=search_entry.category,
+                                                  size__lte=(F('capacity') - search_entry.size)) \
+                                          .exclude(Q(id=search_entry.id))
+    if search_entry.required_section is not None:
+        targets = targets.exclude(~Q(members__course_section=search_entry.required_section))
 
-    my_match_filter = Q(host__members__profile__skills__in=list(my_search_entry.desired_fields.all()))
-    targets = GroupSearchEntry.objects.filter(category=category)
-    results = targets.annotate(my_match_coeff=Count('host__members__profile__skills', filter=my_match_filter),
-                              other_match_coeff=Count('desired_fields', filter=other_match_filter))
-    groups = results.annotate(abs_match_coeff=(F('my_match_coeff') * 0.75 + F('other_match_coeff') * 0.25)
-                              ).filter(abs_match_coeff__gte=cutoff).order_by('-abs_match_coeff')
+    return targets
 
-    combined = []
 
-    i = 0
-    j = 0
-    while i < len(singles) and j < len(groups):
-        if singles[i].abs_match_coeff > groups[j].abs_match_coeff:
-            combined.append(singles[i])
-        else:
-            combined.append(groups[i])
+def get_annotated_results(search_entry):
+    skill_reqs = []
+    locations = []
+    sections = []
+    for user_search in search_entry.members.all():
+        skill_reqs.extend(list(user_search.user.profile_set.all()[0].skills.all()))
+        locations.append(user_search.location)
+        sections.append(user_search.course_section)
 
-    combined.extend(groups[j:])
-    combined.extend(singles[i:])
+    targets = get_search_targets(search_entry, sections)
 
-    return combined
+    my_match_filter = Q(members__user__profile__skills__in=skill_reqs)
+    other_match_filter = Q(members__desired_skills__in=skill_reqs)
+
+    # Additional conditions: Section, location
+    results = targets.annotate(my_match_coeff=(Count('members__user__profile__skills', filter=my_match_filter)),
+                               other_match_coeff=Count('members__desired_skills', filter=other_match_filter),
+                               location_bonus=Count('members__location', filter=Q(members__location__in=locations)),
+                               section_bonus=Count('members__course_section',
+                                                   filter=Q(members__course_section__in=sections)))
+    return results
+
+
+def measure_matches_as_searcher(search_entry):
+    results = get_annotated_results(search_entry)
+    matches = results.annotate(abs_match_coeff=(F('my_match_coeff') * 60 + F('other_match_coeff') * 15 +
+                                                F('section_bonus') * 15 + F('location_bonus') * 5)
+                               ).filter(abs_match_coeff__gte=search_entry.quality_cutoff).order_by('-abs_match_coeff')
+
+    for match in matches:
+        mark_search_result(search_entry, match, match.abs_match_coeff)
+
+
+def measure_matches_as_search_target(search_entry):
+    results = get_annotated_results(search_entry)
+    matches = results.annotate(abs_match_coeff=(F('my_match_coeff') * 15 + F('other_match_coeff') * 60 +
+                                                F('section_bonus') * 15 + F('location_bonus') * 5)
+                               ).filter(abs_match_coeff__gte=search_entry.quality_cutoff).order_by('-abs_match_coeff')
+
+    for match in matches:
+        mark_search_result(search_entry, match, match.abs_match_coeff)
+
+
+def update_cache(search_entry):
+    SearchResultsCache.objects.filter(Q(searcher=search_entry) | Q(result=search_entry)).delete()
+    measure_matches_as_searcher(search_entry)
+    measure_matches_as_search_target(search_entry)
