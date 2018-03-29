@@ -1,15 +1,13 @@
 from PairWise_Server.models import AvailableSearchEntry, SearchResultsCache, Notification
 from PairWise_Server.search_ops import update_cache, abandon_search, recover_search
-from django.db.models import F, ObjectDoesNotExist
+from django.db.models import F
 from django.db.models.query_utils import Q
-from django.db.transaction import atomic
 
 
 def add_to_group(newcomer, inviter, offering):
 
         old_search_entry = AvailableSearchEntry.objects.get(members__user=inviter, category=offering)
         my_search_entry = AvailableSearchEntry.objects.get(members__user=newcomer, category=offering)
-        print(my_search_entry.members.all())
 
         old_search_entry.quality_cutoff = (old_search_entry.quality_cutoff * old_search_entry.size +
                                            my_search_entry.quality_cutoff * my_search_entry.size) /\
@@ -46,6 +44,6 @@ def send_invite(sender, receiver, category):
     msg.text = msg_text
     msg.save()
 
-    
+
 def cancel_invite(sender, receiver, category):
     Notification.objects.filter(sender=sender, receiver=receiver, category=category).delete()

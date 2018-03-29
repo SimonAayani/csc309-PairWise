@@ -4,7 +4,7 @@
 ## Iteration 3
 
  * Start date: Mar. 18, 2018
- * End date: Mar. 18, 2018
+ * End date: Mar. 30, 2018
 
 ## Process
 
@@ -13,13 +13,13 @@
 #### Changes from previous iteration
 
 >* **Delegation of Roles:**
->Delegation of roles is a main priority in this deliverable, as our strategy to delegate multiple group members to a single role in the previous deliverable was not as successful as it could have been. Although splitting up frontend tasks by the different user pages may have been a good idea, the strategy was not successful because the members were not provided clear enough specifications about how to implement the user page they were given. Hence delegation in the final deliverable will focus on assigning responsibilities and authority to group members in order to complete a clearly defined and agreed upon task, which will be followed up upon by other group members to track progress, successes and failures. Specifications for each task will be decided by all group members including which software/tools to build with, goals, functionalities and outcomes. 
+>Delegation of roles is a main priority in this deliverable, as our strategy to delegate multiple group members to a single role in the previous deliverable was not as successful as it could have been. Although splitting up frontend tasks by the different user pages may have been a good idea, the strategy was not successful because the members were not provided clear enough specifications about how to implement the user page they were given. Hence delegation in the final deliverable will focus on assigning responsibilities and authority to group members in order to complete a clearly defined and agreed upon task, which will be followed up upon by other group members to track progress, successes and failures. Specifications for each task will be decided by all group members including which software/tools to build with, goals, functionalities and outcomes.
 
 >* **Meetings:**
->In the last deliverable we found having in-person coding sessions over the weekends to be quite useful as we were able to ask questions to each other and solve code bugs quicker. However we were not able to have enough coding sessions as we wanted to. We are planning to have more in-person coding sessions spread throughout the next few weeks to ensure that group members have ample time to discuss/assign tasks, work on tasks, and share progress. If necessary, we also aim to have a few coding sessions on weekdays. 
+>In the last deliverable we found having in-person coding sessions over the weekends to be quite useful as we were able to ask questions to each other and solve code bugs quicker. However we were not able to have enough coding sessions as we wanted to. We are planning to have more in-person coding sessions spread throughout the next few weeks to ensure that group members have ample time to discuss/assign tasks, work on tasks, and share progress. If necessary, we also aim to have a few coding sessions on weekdays.
 
 >* **Create a Measurable Organization System:**
->It would be unreasonable to assign major tasks like implementing a search algorithm, or connecting frontend with backend to a single group member to complete. Not only does it risk failure to complete the task, but also does not allow enough time for learning. So we have decided to create a step-by-step system that outlines the small steps and processes needed to be completed to ensure the desired outcome. Group members will be assigned smarter and measurable tasks, and will be given earlier deadlines for said tasks spread throughout the next few weeks. This way, we will have a steady flow of development of new features; this process will allow time for any errors/problems faced or learning curves and avoid last minute work, while still keeping the project on track. 
+>It would be unreasonable to assign major tasks like implementing a search algorithm, or connecting frontend with backend to a single group member to complete. Not only does it risk failure to complete the task, but also does not allow enough time for learning. So we have decided to create a step-by-step system that outlines the small steps and processes needed to be completed to ensure the desired outcome. Group members will be assigned smarter and measurable tasks, and will be given earlier deadlines for said tasks spread throughout the next few weeks. This way, we will have a steady flow of development of new features; this process will allow time for any errors/problems faced or learning curves and avoid last minute work, while still keeping the project on track.
 
 #### Roles & responsibilities
 
@@ -38,6 +38,24 @@
 >* **Middle end:**
 >This role involves figuring out how to integrate frontend and backend to ensure proper communication and response between the two. 
 >Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
+
+
+>* **Project Supervisors:**
+>Supervisors have the responsibility of collecting group decisions from the planning meeting and keeping track of the product’s progress. They will collect and maintain information about tasks, including tasks that have been assigned to group members, completed and incomplete tasks. Expectations of the Supervisor is to host weekly meetings to review each individual’s progress and check if they have been keeping up with their deadlines, discuss solutions/problems that arose, and re-distribute tasks if necessary.
+>Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
+
+>* **Frontend developers:**
+>Frontend developers will continue to implement views in the application that were not completed in the previous iteration. They will remove the dummy code and make changes where necessary to follow best React practices. These developers will also be involved in enhancing the product to be more visually appealing, in terms of colour scheme and layout, using Semantic UI and custom CSS.
+>* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi)
+
+>* **Backend developers:**
+>Backend developers will improve existing server logic, providing new database support and logic for new features such as user messaging. They will solidify a login and registration system, as well as access restrictions such as requiring a user to create a profile before they can launch a search, and work on improving partner matching logic using additional criteria from the search form and user profiles.
+>* Contributor: Alex Hurka (ahurka)
+
+>* **Middle end:**
+>This role involves figuring out how to integrate frontend and backend to ensure proper communication and response between the two.
+>Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
+
 
 
 #### Events
@@ -71,8 +89,7 @@
 ## Product
 
 #### Goals and tasks
-
- >Our goals in this iteration is to finish implementing the features for the MVP of the PairWise product. We will be focusing mostly on acquiring the functionality of the backend, polishing frontend display, and then connecting the two for a fully functioning product. 
+>Our goal in this iteration is to finish implementing the features for the MVP of the PairWise product. We will be focusing mostly on acquiring the functionality of the backend, polishing frontend display, and then connecting the two for a fully functioning product.
 
 >* **Connect frontend to backend**
 > 	* Learn how to connect React and Django to be able to send and retrieve data from the database.
@@ -110,41 +127,40 @@
 >	* As a group member, I want to not see further search results in a course after forming a group in that course.
 >	* As a returning user, I want to delete a group after an assignment is over, in order to create a different group for the next assignment.
 
-
 #### Artifacts
 
->* **PairWise Logo**
-The PairWise product logo will be displayed in the corner of most pages, as well as in a central position on the splash page.
->Purpose: Gives our product a unique symbol which users will be able to easily identify, and affiliate with PairWise, which will in turn improve brand recognition.
+>* **PairWise Logo:**
+>The PairWise product logo will be displayed in the corner of most pages, as well as in a central position on the splash page.
+Purpose: Gives our product a unique symbol which users will be able to easily identify, and affiliate with PairWise, which will in turn improve brand recognition.
 
->* **Splash Page**
-Upon loading the PairWise website, users will be greeted by a splash page that describes the product, allows them to register for an account or log in with an existing account, and presents the logo and other visual elements. This page must be accessible from a browser, to allow users access to login and registration before they are able to access core website features.
->Purpose: Allows users to get familiarized with the concept of the application, and also provides the means to use the functionality of the website (through registration).
+>* **Splash Page:**
+>Upon loading the PairWise website, users will be greeted by a splash page that describes the product, allows them to register for an account or log in with an existing account, and presents the logo and other visual elements. This page must be accessible from a browser, to allow users access to login and registration before they are able to access core website features.
+Purpose: Allows users to get familiarized with the concept of the application, and also provides the means to use the functionality of the website (through registration).
 
->* **Login Tab**
-Upon trying to log in from the splash page, a user will see a pop-up on top of the splash page that prompts them for their username and password, which will allow them to log in if they enter recognized credentials. First-time registering users will be prompted for a username, a password and password confirmation, as well as name and email to be used in search results. If the user logs in successfully they will be taken to the main page. Otherwise they will receive a message explaining why they were unable to log in.
->Purpose: Allows us to gather information the user has submitted and by connecting to our database we are able to authenticate or register the users credentials. 
+>* **Login Tab:**
+>Upon trying to log in from the splash page, a user will see a pop-up on top of the splash page that prompts them for their username and password, which will allow them to log in if they enter recognized credentials. First-time registering users will be prompted for a username, a password and password confirmation, as well as name and email to be used in search results. If the user logs in successfully they will be taken to the main page. Otherwise they will receive a message explaining why they were unable to log in.
+Purpose: Allows us to gather information the user has submitted and by connecting to our database we are able to authenticate or register the users credentials.
 
->* **Main Page**
-After logging in, the user will see a summary page which shows their newest activity, including invites and messages from other users. From the main page a user will be able to respond to messages, and see a sidebar that lists their ongoing searches and active groups. The sidebar will also give an option to launch a new search.
->Purpose: The main page gives us the ability to display all relevant information in a manner that is easily accessible by the user.
+>* **Main Page:**
+>After logging in, the user will see a summary page which shows their newest activity, including invites and messages from other users. From the main page a user will be able to respond to messages, and see a sidebar that lists their ongoing searches and active groups. The sidebar will also give an option to launch a new search.
+Purpose: The main page gives us the ability to display all relevant information in a manner that is easily accessible by the user.
 
->* **Profile Pages**
-Creating a profile required to use most features of the PairWise website. A view/edit/create profile option will be available at all times. Upon clicking this button, a user will be able to view their own profile, including a profile picture, bio, (optional) home neighborhood, current and previous courses, and a list of their skills. They will also be given an option to edit the profile. Users will also be able to view the profiles of other users through search results and groups, which will present the same profile viewing page without the option to edit.
->Purpose: Viewing other users’ profiles allows a user to judge someone’s experience and personality before requesting to join their group, which is important to let users decide which group partner is best for them. As such, each user must be able to create a profile and view someone else’s profile through the profile page.
+>* **Profile Pages:**
+>Creating a profile required to use most features of the PairWise website. A view/edit/create profile option will be available at all times. Upon clicking this button, a user will be able to view their own profile, including a profile picture, bio, (optional) home neighborhood, current and previous courses, and a list of their skills. They will also be given an option to edit the profile. Users will also be able to view the profiles of other users through search results and groups, which will present the same profile viewing page without the option to edit.
+Purpose: Viewing other users’ profiles allows a user to judge someone’s experience and personality before requesting to join their group, which is important to let users decide which group partner is best for them. As such, each user must be able to create a profile and view someone else’s profile through the profile page.
 
->* **Search Form**
-Upon launching a new search, a user will be presented with a list of fields to specify criteria of their search such as the course with which the search is associated, required skills, project name and description, desired meeting times and expected weekly work hours. The user will be able to submit this search, which will gather results according to their criteria and show them a list of results.
->Purpose: To gather all search criteria the user is searching for and use this information with our implemented search algorithm to get other users who meet the criteria.
+>* **Search Form:**
+>Upon launching a new search, a user will be presented with a list of fields to specify criteria of their search such as the course with which the search is associated, required skills, project name and description, desired meeting times and expected weekly work hours. The user will be able to submit this search, which will gather results according to their criteria and show them a list of results.
+Purpose: To gather all search criteria the user is searching for and use this information with our implemented search algorithm to get other users who meet the criteria.
 
->* **Search Results Page**
-Search results are displayed as a list of search result components, which prominently display the profile picture, usernames, names, and email addresses of all users that matched the search’s criteria. Joinable groups will also be displayed in this results section, although they will typically have a default group image instead of a profile picture, and will list all members’ usernames instead of a group name. Results are ordered according to how well they matched the criteria, although that value will not be presented to users. Users may view the profiles of other users that matched their search criteria, and send group invites to them. The profiles of group members can be viewed through a link to their group page.
->Purpose: To give a user a suggestion of which other users and groups best meet the criteria they set in a search, so the user can quickly see the profiles of other users who meet their specifications.
+>* **Search Results Page:**
+>Search results are displayed as a list of search result components, which prominently display the profile picture, usernames, names, and email addresses of all users that matched the search’s criteria. Joinable groups will also be displayed in this results section, although they will typically have a default group image instead of a profile picture, and will list all members’ usernames instead of a group name. Results are ordered according to how well they matched the criteria, although that value will not be presented to users. Users may view the profiles of other users that matched their search criteria, and send group invites to them. The profiles of group members can be viewed through a link to their group page.
+Purpose: To give a user a suggestion of which other users and groups best meet the criteria they set in a search, so the user can quickly see the profiles of other users who meet their specifications.
 
->* **Group Page**
-The group page displays components containing profile pictures, usernames, and names of all members of a group. Through this page a user can view their own group and access group-specific messages and notifications, and leave the group if they wish. The search results page also gives users access to the group pages of groups they are not yet part of, allowing them to send messages to the group and request to be added to the group.
->Purpose: To allow a user to see more details about the members of a group and engage in group-wide chat with them, whether the user is already a member of the group or looking to become a member.
+>* **Group Page:**
+>The group page displays components containing profile pictures, usernames, and names of all members of a group. Through this page a user can view their own group and access group-specific messages and notifications, and leave the group if they wish. The search results page also gives users access to the group pages of groups they are not yet part of, allowing them to send messages to the group and request to be added to the group.
+Purpose: To allow a user to see more details about the members of a group and engage in group-wide chat with them, whether the user is already a member of the group or looking to become a member.
 
->* **Final Product Demo**
-A short video presenting the purpose of the PairWise app and its problem domain. The video will present a tutorial of standard product use, from logging in to an account to launching a search to viewing search results to group formation, and demonstrate the main features of the app. Further product details including possible future developments will also be discussed.
->Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner.
+>* **Final Product Demo:**
+>A short video presenting the purpose of the PairWise app and its problem domain. The video will present a tutorial of standard product use, from logging in to an account to launching a search to viewing search results to group formation, and demonstrate the main features of the app. Further product details including possible future developments will also be discussed.
+Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner.

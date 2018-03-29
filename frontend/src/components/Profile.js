@@ -66,11 +66,7 @@ export default class MyProfile extends Component{
     				<Image src = {avatar} size = "small" centered/>
     				<div>
     					<p></p>
-    					<p>Name: Parry</p>
-              		<p>Gender: Male</p>
-              		<p>E-mail: parry@hotmail.com</p>
-              		<p>Skill: Java</p>
-                  <p>Bio: I'm a hardworking person.</p>
+    					<p>Please Set up your file.</p>		
     				</div>
       		</Tab.Pane>
 			) },
