@@ -25,7 +25,7 @@
 
 >* **Project Supervisors:**
 >Supervisors have the responsibility of collecting group decisions from the planning meeting and keeping track of the product’s progress. They will collect and maintain information about tasks, including tasks that have been assigned to group members, completed and incomplete tasks. Expectations of the Supervisor is to host weekly meetings to review each individual’s progress and check if they have been keeping up with their deadlines, discuss solutions/problems that arose, and re-distribute tasks if necessary. 
->Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
+>* Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
 
 >* **Frontend developers:**
 >Frontend developers will continue to implement views in the application that were not completed in the previous iteration. They will remove the dummy code and make changes where necessary to follow best React practices. These developers will also be involved in enhancing the product to be more visually appealing, in terms of colour scheme and layout, using Semantic UI and custom CSS.
@@ -37,7 +37,7 @@
 
 >* **Middle end:**
 >This role involves figuring out how to integrate frontend and backend to ensure proper communication and response between the two. 
->Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
+>* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
 
 
 #### Events
@@ -76,78 +76,86 @@
 >Priority of features was decided by the group during the plan meeting. We decided to give most attention to creating a good user experience, which led us to give highest priority to the tasks of making the frontend dynamic and aesthetically pleasing. Leaving any static components of important sections like the search results page would make the application completely worthless to users who wanted to use those features, and so the task of making the frontend dynamic was given highest priority. After that, the application's current appearance is not polished and different pages lack a unified design style. The group decided that a smooth and unified appearance is extremely important in user attraction and retention, and an application with useful features but with a rough appearance would not be likely to become successful. On these grounds we decided that improving the application's appearance was also among the top priorities. Otherwise, the most important factor in the prioritization of features was how strongly they connected with core MVP features as specified in the features list made in the first deliverable. For example, creating user accounts and profiles and performing searches were high priority with respect to non-core features such as messaging. For the most part, the logic was to give higher priority to parts of the application that appear earier in most use cases. Creating a user account is a prerequisite for almost any use case, and so it was given higher priority than other features such as group invitation management, which occurs in later and fewer use cases. Additionally, convenience features like user messages and deleting searches were designated as bonus features for the project, and thus were given lowest priorities. Users can get the full experience of the application's main use cases, and form groups from our services, without those features. For example, messaging allows users to communicate with each other, which they can already do (albeit less conveniently) using email addresses we provide within user accounts and profiles.
 
 >* **Connect frontend to backend**
-> 	* Learn how to connect a React frontend with a Django REST Framework backend to be able to send and retrieve data from the database.
->	* As a returning user, I want to have my account information and activity saved after leaving the website or logging out, so that I can visit the website sometime in the future and have it remember my profile, my ongoing searches, and my groups, so that I do not need to retrace my previous steps next time I log in.
-> * As a first-time user, when I launch a search I want my new account and profile to become immediately visible to other users in their searches so that I can receive invitations or messages from them right off the bat.
-> * As a student with high requirements, I want the search results I receive to reflect the input other users provided, so I receive accurate information by which to judge potential partners.
-> * As a new member of several groups in the PairWise application, I want the list of groups I can view from the sidebar to reflect the groups I have joined, so I can quickly access information about my own groups without having the interface crowded with groups that are not my own.
+>* Learn how to connect a React frontend with a Django REST Framework backend to be able to send and retrieve data from the database. Gather information from the backend with which to populate areas such as the dashboard's sidebar and search results page, to give each user the information that they input previously, or that is associated with their account.
+>	  * As a returning user, I want to have my account information and activity saved after leaving the website or logging out, so that I can visit the website sometime in the future and have it remember my profile, my ongoing searches, and my groups, so that I do not need to retrace my previous steps next time I log in.
+>   * As a first-time user, when I launch a search I want my new account and profile to become immediately visible to other users in their searches so that I can receive invitations or messages from them right off the bat.
+>   * As a student with high requirements, I want the search results I receive to reflect the input other users provided, so I receive accurate information by which to judge potential partners.
+>   * As a new member of several groups in the PairWise application, I want the list of groups I can view from the sidebar to reflect the groups I have joined, so I can quickly access information about my own groups without having the interface crowded with groups that are not my own.
 
->* **Clean up the frontend**
-> 	* Remove static HTML elements and frontend components that were put in place during the previous deliverable. Improve the layout and of the website using new CSS components, and match the website's style and colour scheme to the UI design from the previous deliverable. Add the PairWise logo and other visuals to the splash screen.
+>* **Improve frontend appearance**
+>* Remove static HTML elements and frontend components that were put in place during the previous deliverable. Improve the layout and of the website using new CSS components, and match the website's style and colour scheme to the UI design from the previous deliverable. Add the PairWise logo and other visuals to the splash screen.
 
->* **Create a new user account**
->	* As a newcomer to the PairWise application, I want to click on “register” on the main page and be taken to the registration page so I can create an account and be able to access the application through that account. This page should include a form with the following fields:
->		* Email
->		* First name
->		* Last name
->		* Password
->		* Confirm password
+>* **Create new user accounts**
+>* Allow a user to create a new account, which contains basic information such as names, password hash, and email, that is stored in the database. This information will be used to allow the users to authenticate later on, and to associate user profiles, searches, groups, and messages with the user that created them.
+>   * As a newcomer to the PairWise application, I want to click on “register” on the main page and be taken to the registration page so I can create an account and be able to access the application through that account. This page should include a form with the following fields:
+>		  * Email
+>		  * First name
+>		  * Last name
+>		  * Password
+>		  * Confirm password
 
 >* **Implement partner searching logic**
->	* Determine the process for matching the search criteria to the information in a user’s profile. For example, a user specifying that they want to find a partner who has experience with Python should have a high match rate with a student who has chosen “Python” as a skill in their profile. Find a way to store and access this information, and develop a scheme by which multiple criteria can be assessed to produce an overall estimate of how well partners match.
+>* Determine the process for matching the search criteria to the information in a user’s profile. For example, a user specifying that they want to find a partner who has experience with Python should have a high match rate with a student who has chosen “Python” as a skill in their profile. Find a way to store and access this information, and develop a scheme by which multiple criteria can be assessed to produce an overall estimate of how well partners match.
+>   * As a student in a open-ended project course, I want to be able to search for developers that are proficient in the languages I know, so that the group will settle on a language that they all like and avoid conflicts about which language to use.
+>   * As a commuter student, I want to be able to search for other students that live in my neighborhood, so we can work in a local place instead of commuting to campus for meetings and work sessions.
 
 >* **Send and accept/reject invites from other users**
->	* As a user, I want to click on “send invite” after selecting a user on the search results page.
->	* As a user, I want to see my invitations to join groups, and be able to respond to the invitation by clicking “accept” or “reject”.
+>* Provide a means for users to send group invites to other users, which the other user can accept in order to form a group. Allow users to view a list of invitations they have, from which point they can accept or reject any of these invites. Also allow users to view all the invites they have sent, so they can track the status of those invites.
+>	  * As a user, I want to click on “send invite” after selecting a user on the search results page, so that the other user can be informed that I want to work with them.
+>	  * As a user, I want to see my invitations to join groups, and be able to respond to the invitation by clicking “accept” or “reject”, so that I can .
+>   * As an extroverted user, I want to see all the many invitations I have sent out, so I can remember which users I have previously contacted.
 
 >* **View existing groups**
->	* As a returning user, I want to see on the sidebar a list of the groups that I have already formed, so that I can see my teammates for each group that I am currently a part of.
+>* Allow users to access a list of the groups that they have become members of, containing links to pages from which they can view more information about these groups and their other members. From this page, they can perform operations on the groups, such as sending messages to other members of the groups, viewing a thread of group messages, and leave the group if desired.
+>	  * As a returning user, I want to see on the sidebar a list of the groups that I have already formed, so that I can see my teammates for each group that I am currently a part of.
 
 >* **Send messages to other users**
->	* Create the Inbox screen, which will be displayed when the user clicks the Inbox button on the top navigation bar. This screen contains a history of the messages sent between the current user and other users.
+>* Create the Inbox screen, which will be displayed when the user clicks the Inbox button on the top navigation bar. This screen contains a history of the text messages sent between the current user and other users. Text messages are distinct from group invites, and contain only sentences and other communications between users. The purpose of these messages is to let users learn about each other beyond their profiles, and to allow coordination of group activities without requiring users to leave the PairWise app.
+>   * As a new first-year student, I want to be able to talk to classmates I haven't met so I can learn more about their personalities before I agree to work with them.
 
 >* **View notifications for any activity on the dashboard**
->	* As a returning user, I want to be notified of any activity that occurred while I was away, so that I know if I need to check my searches for new results or if I have a new message.
+>* Display new activity, such as new received messages or invites, all in one place on the dashboard page. These notifications should reflect eveything that has happened since last time the user logged in, so that they can quickly catch up on new activity without having to look through all their searches and message feeds.
+>	  * As a returning user, I want to be notified of any activity that occurred while I was away, so that I know if I need to check my searches for new results or if I have a new message.
+>   * As a user with pending invites, I want to be able to quickly see if any of those invites have been accepted, so I can take action communicating with members of the new groups as soon as they form.
 
 >* **Delete groups and searches**
->	* As a student beginning the second assignment of a course, I want to delete an existing search for the course's first assignment to be able to launch a new search for the second assignment, with a different set of criteria.
->	* As a member of a group, I want to stop seeing further search results in the group's course after the group reaches its capacity.
->	* As a returning user, I want to delete a group after an assignment is over, in order to create a different group for the next assignment.
+>* Allow users to back out of searches and groups, so that their previous choices are not permanent, and they can reset their webpage to a clean state after finishing all their group projects.
+>	  * As a student beginning the second assignment of a course, I want to delete an existing search for the course's first assignment to be able to launch a new search for the second assignment, with a different set of criteria to match the new assignment.
 
 #### Artifacts
 
 >* **PairWise Logo:**
 >The PairWise product logo will be displayed in the corner of most pages, as well as in a central position on the splash page.
-Purpose: Gives our product a unique symbol which users will be able to easily identify, and affiliate with PairWise, which will in turn improve brand recognition.
+> * Purpose: Gives our product a unique symbol which users will be able to easily identify, and affiliate with PairWise, which will in turn improve brand recognition.
 
 >* **Splash Page:**
 >Upon loading the PairWise website, users will be greeted by a splash page that describes the product, allows them to register for an account or log in with an existing account, and presents the logo and other visual elements. This page must be accessible from a browser, to allow users access to login and registration before they are able to access core website features.
-Purpose: Allows users to get familiarized with the concept of the application, and also provide an access point for unregistered or unauthenticated users to authenticate to the website (through registration).
+> * Purpose: Allows users to get familiarized with the concept of the application, and also provide an access point for unregistered or unauthenticated users to authenticate to the website (through registration).
 
 >* **Login and Registration Tab:**
 >Upon trying to log in from the splash page, a user will see a pop-up on top of the splash page that prompts them for their username and password, which will allow them to log in if they enter recognized credentials. First-time registering users will be prompted for a username, a password and password confirmation, as well as name and email to be used in search results. If the user logs in successfully they will be taken to the main page. Otherwise they will receive a message explaining why they were unable to log in.
-Purpose: Allows us to gather information the user has submitted and by connecting to our database we are able to authenticate or register the users credentials.
+> * Purpose: Allows us to gather information the user has submitted and by connecting to our database we are able to authenticate or register the users credentials.
 
 >* **Main Page:**
 >After logging in, the user will see a summary page which shows their newest activity, including invites and messages from other users. From the main page a user will be able to respond to messages, and see a sidebar that lists their ongoing searches and active groups. The sidebar will also give an option to launch a new search.
-Purpose: The main page gives us the ability to display all relevant information in a manner that is easily accessible by the user.
+> * Purpose: The main page gives us the ability to display all relevant information in a manner that is easily accessible by the user.
 
 >* **Profile Pages:**
->Creating a profile required to use most features of the PairWise website. A view/edit/create profile option will be available at all times. Upon clicking this button, a user will be able to view their own profile, including a profile picture, bio, (optional) home neighborhood, current and previous courses, and a list of their skills. They will also be given an option to edit the profile. Users will also be able to view the profiles of other users through search results and groups, which will present the same profile viewing page without the option to edit.
-Purpose: Viewing other users’ profiles allows a user to judge someone’s experience and personality before requesting to join their group, which is important to let users decide which group partner is best for them. As such, each user must be able to create a profile and view someone else’s profile through the profile page.
+>Creating a profile is required to use most features of the PairWise website. A view/edit/create profile option will be available at all times. Upon clicking this button, a user will be able to view their own profile, including a profile picture, bio, (optional) home neighborhood, current and previous courses, and a list of their skills. They will also be given an option to edit the profile. Users will also be able to view the profiles of other users through search results and groups, which will present the same profile viewing page without the option to edit.
+> * Purpose: Viewing other users’ profiles allows a user to judge someone’s experience and personality before requesting to join their group, which is important to let users decide which group partner is best for them. As such, each user must be able to create a profile and view someone else’s profile through the profile page.
 
 >* **Search Form:**
 >Upon launching a new search, a user will be presented with a list of fields to specify criteria of their search such as the course with which the search is associated, required skills, project name and description, desired meeting times and expected weekly work hours. The user will be able to submit this search, which will gather results according to their criteria and show them a list of results.
-Purpose: To gather all search criteria the user is searching for and use this information with our implemented search algorithm to get other users who meet the criteria.
+> * Purpose: To gather all search criteria the user is searching for and use this information with our implemented search algorithm to get other users who meet the criteria.
 
 >* **Search Results Page:**
 >Search results are displayed as a list of search result components, which prominently display the profile picture, usernames, names, and email addresses of all users that matched the search’s criteria. Joinable groups will also be displayed in this results section, although they will typically have a default group image instead of a profile picture, and will list all members’ usernames instead of a group name. Results are ordered according to how well they matched the criteria, although that value will not be presented to users. Users may view the profiles of other users that matched their search criteria, and send group invites to them. The profiles of group members can be viewed through a link to their group page.
-Purpose: To give a user a suggestion of which other users and groups best meet the criteria they set in a search, so the user can quickly see the profiles of other users who meet their specifications.
+> * Purpose: To give a user a suggestion of which other users and groups best meet the criteria they set in a search, so the user can quickly see the profiles of other users who meet their specifications.
 
 >* **Group Page:**
 >The group page displays components containing profile pictures, usernames, and names of all members of a group. Through this page a user can view their own group and access group-specific messages and notifications, and leave the group if they wish. The search results page also gives users access to the group pages of groups they are not yet part of, allowing them to send messages to the group and request to be added to the group.
-Purpose: To allow a user to see more details about the members of a group and engage in group-wide chat with them, whether the user is already a member of the group or looking to become a member.
+> * Purpose: To allow a user to see more details about the members of a group and engage in group-wide chat with them, whether the user is already a member of the group or looking to become a member.
 
 >* **Final Product Demo:**
 >A short video presenting the purpose of the PairWise app and its problem domain. The video will present a tutorial of standard product use, from logging in to an account to launching a search to viewing search results to group formation, and demonstrate the main features of the app. Further product details including possible future developments will also be discussed.
-Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner. Also gives a brief introduction to standard use cases of the application and the problems it solves, which could help attract new users.
+> * Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner. Also gives a brief introduction to standard use cases of the application and the problems it solves, which could help attract new users.
