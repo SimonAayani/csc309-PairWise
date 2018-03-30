@@ -5,12 +5,25 @@ import avatar from '../avatar.png'
 
 
 export default class MyProfile extends Component{
-  state = { modalOpen: false }
+  state = { modalOpen: false，
+            users : [] }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
 
+  componentDidMount() {
+    try {
+      const res = await fetch('http://127.0.0.1:8000/api/');
+      const userdata = await res.json();
+      this.setState({
+        users : userdata
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  
 
 
 	render() {
