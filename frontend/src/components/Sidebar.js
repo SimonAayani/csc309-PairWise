@@ -46,7 +46,7 @@ export default class Sidebar extends Component {
     ]
 
     return (
-      // Side Bar
+      /** Sidebar Component **/
       <Segment inverted vertical id="sidebar">
         <Menu.Item id="category-wrapper">
           <Accordion inverted styled defaultActiveIndex={[0]} panels={panels} exclusive={false} id="category" />
