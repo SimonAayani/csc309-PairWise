@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from PairWise_Server import views
 from django.conf.urls.static import static
+from rest_framework_jwt.views import obtain_jwt_token
+from PairWise_Server import views
 from PairWise_Server.settings import MEDIA_ROOT, MEDIA_URL
 
 urlpatterns = [
     url(r'^login/', include('rest_framework.urls')),
+    url(r'^login/token/$', obtain_jwt_token),
     url(r'^registration/$', views.RegistrationView.as_view(), name='register'),
     url(r'^tags/$', views.data_tag_root),
     url(r'^tags/language/$', views.LanguageList.as_view(), name='language-list'),
