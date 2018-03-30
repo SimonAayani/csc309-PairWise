@@ -42,15 +42,22 @@
 
 #### Events
 
->* Continuing from previous iterations, we plan to have in-person meetings and coding sessions on Fridays (March 23) and weekends (March 24), in BA3200, to allow for easier direct communication and discussion.
->* On Wednesdays March 21 and 28 at 8pm, our Project Supervisor will facilitate a quick meeting on Slack to review our weekly deadlines. These meetings will keep everyone aware of the current state of the project, and will provide an opportunity to reprioritize tasks and redistribute workloads if necessary.
->* We will also continue to update each other over Slack throughout the week to ensure that the team is aware of each member’s activities.
->* Review meeting and video production will be held on Thursday March 29. Review meeting will be held during tutorial time at noon; video production will begin at 4:00 pm.
+>* **Plan Meeting:**
+> The iteration plan meeting was held on Sunday, March 18 2018. As in previous iterations, this meeting served to arrange between all members which features we would be implementing in the next weeks, how to prioritize tasks, new elements of the group's process, a rough timetable of meetings throughout the iteration. 
+
+>* **Work Sessions:**
+> In the previous iteration we found group work sessions to be very useful, especially toward the end of the iteration. During these meetings, separate group members would work on related components together and have dialogue about how to merge different pieces together into a cohesive whole. Additionally, it helped to set aside time in which all members would be working, to ensure that everyone is being productive toward the project. These meetings were best held on Fridays and weekends since all members of the team can attend at those times. We will continue with that schedule, and have group work sessions at those times to encourage rapid and efficient development. Scheduled meetings will be happening on Saturday March 24, Friday, March 30 and Saturday March 31. We will also try to hold further meetings during the weeks.
+
+>* **Slack Standups:**
+> On Wednesdays March 21 and 28 at 8:00 pm, the team's Project Supervisor will facilitate a quick meeting on Slack to review our weekly deadlines and the state of everyone's work. These meetings will keep everyone aware of the current state of the project, and will provide an opportunity to reprioritize tasks and redistribute workloads if necessary. These meetings will also enforce our mid-iteration deadlines and encourage everyone to have work to present. On top of these scheduled meetings, we will also continue to update each other over Slack throughout the week when important changes such as new pull requests are made.
+
+>* **Review Meeting and Video Production:**
+> The review meeting will be held on the afternoon of Saturday, March 31st. At this point we plan to have production completed, and the PairWise application completed according to our specifications. During the review meeting we will mainly discuss the success of the process used in previous iterations and what we can take away from this final stage of the project. During and/or after the review meeting, each developer will be briefed on the video script and plan, and will create accounts and profiles in the application's database, which will be used during the demonstration. The remainder of the day will be spent filming and editing the demo video.
 
 
 #### Artifacts
 
->* **GitHub Issues and Task Board**
+>* **GitHub Issues and Task Board:**
 > After discussing the features left to implement and the tasks associated with them, we will create each task as an issue on GitHub and assign them to the most appropriate member, based on which features they have previously worked on. The issues help us to keep track of our remaining tasks for the iteration, and also have labels to help with indicating which part of the stack they are associated with and the priority they should take. As this is our final iteration, any tasks related to the application’s core functionality will take high priority.
 >
 > Throughout the iteration developers can refer to the project task board, which shows the progress of our issues, to see which components need work and which have already been assigned. Moreover, issues can be linked to pull requests so that the task board remains up to date automatically whenever they are resolved. Over the course of the iteration, as other issues and bugs emerge, these can be added to the board as necessary.
@@ -71,6 +78,7 @@
 ## Product
 
 #### Goals and tasks
+
 >Our goal in this iteration is to finish implementing the features for the MVP of the PairWise product. We will be focusing mostly on completing core MVP functionality in the backend, and the required webpages to access those backend services; polishing frontend display with new CSS components; and making the frontend components dynamically update themselves by sending requests to the backend servers.
 
 >Priority of features was decided by the group during the plan meeting. We decided to give most attention to creating a good user experience, which led us to give highest priority to the tasks of making the frontend dynamic and aesthetically pleasing. Leaving any static components of important sections like the search results page would make the application completely worthless to users who wanted to use those features, and so the task of making the frontend dynamic was given highest priority. After that, the application's current appearance is not polished and different pages lack a unified design style. The group decided that a smooth and unified appearance is extremely important in user attraction and retention, and an application with useful features but with a rough appearance would not be likely to become successful. On these grounds we decided that improving the application's appearance was also among the top priorities. Otherwise, the most important factor in the prioritization of features was how strongly they connected with core MVP features as specified in the features list made in the first deliverable. For example, creating user accounts and profiles and performing searches were high priority with respect to non-core features such as messaging. For the most part, the logic was to give higher priority to parts of the application that appear earier in most use cases. Creating a user account is a prerequisite for almost any use case, and so it was given higher priority than other features such as group invitation management, which occurs in later and fewer use cases. Additionally, convenience features like user messages and deleting searches were designated as bonus features for the project, and thus were given lowest priorities. Users can get the full experience of the application's main use cases, and form groups from our services, without those features. For example, messaging allows users to communicate with each other, which they can already do (albeit less conveniently) using email addresses we provide within user accounts and profiles.
