@@ -14,14 +14,12 @@
 .sideOption>.button {
 	width: 100%;
 	text-align: center;
+	padding-top: 8%;
+	font-size: .5em;
 }
 
 .sideLink {
 	color: #FFFFFF;
-}
-
-.sideLink:hover {
-	color: #02447a;
 }
 
 #icon-notif {

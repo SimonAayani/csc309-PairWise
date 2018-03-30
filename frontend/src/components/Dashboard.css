@@ -8,7 +8,7 @@
   padding: 0;
   height: 90vh;
   float: left;
-  width: 20vw;
+  width: 15vw;
   min-width: 200px;
 }
 
@@ -18,7 +18,7 @@
   overflow-y: auto;
   background-color: #bebebe;
   float: right;
-  width: 50vw;
+  width: 55vw;
   min-width: 500px;
   box-shadow: 5px 10px 5px #02447a;
 }
