@@ -4,7 +4,7 @@
 ## Iteration 3
 
  * Start date: Mar. 18, 2018
- * End date: Mar. 30, 2018
+ * End date: Mar. 31, 2018
 
 ## Process
 
