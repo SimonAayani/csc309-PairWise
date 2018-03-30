@@ -7,6 +7,7 @@ import NavBar from './NavBar';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
+import Inbox from './Inbox'
 
 import './main.css';
 
@@ -39,8 +40,8 @@ class Main extends Component {
             <LoginLink
                 isLoggedIn={this.state.isLoggedIn}
                 handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}
-            />
+                handleLogout={this.handleLogout}></LoginLink>
+            
 
             return(
                 <BrowserRouter>
@@ -48,7 +49,7 @@ class Main extends Component {
 
                       <div className="navbar">
                           <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
-                      </div> {/* navbar */}
+                      </div> 
 
                       <div className="main">
                           <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
@@ -57,6 +58,7 @@ class Main extends Component {
                           <Route path="/dashboard" component={Dashboard}/>
                           <Route path="/logout" component={Splash} />
                           <Route path="/profile" component={MyProfile} />
+                          <Route path="/inbox" component={Inbox} />
                       </div> {/* closes main */}
 
                     </div>
