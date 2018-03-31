@@ -13,13 +13,15 @@ export default class MyProfile extends Component{
     }
   }
 
+  const first = true
+
   handleOpen = () => this.setState({ modalOpen: true })
 
   handleClose = () => this.setState({ modalOpen: false })
 
   componentDidMount() {
     try {
-      const res = fetch('http://127.0.0.1:8000/api/');
+      const res = fetch('http://http://165.227.40.205/api/');
       const userdata = res.json();
       this.setState({
         users : userdata
@@ -40,8 +42,15 @@ export default class MyProfile extends Component{
   			pane: (
   				<Tab.Pane key =  "1">
     				<div>
-    					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic floated = "right" icon>
-                <Icon name = 'setting' /></Button>} size='small'>
+              <Image src = {avatar} size = "small" centered/>
+                <div>
+                  {this.state.users.map(user => (
+                    <p></p>))}
+                  
+                </div>
+
+    					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic = "right" icon>
+                <Icon name = 'setting' />Update Profile</Button>} size='small'>
                 <Modal.Header>Settings:</Modal.Header>
                 <Modal.Content>
                   <Form>
@@ -63,7 +72,7 @@ export default class MyProfile extends Component{
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
-                      <Input placeholder='Bio' width={10} />
+                      <textarea></textarea>
                     </Form.Field>
                   </Form>
                 </Modal.Content>
@@ -77,13 +86,6 @@ export default class MyProfile extends Component{
                 </Modal.Actions>
               </Modal>
 
-    				</div>
-    				<Image src = {avatar} size = "small" centered/>
-    				<div>
-    					{this.state.users.map(user => (
-                <p></p>
-                
-              ))}
     				</div>
       		</Tab.Pane>
 			) },
