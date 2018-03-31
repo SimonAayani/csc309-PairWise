@@ -5,8 +5,13 @@ import avatar from '../avatar.png'
 
 
 export default class MyProfile extends Component{
-  state = { modalOpen: false，
-            users : [] }
+  constructor (props) {
+    super(props)
+    this.state = {
+      modalOpen: false,
+      users : [] 
+    }
+  }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
@@ -14,8 +19,8 @@ export default class MyProfile extends Component{
 
   componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/');
-      const userdata = await res.json();
+      const res = fetch('http://127.0.0.1:8000/api/');
+      const userdata = res.json();
       this.setState({
         users : userdata
       });
@@ -27,10 +32,7 @@ export default class MyProfile extends Component{
 
 
 	render() {
-    const gender= [
-      { key: 'male', text: 'Male', value: 'male' },
-      { key: 'female', text: 'Female', value: 'female' },
-    ]
+
 
 
 		const panes = [
@@ -44,7 +46,7 @@ export default class MyProfile extends Component{
                 <Modal.Content>
                   <Form>
                     <Form.Field  inline>
-                      <label>Name:&nbsp;</label>
+                      <label>Name:</label>
                       <input placeholder='Name' />
                     </Form.Field>
                     <Form.Field  inline>
@@ -78,8 +80,10 @@ export default class MyProfile extends Component{
     				</div>
     				<Image src = {avatar} size = "small" centered/>
     				<div>
-    					<p></p>
-    					<p>Please Set up your file.</p>		
+    					{this.state.users.map(user => (
+                <p></p>
+                
+              ))}
     				</div>
       		</Tab.Pane>
 			) },
@@ -227,4 +231,9 @@ const skills = [
   {text: 'C', value : 'c'},
   {text: 'C++', value : 'cplus'},
   {text: 'Python', value : 'py'},
+]
+
+const gender= [
+  { key: 'male', text: 'Male', value: 'male' },
+  { key: 'female', text: 'Female', value: 'female' },
 ]
