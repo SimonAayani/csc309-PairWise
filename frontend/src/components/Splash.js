@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Layout from './Layout';
 import './Splash.css';
 import { Button } from 'semantic-ui-react'
 import splash_pic from '../splash_1.png'
@@ -6,6 +7,7 @@ import splash_pic from '../splash_1.png'
 class Splash extends Component {
   render() {
     return (
+        <Layout type="loggedOut">
       <div className="row">
         <div className="column left">
           <img className="logo" src={splash_pic} />
@@ -29,6 +31,8 @@ class Splash extends Component {
 
         </div>
       </div>
+
+  </Layout>
     )
   }
 }

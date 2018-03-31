@@ -1,81 +1,82 @@
 import React, { Component } from "react";
-import { Route, NavLink, BrowserRouter } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { Route, NavLink, BrowserRouter, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
+import { loginUser, doAuthentication } from '../actions';
 
-import Dashboard from './Dashboard';
+import Inbox from './Inbox'
+import Layout from './Layout';
 import Login from './Login';
+import LoginPage from './LoginPage';
 import NavBar from './NavBar';
+import Notifications from './Notifications';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
-import Inbox from './Inbox'
 
 import './main.css';
 
+
+// pure component for restricting access to certain routes
+function PrivateRoute ({component: Component, isAuthenticated, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => isAuthenticated === true
+          ? <Component {...props} />
+          : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+        />
+  )
+}
+
+
 class Main extends Component {
-    constructor(props) {
-        super(props);
+  render() {
+    const { dispatch, isAuthenticated, errorMessage } = this.props;
+    return(
+      <BrowserRouter>
+        <div>
 
-        // for now, we'll model user authentication with a boolean state variable
-        this.state = {isLoggedIn: false};
+          <div className="navbar">
+            <NavBar isAuthenticated={isAuthenticated} errorMessage={errorMessage} dispatch={dispatch} />
+          </div> {/* navbar */}
 
-        // bindings
-        this.handleLogin = this.handleLogin.bind(this);
-        this.handleLogout = this.handleLogout.bind(this);
-    }
+          <div className="main">
+            <Route exact path="/" render={() => isAuthenticated ? <Notifications /> : <Splash />} />
+            <Route path="/login" render={() => isAuthenticated ? <Notifications />
+                : <LoginPage
+                  isAuthenticated={isAuthenticated}
+                  errorMessage={errorMessage}
+                  dispatch={dispatch}
+                />} />
+              <PrivateRoute path="/notifications" component={Notifications} isAuthenticated={isAuthenticated}/>
+              <PrivateRoute path="/profile" component={MyProfile} isAuthenticated={isAuthenticated} />
+              <PrivateRoute path="/newsearch" component={SearchForm} isAuthenticated={isAuthenticated} />
+            </div> {/* closes main */}
 
-    // functions for toggling Login/Logout
-    handleLogin(e) {
-        e.preventDefault();
-        this.setState({isLoggedIn: true});
-    }
-
-    handleLogout(e) {
-        e.preventDefault();
-        this.setState({isLoggedIn: false});
-    }
-
-    render() {
-        let loginLink = null;
-        loginLink =
-            <LoginLink
-                isLoggedIn={this.state.isLoggedIn}
-                handleLogin={this.handleLogin}
-                handleLogout={this.handleLogout}></LoginLink>
-            
-
-            return(
-                <BrowserRouter>
-                    <div className="container">
-
-                      <div className="navbar">
-                          <NavBar isLoggedIn={this.state.isLoggedIn} loginLink={loginLink} />
-                      </div> 
-
-                      <div className="main">
-                          <Route exact path="/" render={() => this.state.isLoggedIn ? <Dashboard /> : <Splash />} />
-                          <Route path="/login" render={() => <Login handleLogin={this.handleLogin} /> } />
-                          <Route path="/splash" component={Splash}/>
-                          <Route path="/dashboard" component={Dashboard}/>
-                          <Route path="/logout" component={Splash} />
-                          <Route path="/profile" component={MyProfile} />
-                          <Route path="/inbox" component={Inbox} />
-                      </div> {/* closes main */}
-
-                    </div>
-                </BrowserRouter>
-            )
-    }
-}
-
-class LoginLink extends Component {
-    render() {
-        if (this.props.isLoggedIn) {
-            return(<NavLink to="/logout" onClick={this.props.handleLogout}>Log Out</NavLink>)
-        } else {
-            return(<NavLink to="/login">Log In</NavLink>)
-        }
-    }
+          </div>
+        </BrowserRouter>
+    )
+  }
 }
 
 
-export default Main;
+Main.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+}
+
+
+// connect the app's props to the redux store
+function mapStateToProps(state) {
+  const { auth } = state
+  const { isAuthenticated, errorMessage } = auth
+
+  return {
+    isAuthenticated,
+    errorMessage
+  }
+}
+
+export default connect(mapStateToProps)(Main)

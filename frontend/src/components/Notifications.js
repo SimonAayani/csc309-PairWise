@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Layout from './Layout';
 import { List, Image } from 'semantic-ui-react'
 import avatar from '../avatar.png'
 import './Notifications.css';
@@ -23,6 +24,7 @@ class Notifications extends Component {
     }]
 
     return (
+            <Layout type="loggedIn">
       <div>
         <div id="awayMsg"> While you were away... </div>
         
@@ -30,6 +32,7 @@ class Notifications extends Component {
           <List relaxed='very' divided='true' items={items} />
         </div>
       </div>
+            </Layout>
     );
   }
 }

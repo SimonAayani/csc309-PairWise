@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Select from 'react-select';
 
 import courseList from './data/courseList.js';
+import Layout from './Layout';
 import { languages, frameworks, concepts } from './data/optionLists.js';
 
 class SearchForm extends Component {
@@ -73,6 +74,7 @@ class SearchForm extends Component {
     })
 
     return(
+        <Layout type="loggedIn">
       <div className="searchForm">
         <h1>New Search</h1>
         <form onSubmit={this.handleSubmit} noValidate >
@@ -142,6 +144,7 @@ class SearchForm extends Component {
           </label>
         </form>
       </div>
+  </Layout>
     )
   }
 }
