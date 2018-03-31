@@ -8,7 +8,13 @@
 
 ## Process - Reflection
 
-> As we come to the final deliverable, we can definitely say it was due to our effective and efficient group organization strategies that helped our PairWise product reach its completion stage. The majority of the process related decisions that were made in this deliverable are similar to the ones made in the previous deliverables as they had turned out to be successful. Some of the newer decisions are listed below.
+> As we come to the final deliverable, we can definitely say it was due to our effective and efficient group organization strategies that helped our PairWise product reach closer to its completion stage. The majority of the process related decisions that were made in this deliverable are similar to the ones made in the previous deliverables as they had turned out to be successful. These included:
+>	* Using software tools like Slack’s GitHub integration and GitHub issues to provide product updates to the rest of the group.
+> 	* Scheduling more in person coding sessions over weekends to discuss overall problems/solutions, ask questions and share progress. 
+> 	* Assigning specific roles and responsibilities to each group member according to their interests and skills.
+
+> Some of the decisions made in this deliverable are not only new decisions but also improve on decisions listed above to improve project workflow and structure. They are listed below.
+
 
 #### Decisions that turned out well
 
