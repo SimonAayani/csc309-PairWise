@@ -20,7 +20,7 @@ export default class Sidebar extends Component {
             <div>
             <Segment className="sideOption" inverted color='teal'>
               <Button color='teal' name='newSearch'>
-                <NavLink to="/dashboard/newsearch" className="sideLink">
+                <NavLink to="/newsearch" className="sideLink">
                   New Search <i class=" right plus icon"></i>
                 </NavLink>
               </Button>

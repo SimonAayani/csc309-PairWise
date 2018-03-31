@@ -1,44 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-.display-5 {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 60px;
-  font-weight: bold;
-  color: darkblue;
+.row {
+  height: 81vh;
+  background-color:#e9ecef;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  margin-top: 20px;
   text-align: center;
+  width: 60%;
 }
 
-.splash h2 {
+.title {
+  text-align: center;
+  font-size : 50px;
   font-family: 'Quicksand', sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  text-align: justify;
 }
 
-.lead {
+.sub-text {
+  font-size: 15px;
   font-family: 'Quicksand', sans-serif;
-  font-size: 18px;
 }
 
-.p2 {
+.logo {
+  display: block;
+  height : 90%;
+  width : 90%;
+  padding-top : 50px;
+  float : right;
+}
+
+.text {
   font-family: 'Quicksand', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
 }
 
-.splash {
-	width: 60%;
-	margin: 0 auto;
-	background-color: #EAEAEA;
-	border-radius: 20px;
-	padding: 10px;
-	text-align: center;
+.subheader {
+  margin-bottom : 0px;
 }
 
-.splash-inner {
-	width: 70%;
-	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	text-align: left;
+.button {
+  margin-top : 20px;
 }
+
