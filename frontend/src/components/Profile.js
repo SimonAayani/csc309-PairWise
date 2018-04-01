@@ -24,6 +24,7 @@ export default class MyProfile extends Component{
     this.updateProfile = this.updateProfile.bind(this);
     this.courseChange = this.courseChange.bind(this);
     this.locationChange = this.locationChange.bind(this);
+    this.loadProfile = this.loadProfile.bind(this);
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -32,6 +33,23 @@ export default class MyProfile extends Component{
 
   //updateProfile =() => this.setState({ modalOpen: false,
     //                                 first: false})
+
+
+  loadProfile(){
+    axios.get(`http://165.227.40.205:8000/users/profile/${this.props.id}`)
+    .then(response =>{
+      if (response.status >= 200 && response.status < 300){
+        console.log("work")
+
+        this.setState(response.data)
+      }
+      else{
+        console.log("wrong")
+      }})
+
+
+    }
+
   updateProfile(){
     this.setState({
       modalOpen: false,
@@ -49,7 +67,7 @@ export default class MyProfile extends Component{
 
     axios.post("http://165.227.40.205:8000/users/profile/new/", profile)
     .then(repsonse => {
-      if (repsonse.stauts >= 200 && repsonse.stauts < 300){
+      if (repsonse.status >= 200 && repsonse.status < 300){
         console.log("work")
       }
       else{
@@ -95,7 +113,7 @@ export default class MyProfile extends Component{
                 {this.state.first
                   ? <p>Please Update your Profile</p>
                   : <div>
-                    <p>Name: {this.state.name}</p>
+                    <p>Name: {this.state.firstname}</p>
                     <p>E-mail: {this.state.email}</p>
                     <p>Course: {this.state.course}</p>
                     <p>Skills: {this.state.skills}</p>
