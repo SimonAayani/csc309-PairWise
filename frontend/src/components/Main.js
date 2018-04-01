@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Route, NavLink, BrowserRouter, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { loginUser, doAuthentication } from '../actions';
+import axios from 'axios';
 
 import Inbox from './Inbox'
 import Layout from './Layout';
@@ -17,6 +18,8 @@ import MyProfile from './Profile'
 
 import './main.css';
 
+// set axios defaults
+axios.defaults.headers.common['Authorization'] = 'JWT ' + localStorage.getItem("jwt-token");
 
 // pure component for restricting access to certain routes
 function PrivateRoute ({component: Component, isAuthenticated, ...rest}) {
@@ -54,7 +57,7 @@ class Main extends Component {
 					? <Notifications />
 					: <Registration dispatch={dispatch} isRegistering={isRegistering} />} />
               <PrivateRoute path="/notifications" component={Notifications} isAuthenticated={isAuthenticated}/>
-              <PrivateRoute path="/profile" component={MyProfile} isAuthenticated={isAuthenticated} />
+			  <PrivateRoute path="/profile" component={MyProfile} isAuthenticated={isAuthenticated} />
               <PrivateRoute path="/newsearch" component={SearchForm} isAuthenticated={isAuthenticated} />
             </div> {/* closes main */}
 
