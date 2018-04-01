@@ -12,8 +12,8 @@ export default class MyProfile extends Component{
       modalOpen: false,
       skills: [],
       bio: "",
-      course:[],
-      location: 1,
+      courses:[],
+      location: 11,
       pic:"",
       first : true,
       email : '',
@@ -36,14 +36,16 @@ export default class MyProfile extends Component{
       first: false
     })
     const profile = {
-      skills: this.state.skills,
-      bio : this.state.bio,
-      location : this.state.location,
-      course : this.state.course
+      student: 1,
+      skills: [1],
+      bio : 'hello',
+      location : 55,
+      courses : [1],
+      pic: null,
     }
 
 
-    axios.post("http://165.227.40.205:8000/users/profile/", profile)
+    axios.post("http://165.227.40.205:8000/users/profile/new/", profile)
     .then(repsonse => {
       if (repsonse.stauts >= 200 && repsonse.stauts < 300){
         console.log("work")
@@ -60,12 +62,19 @@ export default class MyProfile extends Component{
     this.setState({bio: e.target.value});
   }
 
+  loactionChange(e){
+    this.setState({location: e.target.value})
+  }
+
   courseChange(e, data) {
-    this.setState({course: data.value})
+    const course = data.value.map(v => v)
+    this.setState({courses: course})
+    console.log(this.state.courses)
   }
 
   skillsChange(e, data) {
     this.setState({skills: data.value})
+    console.log(this.state.skills)
   }
 
 	render() {
@@ -103,6 +112,10 @@ export default class MyProfile extends Component{
                     <Form.Field  inline>
                       <label>Skills:</label>
                       <Dropdown placeholder='Skills' multiple selection options={skills} onChange={this.skillsChange}/>
+                    </Form.Field>
+                    <Form.Field  inline>
+                      <label>Location</label>
+                      <input type= "text" onChange={this.locationChange}></input>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
@@ -189,25 +202,25 @@ export default class MyProfile extends Component{
 
 
 const course = [
-  {text: 'csc104', value: 'csc104' },
-  {text: 'csc108', value: 'csc108' },
-  {text: 'csc148', value: 'csc148' },
-  {text: 'csc207', value: 'csc207' },
-  {text: 'csc209', value: 'csc209' },
-  {text: 'csc301', value: 'csc301' },
-  {text: 'csc309', value: 'csc309' },
-  {text: 'csc369', value: 'csc369' },
-  {text: 'csc373', value: 'csc373' },
-  {text: 'csc404', value: 'csc404' },
-  {text: 'csc411', value: 'csc411' },
-  {text: 'csc412', value: 'csc412' },
+  {text: 'csc104', value: 1 },
+  {text: 'csc108', value: 2 },
+  {text: 'csc148', value: 3 },
+  {text: 'csc207', value: 4 },
+  {text: 'csc209', value: 5 },
+  {text: 'csc301', value: 6 },
+  {text: 'csc309', value: 7 },
+  {text: 'csc369', value: 8 },
+  {text: 'csc373', value: 9 },
+  {text: 'csc404', value: 10 },
+  {text: 'csc411', value: 11 },
+  {text: 'csc412', value: 12 },
 ]
 
 const skills = [
-  {text: 'Java', value : 'Java'},
-  {text: 'C', value : 'C'},
-  {text: 'C++', value : 'C++'},
-  {text: 'Python', value : 'Python'},
+  {text: 'Java', value : 1},
+  {text: 'C', value : 2},
+  {text: 'C++', value : 3},
+  {text: 'Python', value : 4},
 ]
 
 const gender= [
