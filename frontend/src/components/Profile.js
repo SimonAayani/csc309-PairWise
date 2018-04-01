@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input, Divider } from "semantic-ui-react";
 import avatar from '../avatar.png'
 
 
@@ -9,29 +9,58 @@ export default class MyProfile extends Component{
     super(props)
     this.state = {
       modalOpen: false,
-      users : [] 
+      skills: [],
+      bio: "",
+      course:[],
+      location: 1,
+      pic:"",
+      first : true,
+      email : '',
     }
-  }
+    this.firstnameChange = this.firstnameChange.bind(this);
+    this.bioChange = this.bioChange.bind(this);
+    this.emailChange = this.emailChange.bind(this);
+    this.skillsChange = this.skillsChange.bind(this);
 
-  const first = true
+  }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
-  handleClose = () => this.setState({ modalOpen: false })
+  handleClose = () => this.setState({ modalOpen: false})
 
-  componentDidMount() {
-    try {
-      const res = fetch('http://http://165.227.40.205/api/');
-      const userdata = res.json();
-      this.setState({
-        users : userdata
-      });
-    } catch (e) {
-      console.log(e);
+  //updateProfile =() => this.setState({ modalOpen: false,
+    //                                 first: false})
+  updateProfile(){
+    this.setState({ modalOpen: false,
+                    first: false})
+    const profile = {
+      skills: this.state.skill,
+      bio : this.state.bio
+      location : this.state.location,
+      course : this.state.course
     }
-  }
-  
+    axios.post("http://165.227.40.205:8000/users/profile/", profile)
+    .then(repsonse => {
+      if (repsonse.stauts >= 200 && repsonse.stauts < 300){
+        console.log("work")
+      }
+      else{
+        console.log("wrong")
+      }})
+    .catch(error => {console.log(error)})
+    }     
+    }
 
+  bioChange(e) {
+    this.setState({bio: e.target.value});
+  }
+
+
+  skillsChange(e, data) {
+    const len = data.value.length;
+    const skill = data.value.map((v, i) => v);
+    this.setState({skills: skill});
+  }
 
 	render() {
 
@@ -43,36 +72,30 @@ export default class MyProfile extends Component{
   				<Tab.Pane key =  "1">
     				<div>
               <Image src = {avatar} size = "small" centered/>
+              <Divider hidden />
                 <div>
-                  {this.state.users.map(user => (
-                    <p></p>))}
-                  
+                {this.state.first
+                  ? <p>Please Update your Profile</p>
+                  : <div>
+                    <p>Name: {this.state.name}</p>
+                    <p>E-mail: {this.state.email}</p>
+                    <p>Skills: {this.state.skills}</p>
+                    <p>Bio: {this.state.bio}</p>
+                    </div>}
                 </div>
-
+              <Divider hidden/>
     					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic = "right" icon>
                 <Icon name = 'setting' />Update Profile</Button>} size='small'>
-                <Modal.Header>Settings:</Modal.Header>
+                <Modal.Header>Profile:</Modal.Header>
                 <Modal.Content>
                   <Form>
                     <Form.Field  inline>
-                      <label>Name:</label>
-                      <input placeholder='Name' />
-                    </Form.Field>
-                    <Form.Field  inline>
-                      <label>Gender:</label>
-                      <Dropdown placeholder='Gender' selection options={gender} />
-                    </Form.Field>
-                    <Form.Field  inline>
-                      <label>E-mail:</label>
-                      <input placeholder='E-mail' />
-                    </Form.Field>
-                    <Form.Field  inline>
                       <label>Skills:</label>
-                      <Dropdown placeholder='Skills' multiple selection options={skills} />
+                      <Dropdown placeholder='Skills' multiple selection options={skills} onChange={this.skillsChange}/>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
-                      <textarea></textarea>
+                      <textarea type= "text" onChange={this.bioChange}></textarea>
                     </Form.Field>
                   </Form>
                 </Modal.Content>
@@ -80,8 +103,8 @@ export default class MyProfile extends Component{
                   <Button basic color='blue' onClick={this.handleClose} >
                     Close
                   </Button>
-                  <Button basic color='blue' onClick={this.handleClose} >
-                    Submit
+                  <Button basic color='blue' onClick={this.updateProfile} >
+                    Update
                   </Button>
                 </Modal.Actions>
               </Modal>
@@ -229,10 +252,10 @@ const day = [
 ]
 
 const skills = [
-  {text: 'Java', value : 'java'},
-  {text: 'C', value : 'c'},
-  {text: 'C++', value : 'cplus'},
-  {text: 'Python', value : 'py'},
+  {text: 'Java', value : 'Java'},
+  {text: 'C', value : 'C'},
+  {text: 'C++', value : 'C++'},
+  {text: 'Python', value : 'Python'},
 ]
 
 const gender= [
