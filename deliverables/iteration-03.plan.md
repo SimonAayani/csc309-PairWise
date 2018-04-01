@@ -40,24 +40,6 @@
 >Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
 
 
->* **Project Supervisors:**
->Supervisors have the responsibility of collecting group decisions from the planning meeting and keeping track of the product’s progress. They will collect and maintain information about tasks, including tasks that have been assigned to group members, completed and incomplete tasks. Expectations of the Supervisor is to host weekly meetings to review each individual’s progress and check if they have been keeping up with their deadlines, discuss solutions/problems that arose, and re-distribute tasks if necessary.
->Contributors: Evan Wallace (epwallace), Alex Hurka (ahurka)
-
->* **Frontend developers:**
->Frontend developers will continue to implement views in the application that were not completed in the previous iteration. They will remove the dummy code and make changes where necessary to follow best React practices. These developers will also be involved in enhancing the product to be more visually appealing, in terms of colour scheme and layout, using Semantic UI and custom CSS.
->* Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi)
-
->* **Backend developers:**
->Backend developers will improve existing server logic, providing new database support and logic for new features such as user messaging. They will solidify a login and registration system, as well as access restrictions such as requiring a user to create a profile before they can launch a search, and work on improving partner matching logic using additional criteria from the search form and user profiles.
->* Contributor: Alex Hurka (ahurka)
-
->* **Middle end:**
->This role involves figuring out how to integrate frontend and backend to ensure proper communication and response between the two.
->Contributors: Yuhua Li (NaClSalt), Cindy Wang (cwang0802), Simon Aayani (SimonAayani), Deanne Madulid (deannemadulid), Evan Wallace (epwallace), Priyanka Narasimhan (PriyankaNarasi), Alex Hurka (ahurka)
-
-
-
 #### Events
 
 >* Continuing from previous iterations, we plan to have in-person meetings and coding sessions on Fridays (March 23) and weekends (March 24), in BA3200, to allow for easier direct communication and discussion.
@@ -79,24 +61,29 @@
 #### Git / GitHub workflow
 
 >* **Branches:**
->The group will use the upstream master branch on the repository as the branch for deployable features, and use other branches on the upstream for testing. Each user may create one or more personal test branches, which other users may clone from to test and integrate multiple people's work before incorporating it into the master branch. The full developer workflow for pushing a new feature to the public repository is to push their work to any branch of their choice on their personal fork of the repository, send a pull request to merge their fork with one of their personal branches on the upstream, and merge the pull request into the personal branch themselves. This workflow allows all developers to interact with everyone's features through their branches, while keeping a clean and deployable master branch at all times. Additionally, there are never any merge conflicts in this phase because only one developer pushes to their own branch.
+>The group will restrict the upstream master branch on the repository to contain only tested and deployable features, and use other branches on the upstream for testing. Each developer may create one or more personal test branches on the upstream, from which other developers may clone to test, correct, and integrate multiple people's work before merging them into the master branch. The full developer workflow for pushing a new feature to the master branch is to push their work to any branch of their choice on their personal fork of the repository, send a pull request to merge their fork with one of their personal testing branches on the upstream, and merge the pull request into the personal branch themselves. We chose this workflow because it allows all developers to interact with everyone's features through their branches, while keeping a safe, clean, and deployable master branch at all times. Additionally, the stages of merging features into people's personal branches tend to be free from merge conflicts, as these branches contain the work of only one developer at most times.
 
 >* **Pull Requests:**
->After testing their feature, a developer may create a pull request from their personal testing branch on the upstream repository to the master branch on the same repository. This pull request must be reviewed by at least one or two other developers before being merged. Ideally the reviewer should also be shown a demonstration of the feature working successfully. Who reviews the request is different in different cases, but it should generally be someone who was working on a similar or related component. After having their work approved, a developer is free to merge their own pull request into the master branch. In this iteration we want to place more focus on peer reviews, to catch situations in which multiple people working on the same component, or are making separate components incompatible. This will also help to avoid or resolve merge conflicts, by allowing the authors of the conflicting commits to work on a solution through the code review. The pull request's initial comment should have an in-depth description of how the new feature should be used by other components, so that other team members can see how to use the feature without having to search through multiple separate files for documentation.
+>After testing their feature(s), a developer may create a pull request from their personal test branch on the upstream repository to the upstream master branch. This pull request must be reviewed by at least one or two other developers before being merged. Ideally the reviewer should also be shown a demonstration of the feature working successfully. Which developer reviews the request is different in different cases, but it should generally be someone who was working on a similar or related component. After having their work approved, a developer is free to merge their own pull request into the master branch. In this iteration we want to place more focus on peer reviews, to catch situations in which multiple people working on the same component, or are making separate components incompatible. This will also help to avoid or resolve merge conflicts, by allowing the authors of the conflicting commits to work on a solution through the code review. The pull request's initial comment should have an in-depth description of how the new feature should be used by other components, so that other team members can see how to use the feature without having to search through multiple separate files for documentation.
 
 
 
 ## Product
 
 #### Goals and tasks
->Our goal in this iteration is to finish implementing the features for the MVP of the PairWise product. We will be focusing mostly on acquiring the functionality of the backend, polishing frontend display, and then connecting the two for a fully functioning product.
+>Our goal in this iteration is to finish implementing the features for the MVP of the PairWise product. We will be focusing mostly on completing core MVP functionality in the backend, and the required webpages to access those backend services; polishing frontend display with new CSS components; and making the frontend components dynamically update themselves by sending requests to the backend servers.
+
+>Priority of features was decided by the group during the plan meeting. We decided to give most attention to creating a good user experience, which led us to give highest priority to the tasks of making the frontend dynamic and aesthetically pleasing. Leaving any static components of important sections like the search results page would make the application completely worthless to users who wanted to use those features, and so the task of making the frontend dynamic was given highest priority. After that, the application's current appearance is not polished and different pages lack a unified design style. The group decided that a smooth and unified appearance is extremely important in user attraction and retention, and an application with useful features but with a rough appearance would not be likely to become successful. On these grounds we decided that improving the application's appearance was also among the top priorities. Otherwise, the most important factor in the prioritization of features was how strongly they connected with core MVP features as specified in the features list made in the first deliverable. For example, creating user accounts and profiles and performing searches were high priority with respect to non-core features such as messaging. For the most part, the logic was to give higher priority to parts of the application that appear earier in most use cases. Creating a user account is a prerequisite for almost any use case, and so it was given higher priority than other features such as group invitation management, which occurs in later and fewer use cases. Additionally, convenience features like user messages and deleting searches were designated as bonus features for the project, and thus were given lowest priorities. Users can get the full experience of the application's main use cases, and form groups from our services, without those features. For example, messaging allows users to communicate with each other, which they can already do (albeit less conveniently) using email addresses we provide within user accounts and profiles.
 
 >* **Connect frontend to backend**
-> 	* Learn how to connect React and Django to be able to send and retrieve data from the database.
->	* As a returning user, I want to have my account information and activity saved after leaving the website or logging out, so that I can visit the website sometime in the future and have it remember my searches and groups.
+> 	* Learn how to connect a React frontend with a Django REST Framework backend to be able to send and retrieve data from the database.
+>	* As a returning user, I want to have my account information and activity saved after leaving the website or logging out, so that I can visit the website sometime in the future and have it remember my profile, my ongoing searches, and my groups, so that I do not need to retrace my previous steps next time I log in.
+> * As a first-time user, when I launch a search I want my new account and profile to become immediately visible to other users in their searches so that I can receive invitations or messages from them right off the bat.
+> * As a student with high requirements, I want the search results I receive to reflect the input other users provided, so I receive accurate information by which to judge potential partners.
+> * As a new member of several groups in the PairWise application, I want the list of groups I can view from the sidebar to reflect the groups I have joined, so I can quickly access information about my own groups without having the interface crowded with groups that are not my own.
 
 >* **Clean up the frontend**
-> 	* Remove things that were hard coded for the previous deliverable. Fix the layout and colour scheme of the website. Add the PairWise logo and other visuals to the splash screen.
+> 	* Remove static HTML elements and frontend components that were put in place during the previous deliverable. Improve the layout and of the website using new CSS components, and match the website's style and colour scheme to the UI design from the previous deliverable. Add the PairWise logo and other visuals to the splash screen.
 
 >* **Create a new user account**
 >	* As a newcomer to the PairWise application, I want to click on “register” on the main page and be taken to the registration page so I can create an account and be able to access the application through that account. This page should include a form with the following fields:
@@ -106,25 +93,25 @@
 >		* Password
 >		* Confirm password
 
+>* **Implement partner searching logic**
+>	* Determine the process for matching the search criteria to the information in a user’s profile. For example, a user specifying that they want to find a partner who has experience with Python should have a high match rate with a student who has chosen “Python” as a skill in their profile. Find a way to store and access this information, and develop a scheme by which multiple criteria can be assessed to produce an overall estimate of how well partners match.
+
 >* **Send and accept/reject invites from other users**
 >	* As a user, I want to click on “send invite” after selecting a user on the search results page.
 >	* As a user, I want to see my invitations to join groups, and be able to respond to the invitation by clicking “accept” or “reject”.
 
->* **Send messages to other users**
->	* Create the Inbox screen, which will be displayed when the user clicks the Inbox button on the top navigation bar. This screen contains a history of the messages sent between the current user and other users.
-
 >* **View existing groups**
 >	* As a returning user, I want to see on the sidebar a list of the groups that I have already formed, so that I can see my teammates for each group that I am currently a part of.
+
+>* **Send messages to other users**
+>	* Create the Inbox screen, which will be displayed when the user clicks the Inbox button on the top navigation bar. This screen contains a history of the messages sent between the current user and other users.
 
 >* **View notifications for any activity on the dashboard**
 >	* As a returning user, I want to be notified of any activity that occurred while I was away, so that I know if I need to check my searches for new results or if I have a new message.
 
->* **Implement the logic for partner searching**
->	* Determine the process for matching the search criteria to the information in a user’s profile. For example, a user specifying that they want to find a partner who has experience with Python should have a high match rate with a student who has chosen “Python” as a skill in their profile. Find a way to store and access this information, and develop a scheme by which multiple criteria can be assessed to produce an overall estimate of how well partners match.
-
 >* **Delete groups and searches**
->	* As a user, I want to delete an existing search for a course to be able to create a new one with a different set of criteria.
->	* As a group member, I want to not see further search results in a course after forming a group in that course.
+>	* As a student beginning the second assignment of a course, I want to delete an existing search for the course's first assignment to be able to launch a new search for the second assignment, with a different set of criteria.
+>	* As a member of a group, I want to stop seeing further search results in the group's course after the group reaches its capacity.
 >	* As a returning user, I want to delete a group after an assignment is over, in order to create a different group for the next assignment.
 
 #### Artifacts
@@ -135,9 +122,9 @@ Purpose: Gives our product a unique symbol which users will be able to easily id
 
 >* **Splash Page:**
 >Upon loading the PairWise website, users will be greeted by a splash page that describes the product, allows them to register for an account or log in with an existing account, and presents the logo and other visual elements. This page must be accessible from a browser, to allow users access to login and registration before they are able to access core website features.
-Purpose: Allows users to get familiarized with the concept of the application, and also provides the means to use the functionality of the website (through registration).
+Purpose: Allows users to get familiarized with the concept of the application, and also provide an access point for unregistered or unauthenticated users to authenticate to the website (through registration).
 
->* **Login Tab:**
+>* **Login and Registration Tab:**
 >Upon trying to log in from the splash page, a user will see a pop-up on top of the splash page that prompts them for their username and password, which will allow them to log in if they enter recognized credentials. First-time registering users will be prompted for a username, a password and password confirmation, as well as name and email to be used in search results. If the user logs in successfully they will be taken to the main page. Otherwise they will receive a message explaining why they were unable to log in.
 Purpose: Allows us to gather information the user has submitted and by connecting to our database we are able to authenticate or register the users credentials.
 
@@ -163,4 +150,4 @@ Purpose: To allow a user to see more details about the members of a group and en
 
 >* **Final Product Demo:**
 >A short video presenting the purpose of the PairWise app and its problem domain. The video will present a tutorial of standard product use, from logging in to an account to launching a search to viewing search results to group formation, and demonstrate the main features of the app. Further product details including possible future developments will also be discussed.
-Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner.
+Purpose: Provides users with a walkthrough of the application workflow and purpose, which will assist users in finding and utilizing all the functionality of PairWise in a straightforward manner. Also gives a brief introduction to standard use cases of the application and the problems it solves, which could help attract new users.

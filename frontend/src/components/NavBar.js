@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { loginUser, logoutUser } from '../actions'
 
 class NavBar extends Component {
+
 	render() {
-    if (this.props.isLoggedIn) { /* user is logged in */
+    const { dispatch, isAuthenticated, errorMessage } = this.props
+    if (isAuthenticated) { /* user is logged in */
 			return(
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
-				<li>{this.props.loginLink}</li>
+        <li><NavLink to="/" onClick={() => dispatch(logoutUser())}>Logout</NavLink></li>
         <li><NavLink to="/inbox">Inbox</NavLink></li>
 				<li><NavLink to="/profile">Profile</NavLink></li>
 				</ul>
@@ -16,7 +19,8 @@ class NavBar extends Component {
 			return(
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
-				<li>{this.props.loginLink}</li>
+        <li><NavLink to="/login">Login</NavLink></li>
+        <li><NavLink to="/registration">Register</NavLink></li>
 				</ul>
 			)
 		}
