@@ -21,7 +21,8 @@ function receiveLogin(user) {
     type: LOGIN_SUCCESS,
     isFetching: false,
     isAuthenticated: true,
-    jwt_token: user.token
+    jwt_token: user.token,
+    id: user.id
   }
 }
 
