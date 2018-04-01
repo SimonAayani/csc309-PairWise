@@ -1,23 +1,84 @@
 import React, { Component } from "react";
-import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input } from "semantic-ui-react";
+import { Button, Grid, Tab, Image, Icon, Label, Checkbox, Form, Modal, Dropdown, Input, Divider } from "semantic-ui-react";
 import avatar from '../avatar.png'
+import axios from "axios"
 
 
 
 export default class MyProfile extends Component{
-  state = { modalOpen: false }
+  constructor (props) {
+    super(props)
+    this.state = {
+      modalOpen: false,
+      skills: [],
+      bio: "",
+      courses:[],
+      location: 11,
+      pic:"",
+      first : true,
+      email : '',
+    }
+    this.bioChange = this.bioChange.bind(this);
+    this.skillsChange = this.skillsChange.bind(this);
+    this.updateProfile = this.updateProfile.bind(this);
+    this.courseChange = this.courseChange.bind(this);
+  }
 
   handleOpen = () => this.setState({ modalOpen: true })
 
-  handleClose = () => this.setState({ modalOpen: false })
+  handleClose = () => this.setState({ modalOpen: false})
+
+  //updateProfile =() => this.setState({ modalOpen: false,
+    //                                 first: false})
+  updateProfile(){
+    this.setState({
+      modalOpen: false,
+      first: false
+    })
+    const profile = {
+      student: 1,
+      skills: [1],
+      bio : 'hello',
+      location : 55,
+      courses : [1],
+      pic: null,
+    }
 
 
+    axios.post("http://165.227.40.205:8000/users/profile/new/", profile)
+    .then(repsonse => {
+      if (repsonse.stauts >= 200 && repsonse.stauts < 300){
+        console.log("work")
+      }
+      else{
+        console.log("wrong")
+      }})
+    .catch(error => {console.log(error)})
+     }
+
+    
+
+  bioChange(e) {
+    this.setState({bio: e.target.value});
+  }
+
+  loactionChange(e){
+    this.setState({location: e.target.value})
+  }
+
+  courseChange(e, data) {
+    const course = data.value.map(v => v)
+    this.setState({courses: course})
+    console.log(this.state.courses)
+  }
+
+  skillsChange(e, data) {
+    this.setState({skills: data.value})
+    console.log(this.state.skills)
+  }
 
 	render() {
-    const gender= [
-      { key: 'male', text: 'Male', value: 'male' },
-      { key: 'female', text: 'Female', value: 'female' },
-    ]
+
 
 
 		const panes = [
@@ -25,48 +86,54 @@ export default class MyProfile extends Component{
   			pane: (
   				<Tab.Pane key =  "1">
     				<div>
-    					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic floated = "right" icon>
-                <Icon name = 'setting' /></Button>} size='small'>
-                <Modal.Header>Settings:</Modal.Header>
+              <Image src = {avatar} size = "small" centered/>
+              <Divider hidden />
+                <div>
+                {this.state.first
+                  ? <p>Please Update your Profile</p>
+                  : <div>
+                    <p>Name: {this.state.name}</p>
+                    <p>E-mail: {this.state.email}</p>
+                    <p>Course: {this.state.course}</p>
+                    <p>Skills: {this.state.skills}</p>
+                    <p>Bio: {this.state.bio}</p>
+                    </div>}
+                </div>
+              <Divider hidden/>
+    					<Modal open={this.state.modalOpen} onClose={this.handleClose} trigger={<Button onClick={this.handleOpen} basic = "right" icon>
+                <Icon name = 'setting' />Update Profile</Button>} size='small'>
+                <Modal.Header>Profile:</Modal.Header>
                 <Modal.Content>
                   <Form>
-                    <Form.Field  inline>
-                      <label>Name:&nbsp;</label>
-                      <input placeholder='Name' />
-                    </Form.Field>
-                    <Form.Field  inline>
-                      <label>Gender:</label>
-                      <Dropdown placeholder='Gender' selection options={gender} />
-                    </Form.Field>
-                    <Form.Field  inline>
-                      <label>E-mail:</label>
-                      <input placeholder='E-mail' />
+                    <Form.Field inline>
+                      <label>Course:</label>
+                      <Dropdown placeholder='Course' multiple selection options={course} onChange={this.courseChange}/>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Skills:</label>
-                      <Dropdown placeholder='Skills' multiple selection options={skills} />
+                      <Dropdown placeholder='Skills' multiple selection options={skills} onChange={this.skillsChange}/>
+                    </Form.Field>
+                    <Form.Field  inline>
+                      <label>Location</label>
+                      <input type= "text" onChange={this.locationChange}></input>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
-                      <Input placeholder='Bio' width={10} />
+                      <textarea type= "text" onChange={this.bioChange}></textarea>
                     </Form.Field>
+
                   </Form>
                 </Modal.Content>
                 <Modal.Actions>
                   <Button basic color='blue' onClick={this.handleClose} >
                     Close
                   </Button>
-                  <Button basic color='blue' onClick={this.handleClose} >
-                    Submit
+                  <Button basic color='blue' onClick={this.updateProfile} >
+                    Update
                   </Button>
                 </Modal.Actions>
               </Modal>
 
-    				</div>
-    				<Image src = {avatar} size = "small" centered/>
-    				<div>
-    					<p></p>
-    					<p>Please Set up your file.</p>		
     				</div>
       		</Tab.Pane>
 			) },
@@ -133,85 +200,30 @@ export default class MyProfile extends Component{
 	}
 }
 
-const year = [
-  { text: '1980', value: '1980' },
-  { text: '1981', value: '1981' },
-  { text: '1982', value: '1982' },
-  { text: '1983', value: '1983' },
-  { text: '1984', value: '1984' },
-  { text: '1985', value: '1985' },
-  { text: '1986', value: '1986' },
-  { text: '1987', value: '1987' },
-  { text: '1988', value: '1988' },
-  { text: '1989', value: '1989' },
-  { text: '1990', value: '1990' },
-  { text: '1991', value: '1991' },
-  { text: '1992', value: '1992' },
-  { text: '1993', value: '1993' },
-  { text: '1994', value: '1994' },
-  { text: '1995', value: '1995' },
-  { text: '1996', value: '1996' },
-  { text: '1997', value: '1997' },
-  { text: '1998', value: '1998' },
-  { text: '1999', value: '1999' },
-  { text: '2000', value: '2000' },
-  { text: '2001', value: '2001' },
-  { text: '2002', value: '2002' },
-  { text: '2003', value: '2003' },
-]
 
-const month = [
-  { text: '01', value: '01' },
-  { text: '02', value: '02' },
-  { text: '03', value: '03' },
-  { text: '04', value: '04' },
-  { text: '05', value: '05' },
-  { text: '06', value: '06' },
-  { text: '07', value: '07' },
-  { text: '08', value: '08' },
-  { text: '09', value: '09' },
-  { text: '10', value: '10' },
-  { text: '11', value: '11' },
-  { text: '12', value: '12' },
-]
-
-const day = [
-  {text: '01', value: '01' },
-  {text: '02', value: '02' },
-  {text: '03', value: '03' },
-  {text: '04', value: '04' },
-  {text: '05', value: '05' },
-  {text: '06', value: '06' },
-  {text: '07', value: '07' },
-  {text: '08', value: '08' },
-  {text: '09', value: '09' },
-  {text: '10', value: '10' },
-  {text: '11', value: '11' },
-  {text: '12', value: '12' },
-  {text: '13', value: '13' },
-  {text: '14', value: '14' },
-  {text: '15', value: '15' },
-  {text: '16', value: '16' },
-  {text: '17', value: '17' },
-  {text: '18', value: '18' },
-  {text: '19', value: '19' },
-  {text: '20', value: '20' },
-  {text: '21', value: '21' },
-  {text: '22', value: '22' },
-  {text: '23', value: '23' },
-  {text: '24', value: '24' },
-  {text: '25', value: '25' },
-  {text: '26', value: '26' },
-  {text: '27', value: '27' },
-  {text: '28', value: '28' },
-  {text: '29', value: '29' },
-  {text: '30', value: '30' },
-  {text: '31', value: '31' },
+const course = [
+  {text: 'csc104', value: 1 },
+  {text: 'csc108', value: 2 },
+  {text: 'csc148', value: 3 },
+  {text: 'csc207', value: 4 },
+  {text: 'csc209', value: 5 },
+  {text: 'csc301', value: 6 },
+  {text: 'csc309', value: 7 },
+  {text: 'csc369', value: 8 },
+  {text: 'csc373', value: 9 },
+  {text: 'csc404', value: 10 },
+  {text: 'csc411', value: 11 },
+  {text: 'csc412', value: 12 },
 ]
 
 const skills = [
-  {text: 'Java', value : 'java'},
-  {text: 'C', value : 'c'},
-  {text: 'C++', value : 'cplus'},
-  {text: 'Python', value : 'py'},
+  {text: 'Java', value : 1},
+  {text: 'C', value : 2},
+  {text: 'C++', value : 3},
+  {text: 'Python', value : 4},
+]
+
+const gender= [
+  { key: 'male', text: 'Male', value: 'male' },
+  { key: 'female', text: 'Female', value: 'female' },
 ]
