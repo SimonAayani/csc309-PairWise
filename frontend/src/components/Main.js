@@ -10,6 +10,7 @@ import Login from './Login';
 import LoginPage from './LoginPage';
 import NavBar from './NavBar';
 import Notifications from './Notifications';
+import Registration from './Registration';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
@@ -32,7 +33,7 @@ function PrivateRoute ({component: Component, isAuthenticated, ...rest}) {
 
 class Main extends Component {
   render() {
-    const { dispatch, isAuthenticated, errorMessage } = this.props;
+    const { dispatch, isAuthenticated, isRegistering, errorMessage } = this.props;
     return(
       <BrowserRouter>
         <div>
@@ -49,6 +50,9 @@ class Main extends Component {
                   errorMessage={errorMessage}
                   dispatch={dispatch}
                 />} />
+			<Route path="/registration" render={() => isAuthenticated
+					? <Notifications />
+					: <Registration dispatch={dispatch} isRegistering={isRegistering} />} />
               <PrivateRoute path="/notifications" component={Notifications} isAuthenticated={isAuthenticated}/>
               <PrivateRoute path="/profile" component={MyProfile} isAuthenticated={isAuthenticated} />
               <PrivateRoute path="/newsearch" component={SearchForm} isAuthenticated={isAuthenticated} />
@@ -70,12 +74,13 @@ Main.propTypes = {
 
 // connect the app's props to the redux store
 function mapStateToProps(state) {
-  const { auth } = state
+  const { auth, isRegistering } = state
   const { isAuthenticated, errorMessage } = auth
 
   return {
     isAuthenticated,
-    errorMessage
+	  errorMessage,
+	  isRegistering
   }
 }
 

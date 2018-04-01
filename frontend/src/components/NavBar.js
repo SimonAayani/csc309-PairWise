@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { loginUser, logoutUser } from '../actions'
 
 class NavBar extends Component {
-    
+
 	render() {
     const { dispatch, isAuthenticated, errorMessage } = this.props
     if (isAuthenticated) { /* user is logged in */
@@ -20,6 +20,7 @@ class NavBar extends Component {
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
+        <li><NavLink to="/registration">Register</NavLink></li>
 				</ul>
 			)
 		}
