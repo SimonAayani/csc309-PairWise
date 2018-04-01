@@ -9,7 +9,8 @@ import {
 // we would also want a util to check if the token is expired.
 function auth(state = {
     isFetching: false,
-    isAuthenticated: localStorage.getItem('id_token') ? true : false
+    isAuthenticated: localStorage.getItem('id_token') ? true : false,
+    id: 0
   }, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -22,7 +23,8 @@ function auth(state = {
       return Object.assign({}, state, {
         isFetching: false,
         isAuthenticated: true,
-        errorMessage: ''
+        errorMessage: '',
+        id: action.id
       })
     case LOGIN_FAILURE:
       return Object.assign({}, state, {
@@ -33,7 +35,8 @@ function auth(state = {
     case LOGOUT_SUCCESS:
       return Object.assign({}, state, {
         isFetching: true,
-        isAuthenticated: false
+        isAuthenticated: false,
+        id: 0
       })
     default:
       return state

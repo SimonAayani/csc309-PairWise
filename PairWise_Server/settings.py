@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwiseServer',
+        'NAME': 'pairwise_production',
         'USER': 'pw',
         'PASSWORD': 'pairwise',
         'HOST': '127.0.0.1',
@@ -119,6 +119,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+def jwt_response_payload_handler(token, user=None, request=None):
+    return {
+        'token': token,
+        'id': user.id
+    }
+
+JWT_AUTH = {
+        'JWT_VERIFY_EXPIRATION': False,
+        'JWT_RESPONSE_PAYLOAD_HANDLER': jwt_response_payload_handler
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

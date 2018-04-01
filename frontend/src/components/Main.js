@@ -36,7 +36,7 @@ function PrivateRoute ({component: Component, isAuthenticated, ...rest}) {
 
 class Main extends Component {
   render() {
-    const { dispatch, isAuthenticated, isRegistering, errorMessage } = this.props;
+    const { dispatch, isAuthenticated, isRegistering, errorMessage, id } = this.props;
     return(
       <BrowserRouter>
         <div>
@@ -53,16 +53,15 @@ class Main extends Component {
                   errorMessage={errorMessage}
                   dispatch={dispatch}
                 />} />
-			<Route path="/registration" render={() => isAuthenticated
-					? <Notifications />
-					: <Registration dispatch={dispatch} isRegistering={isRegistering} />} />
-              <PrivateRoute path="/notifications" component={Notifications} isAuthenticated={isAuthenticated}/>
-			  <PrivateRoute path="/profile" component={MyProfile} isAuthenticated={isAuthenticated} />
-              <PrivateRoute path="/newsearch" component={SearchForm} isAuthenticated={isAuthenticated} />
-            </div> {/* closes main */}
-
-          </div>
-        </BrowserRouter>
+              <Route path="/registration" render={() => isAuthenticated
+                  ? <Notifications />
+                  : <Registration dispatch={dispatch} isRegistering={isRegistering} />} />
+                <PrivateRoute path="/notifications" component={Notifications} isAuthenticated={isAuthenticated} id={id} />
+                <Route path="/profile" render={() =>  <MyProfile id={id} /> } isAuthenticated={isAuthenticated} />
+                <PrivateRoute path="/newsearch" component={SearchForm} isAuthenticated={isAuthenticated} id={id} />
+              </div> {/* closes main */}
+            </div>
+          </BrowserRouter>
     )
   }
 }
@@ -78,12 +77,13 @@ Main.propTypes = {
 // connect the app's props to the redux store
 function mapStateToProps(state) {
   const { auth, isRegistering } = state
-  const { isAuthenticated, errorMessage } = auth
+  const { isAuthenticated, errorMessage, id } = auth
 
   return {
     isAuthenticated,
-	  errorMessage,
-	  isRegistering
+    errorMessage,
+    isRegistering,
+    id
   }
 }
 
