@@ -13,15 +13,18 @@ export default class MyProfile extends Component{
       skills: [],
       bio: "",
       courses:[],
-      location: 11,
+      location: 1,
       pic:"",
-      first : true,
+      first : false,
       email : '',
+      student:1,
     }
     this.bioChange = this.bioChange.bind(this);
     this.skillsChange = this.skillsChange.bind(this);
-    this.updateProfile = this.updateProfile.bind(this);
+    //this.updateProfile = this.updateProfile.bind(this);
     this.courseChange = this.courseChange.bind(this);
+    this.locationChange = this.locationChange.bind(this);
+    //this.loadProfile = this.loadProfile.bind(this);
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -30,6 +33,24 @@ export default class MyProfile extends Component{
 
   //updateProfile =() => this.setState({ modalOpen: false,
     //                                 first: false})
+
+
+  /*componentDidMount(){
+    console.log(this.props.id)
+    axios.get(`http://165.227.40.205:8000/users/profile/${this.props.id}`)
+    .then(response =>{
+      if (response.status >= 200 && response.status < 300){
+        console.log("work")
+        console.log(this.props.id)
+        this.setState(response.data)
+      }
+      else{
+        console.log("wrong")
+      }})
+
+
+    }
+
   updateProfile(){
     this.setState({
       modalOpen: false,
@@ -37,24 +58,24 @@ export default class MyProfile extends Component{
     })
     const profile = {
       student: 1,
-      skills: [1],
-      bio : 'hello',
-      location : 55,
-      courses : [1],
+      skills: this.state.skills,
+      bio : this.state.bio,
+      location : this.state.location,
+      courses : this.state.courses,
       pic: null,
     }
 
 
     axios.post("http://165.227.40.205:8000/users/profile/new/", profile)
     .then(repsonse => {
-      if (repsonse.stauts >= 200 && repsonse.stauts < 300){
+      if (repsonse.status >= 200 && repsonse.status < 300){
         console.log("work")
       }
       else{
         console.log("wrong")
       }})
     .catch(error => {console.log(error)})
-     }
+    }*/
 
     
 
@@ -62,8 +83,9 @@ export default class MyProfile extends Component{
     this.setState({bio: e.target.value});
   }
 
-  loactionChange(e){
+  locationChange(e){
     this.setState({location: e.target.value})
+    console.log(this.state.location)
   }
 
   courseChange(e, data) {
@@ -80,7 +102,6 @@ export default class MyProfile extends Component{
 	render() {
 
 
-
 		const panes = [
   		{ menuItem: 'Profile',
   			pane: (
@@ -92,11 +113,13 @@ export default class MyProfile extends Component{
                 {this.state.first
                   ? <p>Please Update your Profile</p>
                   : <div>
-                    <p>Name: {this.state.name}</p>
-                    <p>E-mail: {this.state.email}</p>
-                    <p>Course: {this.state.course}</p>
-                    <p>Skills: {this.state.skills}</p>
-                    <p>Bio: {this.state.bio}</p>
+                    <p>Username: Ahurka</p>
+                    <p>Name: Alex Hurka </p>
+                    <p>E-mail: alex.hurka@mail.utoronto.ca</p>
+                    <p>Location: 55 college st</p>
+                    <p>Course: csc301 csc309</p>
+                    <p>Skills: Java C</p>
+                    <p>Bio: I'm a hardwroking student.</p>
                     </div>}
                 </div>
               <Divider hidden/>
@@ -115,7 +138,7 @@ export default class MyProfile extends Component{
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Location</label>
-                      <input type= "text" onChange={this.locationChange}></input>
+                      <input type= "int" onChange={this.locationChange}></input>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
