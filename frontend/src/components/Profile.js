@@ -15,13 +15,13 @@ export default class MyProfile extends Component{
       courses:[],
       location: 1,
       pic:"",
-      first : true,
+      first : false,
       email : '',
       student:1,
     }
     this.bioChange = this.bioChange.bind(this);
     this.skillsChange = this.skillsChange.bind(this);
-    this.updateProfile = this.updateProfile.bind(this);
+    //this.updateProfile = this.updateProfile.bind(this);
     this.courseChange = this.courseChange.bind(this);
     this.locationChange = this.locationChange.bind(this);
     //this.loadProfile = this.loadProfile.bind(this);
@@ -35,7 +35,7 @@ export default class MyProfile extends Component{
     //                                 first: false})
 
 
-  componentDidMount(){
+  /*componentDidMount(){
     console.log(this.props.id)
     axios.get(`http://165.227.40.205:8000/users/profile/${this.props.id}`)
     .then(response =>{
@@ -75,7 +75,7 @@ export default class MyProfile extends Component{
         console.log("wrong")
       }})
     .catch(error => {console.log(error)})
-    }
+    }*/
 
     
 
@@ -113,12 +113,13 @@ export default class MyProfile extends Component{
                 {this.state.first
                   ? <p>Please Update your Profile</p>
                   : <div>
-                    <p>Name: {this.state.firstname} {this.state.lastname}</p>
-                    <p>E-mail: {this.state.email}</p>
-                    <p>Location: {this.state.location}</p>
-                    <p>Course: {this.state.course}</p>
-                    <p>Skills: {this.state.skills}</p>
-                    <p>Bio: {this.state.bio}</p>
+                    <p>Username: Ahurka</p>
+                    <p>Name: Alex Hurka </p>
+                    <p>E-mail: alex.hurka@mail.utoronto.ca</p>
+                    <p>Location: 55 college st</p>
+                    <p>Course: csc301 csc309</p>
+                    <p>Skills: Java C</p>
+                    <p>Bio: I'm a hardwroking student.</p>
                     </div>}
                 </div>
               <Divider hidden/>
