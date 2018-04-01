@@ -1,5 +1,6 @@
 // from https://auth0.com/blog/secure-your-react-and-redux-app-with-jwt-authentication/
 import axios from 'axios';
+
 // There are three possible states for our login
 // process and we need actions for each of them
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
@@ -34,16 +35,6 @@ function loginError(message) {
 }
 
 export function loginUser(creds) {
-
-  let config = {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: {
-        "username": creds.username,
-        "password": creds.password,
-    }
-  }
-
   return dispatch => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
@@ -102,3 +93,47 @@ export function logoutUser() {
   }
 }
 
+
+export const REGISTRATION_REQUEST = 'REGISTRATION_REQUEST'
+export const REGISTRATION_SUCCESS = 'REGISTRATION_SUCCESS'
+export const REGISTRATION_FAILURE = 'REGISTRATION_FAILURE'
+
+function requestRegistration(info) {
+  return {
+    type: REGISTRATION_REQUEST,
+    isRegistering: true
+  }
+}
+
+function receiveRegistration() {
+  return {
+    type: REGISTRATION_SUCCESS,
+    isRegistering: false,
+  }
+}
+
+function registrationError(msg) {
+  return {
+    type: REGISTRATION_FAILURE,
+    isRegistering: false,
+    message: msg
+  }
+}
+
+
+export function registerUser(user) {
+  return dispatch => {
+    dispatch(requestRegistration(user));
+
+    axios.post('http://165.227.40.205:8000/registration/', user)
+      .then(response => {
+        if (response.status >= 200 && response.status < 300) {
+          dispatch(receiveRegistration());
+        } else {
+          dispatch(registrationError(response.statusText));
+          return Promise.reject(response);
+        }
+      })
+      .catch(error => console.log(error));
+  }
+}

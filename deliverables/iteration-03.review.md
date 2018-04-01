@@ -1,18 +1,20 @@
-# YOUR PRODUCT/TEAM NAME
-
- > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
- >      
- > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
+# PairWise
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 03 - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: Saturday March 31, 2018, 4:00-6:00 pm
+ * Where: Bahen Centre for Information Technology, BA 3200
 
 ## Process - Reflection
 
-(Optional) Short introduction
+> As we come to the final deliverable, we can definitely say it was due to our effective and efficient group organization strategies that helped our PairWise product reach closer to its completion stage. The majority of the process related decisions that were made in this deliverable are similar to the ones made in the previous deliverables as they had turned out to be successful. These included:
+>	* Using software tools like Slack’s GitHub integration and GitHub issues to provide product updates to the rest of the group.
+> 	* Scheduling more in person coding sessions over weekends to discuss overall problems/solutions, ask questions and share progress. 
+> 	* Assigning specific roles and responsibilities to each group member according to their interests and skills.
+
+> Some of the decisions made in this deliverable are not only new decisions but also improve on decisions listed above to improve project workflow and structure. They are listed below.
+
 
 #### Decisions that turned out well
 
