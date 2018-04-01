@@ -24,7 +24,7 @@ export default class MyProfile extends Component{
     this.updateProfile = this.updateProfile.bind(this);
     this.courseChange = this.courseChange.bind(this);
     this.locationChange = this.locationChange.bind(this);
-    this.loadProfile = this.loadProfile.bind(this);
+    //this.loadProfile = this.loadProfile.bind(this);
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -35,12 +35,13 @@ export default class MyProfile extends Component{
     //                                 first: false})
 
 
-  loadProfile(){
+  componentDidMount(){
+    console.log(this.props.id)
     axios.get(`http://165.227.40.205:8000/users/profile/${this.props.id}`)
     .then(response =>{
       if (response.status >= 200 && response.status < 300){
         console.log("work")
-
+        console.log(this.props.id)
         this.setState(response.data)
       }
       else{
@@ -101,7 +102,6 @@ export default class MyProfile extends Component{
 	render() {
 
 
-
 		const panes = [
   		{ menuItem: 'Profile',
   			pane: (
@@ -113,8 +113,9 @@ export default class MyProfile extends Component{
                 {this.state.first
                   ? <p>Please Update your Profile</p>
                   : <div>
-                    <p>Name: {this.state.firstname}</p>
+                    <p>Name: {this.state.firstname} {this.state.lastname}</p>
                     <p>E-mail: {this.state.email}</p>
+                    <p>Location: {this.state.location}</p>
                     <p>Course: {this.state.course}</p>
                     <p>Skills: {this.state.skills}</p>
                     <p>Bio: {this.state.bio}</p>
