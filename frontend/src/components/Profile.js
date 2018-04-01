@@ -13,15 +13,17 @@ export default class MyProfile extends Component{
       skills: [],
       bio: "",
       courses:[],
-      location: 11,
+      location: 1,
       pic:"",
       first : true,
       email : '',
+      student:1,
     }
     this.bioChange = this.bioChange.bind(this);
     this.skillsChange = this.skillsChange.bind(this);
     this.updateProfile = this.updateProfile.bind(this);
     this.courseChange = this.courseChange.bind(this);
+    this.locationChange = this.locationChange.bind(this);
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -37,10 +39,10 @@ export default class MyProfile extends Component{
     })
     const profile = {
       student: 1,
-      skills: [1],
-      bio : 'hello',
-      location : 55,
-      courses : [1],
+      skills: this.state.skills,
+      bio : this.state.bio,
+      location : this.state.location,
+      courses : this.state.courses,
       pic: null,
     }
 
@@ -54,7 +56,7 @@ export default class MyProfile extends Component{
         console.log("wrong")
       }})
     .catch(error => {console.log(error)})
-     }
+    }
 
     
 
@@ -62,8 +64,9 @@ export default class MyProfile extends Component{
     this.setState({bio: e.target.value});
   }
 
-  loactionChange(e){
+  locationChange(e){
     this.setState({location: e.target.value})
+    console.log(this.state.location)
   }
 
   courseChange(e, data) {
@@ -115,7 +118,7 @@ export default class MyProfile extends Component{
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Location</label>
-                      <input type= "text" onChange={this.locationChange}></input>
+                      <input type= "int" onChange={this.locationChange}></input>
                     </Form.Field>
                     <Form.Field  inline>
                       <label>Bio:</label>
