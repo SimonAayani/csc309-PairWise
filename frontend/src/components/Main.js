@@ -19,7 +19,7 @@ import MyProfile from './Profile'
 import './main.css';
 
 // set axios defaults
-axios.defaults.headers.common['Authorization'] = 'JWT ' + localStorage.getItem("jwt-token");
+axios.defaults.headers.common['Authorization'] = 'JWT ' + localStorage.getItem("jwt_token");
 
 // pure component for restricting access to certain routes
 function PrivateRoute ({component: Component, isAuthenticated, ...rest}) {
