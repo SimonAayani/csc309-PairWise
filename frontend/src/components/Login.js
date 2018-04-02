@@ -1,73 +1,39 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import "./main.css";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Layout from './Layout';
 
-class Login extends Component {
-	constructor(props) {
-		super(props);
+export default class Login extends Component {
 
-		this.state = {
-			username: '',
-			password: '',
-		}
+  render() {
+    const { errorMessage } = this.props
 
-		this.redirectHome = this.redirectHome.bind(this);
-		this.handleUsernameChange = this.handleUsernameChange.bind(this);
-		this.handlePasswordChange = this.handlePasswordChange.bind(this);
-	}
+    return (
+      <Layout type="loggedOut">
+        <div className='searchForm'>
+          <h2>Login</h2>
+          <input type='text' ref='username' className="form-control" placeholder='Username'/>
+          <input type='password' ref='password' className="form-control" placeholder='Password'/>
+          <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
+            Login
+          </button>
 
-	handleUsernameChange(e) {
-		this.setState({username: e.target.value});
-	}
+          {errorMessage &&
+              <p>{errorMessage}</p>
+          }
+        </div>
+      </Layout>
+    )
+  }
 
-	handlePasswordChange(e) {
-		this.setState({password: e.target.value});
-	}
-
-	redirectHome() {
-		this.props.history.push("/");
-	}
-
-	render() {
-		const handler = (e) => {
-			this.props.handleLogin(e);
-			this.redirectHome();
-		}
-
-		return (
-			<div className="splash">
-				<div className="splash-inner">
-					<div className="searchForm">
-						<h2>Login</h2>
-						<form>
-							<label>
-								<input
-									className="fakeSelect"
-									name="username"
-									onChange={this.handleUsernameChange}
-									placeholder="Username"
-									type="text"
-									value={this.state.username}
-								/>
-							</label>
-							<label>
-								<input
-									className="fakeSelect"
-									name="username"
-									onChange={this.handlePasswordChange}
-									placeholder="Password"
-									type="password"
-									value={this.state.password}
-								/>
-							</label>
-
-							<button onClick={handler}>Log In</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		)
-	}
+  handleClick(event) {
+    const username = this.refs.username
+    const password = this.refs.password
+    const creds = { username: username.value.trim(), password: password.value.trim() }
+    this.props.onLoginClick(creds)
+  }
 }
 
-export default withRouter(Login);
+Login.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
+}

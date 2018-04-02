@@ -25,7 +25,7 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.78.81', '100.65.196.2', '100.65.200.125', '192.168.2.121', '192.168.2.35', '192.168.56.1']
+ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35', '165.227.40.205', '127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'PairWise_Server',
+    'PairWise_Server'
 ]
 
 MIDDLEWARE = [
@@ -49,9 +49,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = (
@@ -88,7 +87,7 @@ DATABASES = {
         'NAME': 'pairwise_production',
         'USER': 'pw',
         'PASSWORD': 'pairwise',
-        'HOST': '165.227.40.205',
+        'HOST': '127.0.0.1',
         'PORT': 3306
     }
 }
@@ -119,6 +118,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+def jwt_response_payload_handler(token, user=None, request=None):
+    return {
+        'token': token,
+        'id': user.id
+    }
+
+JWT_AUTH = {
+        'JWT_VERIFY_EXPIRATION': False,
+        'JWT_RESPONSE_PAYLOAD_HANDLER': jwt_response_payload_handler
+}
 
 def jwt_response_payload_handler(token, user=None, request=None):
     return {
