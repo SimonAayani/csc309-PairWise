@@ -25,7 +25,7 @@ SECRET_KEY = '7qs^xnsmnids#k^8whi$+e#4!7d3h6yjd(s+^uga7yj+!_2q(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['100.65.78.81', '100.65.196.2', '100.65.201.91', '192.168.2.121', '192.168.2.35', '192.168.56.1']
+ALLOWED_HOSTS = ['100.65.78.81', '100.65.196.2', '100.65.200.125', '192.168.2.121', '192.168.2.35', '192.168.56.1']
 
 # Application definition
 
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'PairWise_Server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pairwise',
-        'USER': 'PairWise Dev',
-        'PASSWORD': 'StudentTinder301',
-        'HOST': '100.64.178.209',
+        'NAME': 'pairwise_production',
+        'USER': 'pw',
+        'PASSWORD': 'pairwise',
+        'HOST': '165.227.40.205',
         'PORT': 3306
     }
 }
@@ -119,6 +119,39 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
+
+
+
+#########################
+
+
+
+
+
+#########################
+
+
+
+
+
+#########################
+
+
+
+
+
+#########################
+def jwt_response_payload_handler(token, user=None, request=None):
+    return {
+        'token': token,
+        'user': user.id
+    }
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': jwt_response_payload_handler
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
