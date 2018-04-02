@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^tags/course/$', views.CourseList.as_view(), name='course-list'),
     url(r'^users/$', views.user_categories_root),
     url(r'^users/msg/$', views.NotificationsByUser.as_view(), name='messages'),
-    url(r'^users/profile/(?P<pk>\d+)$', views.ProfileReader.as_view(), name='profile-view'),
+    url(r'^users/profile/$', views.ProfileReader.as_view(), name='profile-view'),
     url(r'^users/profile/new/$', views.ProfileWriter.as_view(), name='profile-view'),
     url(r'^users/search/(?P<course_code>\w{3}\d{3,})$', views.SearchDetails.as_view(), name='user-search'),
     url(r'^users/search/(?P<course_code>\w{3}\d{3,})/results/$', views.SearchList.as_view(), name='search-results'),

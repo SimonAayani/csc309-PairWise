@@ -15,6 +15,7 @@ from .group_ops import send_invite, cancel_invite, add_to_group, remove_from_gro
 from .fetch import fetch_term_by_time_of_year, fetch_offering_by_term, fetch_course_by_course_code, fetch_search_by_user,\
                    fetch_most_recent_term
 
+from django.core.exceptions import ObjectDoesNotExist
 from traceback import format_exc
 
 
@@ -239,7 +240,7 @@ def user_categories_root(request):
     :rtype: rest_framework.response.Response
     """
     return Response({
-        'user_id': request.user.id,
+        'user_id': UserSerializer(request.user, context={"request": request}).data,
         'courses': CourseListByUser.as_view()(request=request._request).data,
         'groups': GroupListByUser.as_view()(request=request._request).data,
         'notifications': NotificationsByUser.as_view()(request=request._request).data
@@ -262,7 +263,7 @@ class ProfileWriter(generics.CreateAPIView):
     serializer_class = ProfileWriteSerializer
 
 
-class ProfileReader(generics.RetrieveUpdateAPIView):
+class ProfileReader(APIView):
     """
     Endpoint for reading and editing existing profiles. Profiles can be read with a GET request by any user,
     but can only be modified through a PUT request by the profile's owner. Nested objects such as the users
@@ -274,10 +275,19 @@ class ProfileReader(generics.RetrieveUpdateAPIView):
     by complicated or sometimes impossible. For this reason, both the read and write serializers for profiles
     are used for a full range of operations.
     """
-    permission_classes = (IsOwnerOrReadOnlyIfAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
 
-    queryset = Profile.objects.all()
-    serializer_class = ProfileReadSerializer
+    def get(self, request):
+        try:
+            if 'user_id' in request.data:
+                profile = Profile.objects.get(student__id=request.data['user_id'])
+            else:
+                profile = Profile.objects.get(student=request.user)
+
+            serializer = ProfileReadSerializer(profile, allow_null=True)
+            return Response(serializer.data)
+        except ObjectDoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class SearchDetails(APIView):
