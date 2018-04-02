@@ -41,11 +41,32 @@
 
 ## Product - Review
 
+> As discussed during our planning meeting, our goals in this iteration were to complete the majority of the features for the MVP of the PairWise product. We had decided we will be mostlty focus on acquiring functionality of the backend, polishing the frontend display, and attempting to connect the two for a fully functioning product. Further details about which goals were met and which weren’t, are provided below.
+
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+>* **Connect frontend to backend**
+> 	* One of our biggest intentions in this iteration was to figure out how to connect our frontend pages to the backend. As many of our group members have little to no experience in web programming, we had predicted that bridging the gap to communicate between frontend and backend would not be doable. Since our web application uses the React framework we were looking into potentially using a middleware that would connect React with Django to be able to send and retrieve data from the database. However in the end we decided to use the Axios library to send HTTP requests to our Django server and access REST endpoints, and was extremely successful in doing so. We were able to create full functionality of certain views which will be explained in detail below. 
+
+
+>* **Registration Page**
+>	* One of the pages with full functionality is the Registration page. As a new user, the PairWise application allows you to click on the “Register” button, and redirects you to the registration page to create an account. This page includes a form object, which lets the user register by entering details including: 
+>		* First name
+>		* Last name
+>		* Username
+>		* Password
+>		* Confirm password
+>	* Once the user clicks the “register” button after entering data into the fields, a POST request is sent and the user account is created in the database. 
+
+
+>* **Login Page**
+>	* Another successfully built page is the Login page. This page allows a user with an existing account to login in and view their account. The returning user must click the “Login” button and will be redirected to a login page, where they will be prompted to enter their username and password. The user will not be redirected to their account until successful login.
+
+
+>* **Polish the frontend**
+> 	* The majority of the views/layout in the previous deliverable were hard coded and had no functionality. Therefore one of the main objectives for this deliverable was to remove most, if not all, of the dummy code so that it modelled what a first time user would see and how they would use it. Indeed, we were able to remove a significant amount of dummy code and implement functionality for certain views in the frontend. Another priority for frontend involved looking into CSS and styling, which involved fixing the overall layout and colour scheme of the website, as well as adding the PairWise logo to the splash screen. This task was shared among several members and was an ongoing process throughout the deliverable as updates were continuously being made to certain components until the desired look and consistency between page switches was achieved. Below is a visual of the PairWise splash screen, which is the starting point to the product. The colour scheme and layout will be extremely similar to the rest of the views in the application.
+
+
 
 #### Goals and/or tasks that were planned but not met/completed:
 
