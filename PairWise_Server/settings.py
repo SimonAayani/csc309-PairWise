@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['100.65.197.89', '192.168.2.121', '192.168.2.35', '165.227.40.205', '127.0.0.1', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -128,6 +127,16 @@ def jwt_response_payload_handler(token, user=None, request=None):
 JWT_AUTH = {
         'JWT_VERIFY_EXPIRATION': False,
         'JWT_RESPONSE_PAYLOAD_HANDLER': jwt_response_payload_handler
+}
+
+def jwt_response_payload_handler(token, user=None, request=None):
+    return {
+        'token': token,
+        'user': user.id
+    }
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': jwt_response_payload_handler
 }
 
 # Internationalization

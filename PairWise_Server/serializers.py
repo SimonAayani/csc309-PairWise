@@ -46,6 +46,15 @@ class ProfilePicSerializer(serializers.ModelSerializer):
         fields = ('pic',)
 
 
+class ProfilePicMapSerializer(serializers.ModelSerializer):
+    student = serializers.SlugRelatedField(slug_field='username', read_only=True)
+    pic = serializers.ImageField(max_length=100, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('student', 'pic')
+
+
 class UserSerializer(serializers.ModelSerializer):
     profile_set = ProfilePicSerializer(many=True, allow_null=True, read_only=True)
 

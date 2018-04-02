@@ -7,7 +7,7 @@ from .permissions import IsOwnerOrReadOnlyIfAuthenticated, IsNotAuthenticated, I
 from PairWise_Server.models import LanguageTag, ConceptTag, FrameworkTag, LocationTag,\
                                    Course, User, Notification, Profile, SearchResultsCache, AvailableSearchEntry
 from PairWise_Server.serializers import DataTagSerializer, CourseSerializer, NotificationSerializer,\
-                                        ResultsCacheSerializer, UserSerializer, \
+                                        ResultsCacheSerializer, UserSerializer, ProfilePicMapSerializer, \
                                         ProfileWriteSerializer, ProfileReadSerializer, SearchEntrySerializer
 from .search_form_builder import SearchFormBuilder
 from .search_ops import update_cache
@@ -288,6 +288,13 @@ class ProfileReader(APIView):
             return Response(serializer.data)
         except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+class ProfilePictureMapper(generics.ListAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    queryset = Profile.objects.all()
+    serializer_class = ProfilePicMapSerializer
 
 
 class SearchDetails(APIView):
