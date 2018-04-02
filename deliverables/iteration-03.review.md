@@ -80,10 +80,8 @@
 
 ## Meeting Highlights
 
-Going into the next iteration, our main insights are:
+For future deliverables, our main insights would be:
 
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
+ >* **Implementing a Messaging feature**
+> During the initial stages of product development, the group had decided that a messaging/chat feature would be a useful to the purpose of the application. This messaging feature would allow group members to form chatrooms and communicate between members of the group. The messaging feature aimed to solve a problem with the current Piazza group finder by providing easier ways to form groups and communicate with them through a chatting system, instead of email. Although we were not able to build a fully functioning chat system, it is doable through React and FireBase. FireBase is a mobile and web application development platform that provides cloud messaging. Several team members attempted to connect the FireBase tools with our existing React application but could not derive success with the limited time frame. However, by using a Javascript server like Webpack implementing such a messaging feature would be extremely beneficial and improve the usability of the product.
+
