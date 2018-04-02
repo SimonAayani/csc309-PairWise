@@ -57,6 +57,8 @@
 >		* Password
 >		* Confirm password
 >	* Once the user clicks the “register” button after entering data into the fields, a POST request is sent and the user account is created in the database. 
+>
+> ![registration](../img_src/registration.png)
 
 
 >* **Login Page**
