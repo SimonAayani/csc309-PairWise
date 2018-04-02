@@ -66,7 +66,7 @@
 >* **Polish the frontend**
 > 	* The majority of the views/layout in the previous deliverable were hard coded and had no functionality. Therefore one of the main objectives for this deliverable was to remove most, if not all, of the dummy code so that it modelled what a first time user would see and how they would use it. Indeed, we were able to remove a significant amount of dummy code and implement functionality for certain views in the frontend. Another priority for frontend involved looking into CSS and styling, which involved fixing the overall layout and colour scheme of the website, as well as adding the PairWise logo to the splash screen. This task was shared among several members and was an ongoing process throughout the deliverable as updates were continuously being made to certain components until the desired look and consistency between page switches was achieved. Below is a visual of the PairWise splash screen, which is the starting point to the product. The colour scheme and layout will be extremely similar to the rest of the views in the application.
 >
-> ![splash page](../deliverable2/images/PairWiseSplash.png)
+> ![splashpage](../img_src/PairWiseSplash.png)
 
 
 
