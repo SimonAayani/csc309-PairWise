@@ -74,9 +74,23 @@
 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+ >* **Send and accept/reject invites from other users**
+>	* While we were able to connect the frontend to the database in order to send and receive requests, we were unable to implement this feature as the other features took longer than expected to complete. We had difficulty connecting our React components to the Django server and decided to prioritize letting users login, register, and complete searches over sending and accepting/reject invites.
+
+>* **Send messages to other users**
+>	* We had initially intended on using software tools and platforms like the SendBird Chat API or the FireBase to incorporate with our React application. We decided to have a messaging page that the user would be routed to upon viewing a search result, and clicking a button to send a message to the individual in that search result. These messages would be stored in another page called Inbox, and would allow the user to view chat history with groups and messages sent to individuals not part of a group. However due to the limited time we had, we were not able to fully integrate a functioning messaging feature in our application. 
+
+>* **View existing groups**
+>	* As the send and accept/reject invites feature was not implemented due to time constraints, groups are unable to be made on the web application. The planned group page also relied heavily on the messaging feature, which would have been the basis of the group page.
+
+>* **View notifications for any activity on the dashboard**
+>	* This task was unable to be completed because it required the completion of other features that were unable to be implemented (send/accept invitations and messaging). It did not make sense to complete this task before allowing users to interact with one another.
+
+>* **Implement the logic for partner searching**
+>	* The group’s focuses for this iteration were to connect the frontend to the backend and to make our web pages more attractive and visually appealing. Similar to the last iteration, we found that we needed more help in the frontend as the deadline approached, and had all group members working on frontend components.
+
+>* **Delete groups and searches**
+>	* This task received the lowest priority in our planning meeting. The ability to delete groups and searches would be nice to have, but does not affect the core functionality of the web application. As with some of our other goals that were not met, this task required the completion of other features that we were unable to implement. 
 
 ## Meeting Highlights
 
