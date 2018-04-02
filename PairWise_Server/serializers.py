@@ -38,17 +38,6 @@ class CourseSectionSerializer(serializers.ModelSerializer):
         fields = ('section_id', 'section_name', 'offering')
 
 
-class ProfileReadSerializer(serializers.ModelSerializer):
-    courses = CourseSerializer(many=True, read_only=True)
-    location = DataTagSerializer(read_only=True)
-    skills = DataTagSerializer(many=True, read_only=True)
-    pic = serializers.ImageField(max_length=100, read_only=True)
-
-    class Meta:
-        model = Profile
-        fields = ('courses', 'location', 'skills', 'bio', 'pic')
-
-
 class ProfilePicSerializer(serializers.ModelSerializer):
     pic = serializers.ImageField(max_length=100, read_only=True)
 
@@ -57,20 +46,32 @@ class ProfilePicSerializer(serializers.ModelSerializer):
         fields = ('pic',)
 
 
-class ProfileWriteSerializer(serializers.ModelSerializer):
-    pic = serializers.ImageField(max_length=100, allow_null=True)
-
-    class Meta:
-        model = Profile
-        fields = ('student', 'courses', 'location', 'skills', 'bio', 'pic')
-
-
 class UserSerializer(serializers.ModelSerializer):
     profile_set = ProfilePicSerializer(many=True, allow_null=True, read_only=True)
 
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name', 'last_name', 'email', 'profile_set', 'last_login', 'date_joined')
+
+
+class ProfileReadSerializer(serializers.ModelSerializer):
+    student = UserSerializer(read_only=True)
+    courses = CourseSerializer(many=True, read_only=True)
+    location = DataTagSerializer(read_only=True)
+    skills = DataTagSerializer(many=True, read_only=True)
+    pic = serializers.ImageField(max_length=100, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('student', 'courses', 'location', 'skills', 'bio', 'pic')
+
+
+class ProfileWriteSerializer(serializers.ModelSerializer):
+    pic = serializers.ImageField(max_length=100, allow_null=True)
+
+    class Meta:
+        model = Profile
+        fields = ('student', 'courses', 'location', 'skills', 'bio', 'pic')
 
 
 class NotificationSerializer(serializers.ModelSerializer):
