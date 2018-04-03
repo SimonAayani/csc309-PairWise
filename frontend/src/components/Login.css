@@ -1,0 +1,177 @@
+*{
+    font-size: 1vw;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* GOOD RED #FF5733 */
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+.container
+{
+    display: block;
+    position: fixed;    
+    /*z-index: 1;*/
+    height: 100%;
+    width: 100%;
+
+    /*padding-top: 2vw;*/
+    overflow:auto;
+    
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+/* LOGINDIV START */
+.logindiv {
+    display:block;  
+    width:100%;
+    height: auto;
+    margin:  5px auto;
+    padding-bottom: 1vw;
+    background-color: white;
+    /* display: block; */
+    /*background-color: #4CAF50;*/
+    font-size: 16px;
+    /*padding-top: 30px;*/
+
+}
+
+.logindiv img{
+    display: block;
+    width:40%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logindiv input{
+    
+    background-color: white;
+    width: 95%;
+    font-size: 15px;
+    margin: 1vw auto;
+    padding: .5vw 0 .5vw .5vw;
+    display: block;
+    color: black;
+    border-radius: 1px; 
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.logindiv input[type="submit"]{
+    border: none;
+    /*background-color:#2ECC71; GREEN*/
+    background-color: #33A5FF;
+    color: white;
+}
+.logindiv h2{
+
+    font-size:2vw;
+
+    /*text-shadow: 30px;*/
+    color: #303030;
+}
+.login_register_img{
+    display:block;
+    text-align: center;
+    margin: 2vw auto 1vw auto;
+    width:100%;
+}
+
+.login_register_img img{
+    width:10%;
+}
+
+
+.login_info_div{
+    display:block;
+    text-align: center;
+    margin: 1vw auto;
+    /*border-right: .1vw solid #33A5FF;*/
+    width:30%;
+    border-top: .05vw solid #33A5FF;
+}
+
+/*.login_register_divider{
+    display: block;
+    float:left;
+    margin-top: 1vw;
+    margin-top: 5vw;
+    width:.05vw;
+    height:17.5vw;
+    background: #33A5FF;
+}*/
+
+.login_info_div form{
+
+    padding-top:1vw;
+    padding-bottom:2vw;
+    border-radius: 3px;
+    /*background-color: #F5F5F5;*/
+}
+
+/* LOGINDIV END */
+
+
+
+
+
+/* BUTTONS START */
+.buttons{
+    width: 95%;
+    font-size: 15px;
+    margin: 1vw auto;
+    padding: .5vw 0 .5vw .5vw;
+    display: block;
+    border-radius: 1px; 
+    box-sizing: border-box;
+    border: none;
+    background-color:#33A5FF;
+    color: white;
+}
+
+#back {
+    background-color: #FF5733;
+}
+
+
+#navbar_btn{
+    float:right;
+    margin-right: 3vw;
+}
+
+#navbar_btn :hover{
+    background-color: #E3E1E0;
+}
+
+#login_btn{
+    background-color: #2ECC71;
+    float:right;
+    margin-right: 3vw;
+}
+
+
+#login_btn :hover{
+    background-color: #62CD8F;
+    opacity: 
+}
+
+#logout_btn{
+    float:right;
+    background-color: #FF4F33;
+    margin-right: 3vw;
+}
+#logout_btn :hover{
+    background-color: #FF6F58;
+}
+/* BUTTONS END */

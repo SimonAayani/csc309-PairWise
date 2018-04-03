@@ -23,7 +23,7 @@ export default class LoginPage extends Component {
             {isAuthenticated &&
               <Logout onLogoutClick={() => dispatch(logoutUser())} />
             }
-
+            
           </div>
         </div>
     )

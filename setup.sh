@@ -4,7 +4,7 @@ PROJECT_DIR="PairWise_Server"
 
 echo "Installing dependencies..."
 
-pip install django==2.0.2
+pip install django
 pip install djangorestframework
 pip install djangorestframework-jwt
 pip install django-cors-headers
@@ -38,3 +38,4 @@ do
         rm -f ./$file
     fi
 done
+echo "done"

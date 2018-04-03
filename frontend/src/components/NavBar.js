@@ -11,7 +11,7 @@ class NavBar extends Component {
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
         <li><NavLink to="/" onClick={() => dispatch(logoutUser())}>Logout</NavLink></li>
-        <li><NavLink to="/inbox">Inbox</NavLink></li>
+        <li><NavLink to="/chatroom">Inbox</NavLink></li>
 				<li><NavLink to="/profile">Profile</NavLink></li>
 				</ul>
 			)
@@ -20,7 +20,7 @@ class NavBar extends Component {
 				<ul>
 				<li id="navbar_logo"><NavLink exact to="/">PairWise</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/registration">Register</NavLink></li>
+        <li><NavLink to="/chatroom">Register</NavLink></li>
 				</ul>
 			)
 		}

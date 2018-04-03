@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import firebase from './firebase.js'
+import './ChatRoom.css'
+import profile1 from './images/profile.png'
+import profile2 from './images/profile2.png'
 // require('./ChatRoom.css')
 	
 class ChatRoom extends Component{
@@ -55,7 +59,7 @@ class ChatRoom extends Component{
 	}
 	changeRecipient(event){
 		this.setState({
-			recipient: event.target.value
+			recipient: event.target.getAttribute("value")
 		})
 	}
 
@@ -82,19 +86,19 @@ class ChatRoom extends Component{
 					if(message.username == this.state.recipient || message.recipient == this.state.recipient){
 						if(message.username != this.state.username){
 							return(
-								<div key={message.id} id="incoming" >
-									<img src='src/components/images/profile2.png' id="incoming_img"/>
-									<p id="name_inc">{message.username}:</p>
-				                    <p id="message_inc">{message.text}</p>
+								<div key={message.id} className="incoming" >
+									<img src={profile2} className="incoming_img"/>
+									<p className="name_inc">{message.username}:</p>
+				                    <p className="message_inc">{message.text}</p>
 								</div>
 								
 							)
 						} else {
 							return(
-								<div key={message.id} id="outgoing" >
-									<img src='src/components/images/profile.png' id="outgoing_img"/>
-									<p id="name_out">{message.username}</p>
-				                    <p id="message_out">{message.text}</p>
+								<div key={message.id} className="outgoing" >
+									<img src={profile1} className="outgoing_img"/>
+									<p className="name_out">{message.username}</p>
+				                    <p className="message_out">{message.text}</p>
 								</div>	
 							)
 						}
@@ -107,11 +111,10 @@ class ChatRoom extends Component{
 			
 
 			return(
-				<div key={message.id} id="user">
-					<img src="src/components/images/profile2.png" id="user_img"/>
-	                <p id="name">{message.username}</p>
-	                <p id="course">CSC301</p>
-	                <input type="button" id="name" onClick={this.changeRecipient} value={message.username}/>
+				<div key={message.id} className="user" onClick={this.changeRecipient} value={message.username}>
+					<img src={profile2} className="user_img"onClick={this.changeRecipient} value={message.username}/>
+	                <p className="name"onClick={this.changeRecipient} value={message.username}>{message.username}</p>
+	                <p className="course"onClick={this.changeRecipient} value={message.username}>CSC301</p>
 				</div>	
 			)
 		})
@@ -119,9 +122,9 @@ class ChatRoom extends Component{
 		const SubmitFields = this.state.conversations.map((message, i) => {
 			if(this.state.recipient != '' && i==0){
 				return(
-					<form key={i} id="messages_container_form">
-						<input id="messages_container_text" onChange={this.updateMessage} type="text" placeholder="message"/>
-						<input type="button" id="messages_container_submit" onClick={this.submitMessage} value="Submit Message"/>
+					<form key={i} className="messages_container_form">
+						<input className="messages_container_text" onChange={this.updateMessage} type="text" placeholder="message"/>
+						<input type="button" className="messages_container_submit" onClick={this.submitMessage} value="Submit Message"/>
 						
 					</form>		
 				)
@@ -130,14 +133,14 @@ class ChatRoom extends Component{
 
 		return(
 			<div>
-				<div id="messages_container">
-					<h2 id="messages_container_h2">{this.state.recipient}</h2>
-					<div id="messages">
+				<div className="messages_container">
+					<h2 className="messages_container_h2">{this.state.recipient}</h2>
+					<div className="messages">
 						{Message}
 					</div>
 					{SubmitFields}
 				</div>
-				<div id="conversations">
+				<div className="conversations">
 					{Conversations}
 				</div>
 			</div>

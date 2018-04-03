@@ -15,6 +15,7 @@ import Registration from './Registration';
 import SearchForm from './SearchForm';
 import Splash from './Splash';
 import MyProfile from './Profile'
+import ChatRoom from './ChatRoom'
 
 import './main.css';
 
@@ -47,6 +48,7 @@ class Main extends Component {
 
           <div className="main">
             <Route exact path="/" render={() => isAuthenticated ? <Notifications /> : <Splash />} />
+            <Route exact path="/chatroom" render={() => isAuthenticated ? <Notifications /> : <ChatRoom />} />
             <Route path="/login" render={() => isAuthenticated ? <Notifications />
                 : <LoginPage
                   isAuthenticated={isAuthenticated}

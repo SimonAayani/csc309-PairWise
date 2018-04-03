@@ -8,7 +8,7 @@
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
-#container
+.container
 {
     display: block;
     position: fixed;    
@@ -34,10 +34,10 @@ html, body {
 
 /* MESSAGES START */
 
-#messages_container {
-    height:100%;
+.messages_container {
+    height:600px;
 }
-#messages_container_h2{
+.messages_container_h2{
     width:45%;
     margin: auto;
     padding-right: 1vw;
@@ -47,26 +47,26 @@ html, body {
     /*text-shadow: 30px;*/
     color: #303030;
 }
-#messages_container_form{
+.messages_container_form{
     display: block;
     margin:auto;
     width:45%;
 }
-#messages_container_submit{
+.messages_container_submit{
     display:block;
     margin: 10px auto;
 }
-#messages_container_text{
+.messages_container_text{
     display:block;
     margin: auto;
     width:45%;
 }
 
 
-#messages{
+.messages{
     display:block;
     text-align: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     height: 70%;
     margin-right: 0;
@@ -86,7 +86,7 @@ html, body {
 }
 
 /* INCOMING MESSAGES START */
-#incoming {
+.incoming {
     display:inline-block;
     background-color: #E3E1E0;
     padding: 5px;
@@ -94,12 +94,12 @@ html, body {
     word-wrap: break-word;
 }
 
-#incoming_img{
+.incoming_img{
     float:left;
     width:7%;
 }
 
-#name_inc {
+.name_inc {
     display: block;
     float:left;
     padding-left: 1vw;
@@ -107,25 +107,25 @@ html, body {
     font-weight: bold;
     font-size: 17px;
 }
-#message_inc{
+.message_inc{
     float:right;
     padding-right: 75px;
     font-size: 17px;
 }
 /* INCOMING MESSAGES END */
 /* OUTGOING MESSAGES START */
-#outgoing {
+.outgoing {
     display:inline-block;
     padding: 5px;
     width:100%;
     word-wrap: break-word;
 }
 
-#outgoing_img{
+.outgoing_img{
     float:right;
     width:7%;
 }
-#name_out {
+.name_out {
     display: block;
     float:right;
     padding-left: 1vw;
@@ -133,7 +133,7 @@ html, body {
     font-weight: bold;
     font-size: 17px;
 }
-#message_out{
+.message_out{
     padding-left: 75px;
     font-size: 17px;
     float:left;
@@ -143,7 +143,7 @@ html, body {
 /* MESSAGES END */
 
 /* ACTIVE_CONVO START */
-#conversations{
+.conversations{
     display:block;
     position:fixed;
     top: 2.75vw;
@@ -156,14 +156,14 @@ html, body {
 }
 
 
-#conversations h2{
+.conversations h2{
     text-align: center;
 }
 
 /* ACTIVE_CONVO END */
 
 /* USER START*/
-#user {
+.user {
     padding-left: 2vw;  
     display:inline-block;
     height:100%;
@@ -174,24 +174,25 @@ html, body {
     
 }
 
-#user:hover{
+.user:hover{
+    cursor: pointer;
     background-color: #E3E1E0;
 }
 
-#user_img{
+.user_img{
     display: block;
     float:left;
     width:12%;
 }
 
-#name {
+.name {
     display: block;
     float:left;
     padding-left: 1vw;
     padding-right: 5vw;
     font-weight: bold;
 }
-#course{
+.course{
     display: block;
     float:left;
     padding-left: 3vw;
